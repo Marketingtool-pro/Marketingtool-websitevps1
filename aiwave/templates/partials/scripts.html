@@ -30,6 +30,9 @@
     window.userProfilePic = "{% if request.user.profile.profile_picture %}{{ request.user.profile.profile_picture.url }}{% else %}{% static 'images/team/team-01sm.jpg' %}{% endif %}";
 </script>
 
+<!-- HTML sanitizer for rendered chat messages -->
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" integrity="sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla+3" crossorigin="anonymous"></script>
+
 <!-- Main JS -->
 <script src="{% static 'js/main.js' %}"></script>
 
