@@ -167,7 +167,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/aiwave/signin/'
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_SESSION_REMEMBER = None
 ACCOUNT_LOGIN_METHODS = {'email'}
-ACCOUNT_SIGNUP_FIELDS = ['email', 'username', 'password1', 'password2']
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'username', 'password1', 'password2']
 
 # ======================
 # Database
@@ -242,6 +242,8 @@ EMAIL_PORT = get('EMAIL_PORT')
 EMAIL_USE_TLS = get('EMAIL_USE_TLS')
 
 # Logging configuration for production-ready error and event logging
+# logs/ is gitignored, so create it or Django crashes on startup in a fresh clone / Docker image
+os.makedirs(os.path.join(BASE_DIR, 'logs'), exist_ok=True)
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
