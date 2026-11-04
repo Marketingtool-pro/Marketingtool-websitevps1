@@ -68,7 +68,7 @@
             if (!sKey) {
                 return null;
             }
-            return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+            return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\\\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
         },
         setItem: function(sKey, sValue, vEnd, sPath, sDomain, bSecure) {
             if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) {
@@ -102,7 +102,7 @@
             if (!sKey) {
                 return false;
             }
-            return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+            return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\\\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
         },
         keys: function() {
             var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);

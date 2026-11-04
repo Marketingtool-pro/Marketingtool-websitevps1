@@ -68,7 +68,17 @@
                 });
             } else if (canPlayType(audioFile)) isSupport = true;
 
-            var thePlayer = $('<div class="' + params.classPrefix + '">' + (isSupport ? $('<div>').append($this.eq(0).clone()).html() : '<embed src="' + audioFile + '" width="0" height="0" volume="100" autostart="' + isAutoPlay.toString() + '" loop="' + isLoop.toString() + '" />') + '<div class="' + cssClass.playPause + '" title="' + params.strPlay + '"><a href="#">' + params.strPlay + '</a></div></div>'),
+            var thePlayer = $('<div>').addClass(params.classPrefix)
+                    .append(isSupport ? $this.eq(0).clone() : $('<embed>').attr({
+                        src: audioFile,
+                        width: 0,
+                        height: 0,
+                        volume: 100,
+                        autostart: isAutoPlay.toString(),
+                        loop: isLoop.toString()
+                    }))
+                    .append($('<div>').addClass(cssClass.playPause).attr('title', params.strPlay)
+                        .append($('<a>').attr('href', '#').text(params.strPlay))),
                 theAudio = isSupport ? thePlayer.find('audio') : thePlayer.find('embed'),
                 theAudio = theAudio.get(0);
 
@@ -78,7 +88,19 @@
                     'height': 0,
                     'visibility': 'hidden'
                 });
-                thePlayer.append('<div class="' + cssClass.time + ' ' + cssClass.timeCurrent + '"></div><div class="' + cssClass.bar + '"><div class="' + cssClass.barLoaded + '"></div><div class="' + cssClass.barPlayed + '"></div></div><div class="' + cssClass.time + ' ' + cssClass.timeDuration + '"></div><div class="' + cssClass.volume + '"><div class="' + cssClass.volumeButton + '" title="' + params.strVolume + '"><a href="#">' + params.strVolume + '</a></div><div class="' + cssClass.volumeAdjust + '"><div><div></div></div></div></div>');
+                thePlayer.append(
+                    $('<div>').addClass(cssClass.time).addClass(cssClass.timeCurrent),
+                    $('<div>').addClass(cssClass.bar).append(
+                        $('<div>').addClass(cssClass.barLoaded),
+                        $('<div>').addClass(cssClass.barPlayed)
+                    ),
+                    $('<div>').addClass(cssClass.time).addClass(cssClass.timeDuration),
+                    $('<div>').addClass(cssClass.volume).append(
+                        $('<div>').addClass(cssClass.volumeButton).attr('title', params.strVolume)
+                            .append($('<a>').attr('href', '#').text(params.strVolume)),
+                        $('<div>').addClass(cssClass.volumeAdjust).append($('<div>').append($('<div>')))
+                    )
+                );
 
                 var theBar = thePlayer.find('.' + cssClass.bar),
                     barPlayed = thePlayer.find('.' + cssClass.barPlayed),

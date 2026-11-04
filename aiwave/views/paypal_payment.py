@@ -2,6 +2,7 @@ import requests
 import base64
 from django.http import JsonResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
+from wowdash_app.utils import log_error_to_file
 
 # Marketingtool App - Live credentials
 PAYPAL_CLIENT_ID = 'AYFUYdfZzHqCDGBcvaW07oHrt30WLy-fxD3tMb4lCJOCOOkeQ3V4Vrp1HbLZaD_KbXnGoszzgzWAgdXR'
@@ -73,4 +74,5 @@ def create_paypal_order(request):
         return JsonResponse({'error': 'Could not create PayPal order', 'details': data}, status=400)
         
     except Exception as e:
-        return JsonResponse({'error': str(e)}, status=500)
+        log_error_to_file(e)
+        return JsonResponse({'error': 'An error occurred. Please try again.'}, status=500)

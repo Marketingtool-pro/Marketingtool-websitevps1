@@ -489,7 +489,9 @@ function Calendar(element, options, eventSources) {
 		header.activateButton(newViewName);
 
 		currentView = new fcViews[newViewName](
-			$("<div class='fc-view fc-view-" + newViewName + "' style='position:relative'/>")
+			$("<div>")
+				.addClass("fc-view fc-view-" + newViewName)
+				.css("position", "relative")
 				.appendTo(content),
 			t // the calendar object
 		);
@@ -927,15 +929,13 @@ function Header(calendar, options) {
 						if (buttonClick) {
 							var icon = options.theme ? smartProperty(options.buttonIcons, buttonName) : null; // why are we using smartProperty here?
 							var text = smartProperty(options.buttonText, buttonName); // why are we using smartProperty here?
-							var button = $(
-								"<span class='fc-button fc-button-" + buttonName + " " + tm + "-state-default'>" +
-									(icon ?
-										"<span class='fc-icon-wrap'>" +
-											"<span class='ui-icon ui-icon-" + icon + "'/>" +
-										"</span>" :
-										text
-										) +
-								"</span>"
+							var button = $("<span>")
+								.addClass("fc-button fc-button-" + buttonName + " " + tm + "-state-default")
+								.append(icon ?
+									$("<span>").addClass("fc-icon-wrap").append(
+										$("<span>").addClass("ui-icon ui-icon-" + icon)
+									) :
+									$.parseHTML(String(text))
 								)
 								.click(function() {
 									if (!button.hasClass(tm + '-state-disabled')) {

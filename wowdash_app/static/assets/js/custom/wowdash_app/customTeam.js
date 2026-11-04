@@ -143,11 +143,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (memberPhotoUrl) {
             const photoPreview = document.createElement('div');
             photoPreview.className = 'mb-3';
-            photoPreview.innerHTML = `
-                <p class='text-sm text-gray-600 dark:text-gray-300 mb-1'>Current Photo:</p>
-                <img src="${memberPhotoUrl}" alt="Current photo" class="max-h-20 rounded">
-                <p class='text-xs text-gray-500 mt-1'>Leave blank to keep current photo</p>
-            `;
+            const photoLabel = document.createElement('p');
+            photoLabel.className = 'text-sm text-gray-600 dark:text-gray-300 mb-1';
+            photoLabel.textContent = 'Current Photo:';
+            const photoImg = document.createElement('img');
+            photoImg.alt = 'Current photo';
+            photoImg.className = 'max-h-20 rounded';
+            const parsedPhotoUrl = new URL(memberPhotoUrl, window.location.origin);
+            if (parsedPhotoUrl.protocol === 'http:' || parsedPhotoUrl.protocol === 'https:') {
+                photoImg.src = parsedPhotoUrl.href;
+            }
+            const photoHint = document.createElement('p');
+            photoHint.className = 'text-xs text-gray-500 mt-1';
+            photoHint.textContent = 'Leave blank to keep current photo';
+            photoPreview.append(photoLabel, photoImg, photoHint);
             photoInput.parentNode.insertBefore(photoPreview, photoInput);
         }
         

@@ -64,10 +64,15 @@ window.botImageUrl = `{% if bot_image and bot_image.value %}{% if bot_image.valu
         var botMsg = document.querySelector('.chat-box.ai-speech .chat-content p');
         if (botMsg && botMsg.textContent.includes('**')) {
             // Use marked.js if available, otherwise fallback to makeHumanReadable
+            var rendered = null;
             if (window.marked) {
-                botMsg.innerHTML = marked.parse(botMsg.textContent);
+                rendered = marked.parse(botMsg.textContent);
             } else if (typeof makeHumanReadable === 'function') {
-                botMsg.innerHTML = makeHumanReadable(botMsg.textContent);
+                rendered = makeHumanReadable(botMsg.textContent);
+            }
+            // Only inject the rendered markdown once DOMPurify has cleaned it.
+            if (rendered !== null && window.DOMPurify) {
+                botMsg.innerHTML = DOMPurify.sanitize(rendered);
             }
         }
     });

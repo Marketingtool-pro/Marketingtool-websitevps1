@@ -2,6 +2,7 @@ import os
 import requests
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
+from wowdash_app.utils import log_error_to_file
 
 NOWPAYMENTS_API_KEY = os.environ.get('NOWPAYMENTS_API_KEY', '')
 
@@ -62,4 +63,5 @@ def create_payment(request):
             return JsonResponse({'error': data.get('message', 'Payment creation failed'), 'details': data}, status=400)
             
     except Exception as e:
-        return JsonResponse({'error': str(e)}, status=500)
+        log_error_to_file(e)
+        return JsonResponse({'error': 'An error occurred. Please try again.'}, status=500)

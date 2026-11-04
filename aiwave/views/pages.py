@@ -274,7 +274,7 @@ def getActiveSessions(request):
         log_error_to_file(e)
         return JsonResponse({
             'status': 'error',
-            'message': str(e)
+            'message': 'An error occurred. Please try again.'
         }, status=500)
 
 @login_required
@@ -434,7 +434,7 @@ def n8n_create_blog(request):
         return JsonResponse({'status': 'success', 'slug': blog.slug, 'id': blog.id})
     except Exception as e:
         log_error_to_file(e)
-        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+        return JsonResponse({'status': 'error', 'message': 'An error occurred. Please try again.'}, status=500)
 
 
 def render_error_page(request, status=404):

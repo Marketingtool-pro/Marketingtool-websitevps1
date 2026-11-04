@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from wowdash_app.models import EnvVar, SocialAccount
+from wowdash_app.utils import log_error_to_file
 
 def get_facebook_credentials():
     try:
@@ -162,7 +163,8 @@ def post_to_facebook(request):
     except SocialAccount.DoesNotExist:
         return JsonResponse({'error': 'Account not found'}, status=404)
     except Exception as e:
-        return JsonResponse({'error': str(e)}, status=500)
+        log_error_to_file(e)
+        return JsonResponse({'error': 'An error occurred. Please try again.'}, status=500)
 
 @login_required
 @csrf_exempt
@@ -216,7 +218,8 @@ def post_to_instagram(request):
     except SocialAccount.DoesNotExist:
         return JsonResponse({'error': 'Account not found'}, status=404)
     except Exception as e:
-        return JsonResponse({'error': str(e)}, status=500)
+        log_error_to_file(e)
+        return JsonResponse({'error': 'An error occurred. Please try again.'}, status=500)
 
 @login_required
 def social_accounts_status(request):

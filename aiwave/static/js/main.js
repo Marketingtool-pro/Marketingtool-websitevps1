@@ -1342,7 +1342,13 @@ function clearFormError(input) {
 
     function createMessageElement(title, message, speechClass, imgSrc, isEditable, messageId) {
         const isBot = title === 'AiWave'; // or use m.is_bot_response if available
-        const displayMessage = isBot ? makeHumanReadable(message) : message;
+        const rawMessage = String(message == null ? '' : message);
+        // Bot replies are rendered markdown, so they are cleaned; user text is shown as plain text.
+        const displayMessage = isBot
+            ? (window.DOMPurify ? DOMPurify.sanitize(makeHumanReadable(rawMessage)) : escapeHtml(rawMessage))
+            : escapeHtml(rawMessage);
+        const safeTitle = escapeHtml(String(title));
+        const safeImgSrc = escapeHtml(String(imgSrc));
 
         const botReplyId = isBot ? `bot-reply-${Date.now()}-${Math.floor(Math.random()*10000)}` : '';
 
@@ -1352,10 +1358,10 @@ function clearFormError(input) {
         <div class="inner">
             <div class="chat-section">
             <div class="author">
-                <img class="w-100" src="${imgSrc}" alt="${title}">
+                <img class="w-100" src="${safeImgSrc}" alt="${safeTitle}">
             </div>
             <div class="chat-content">
-                <h6 class="title">${title}</h6>
+                <h6 class="title">${safeTitle}</h6>
                 <p class="${isEditable ? 'editable' : ''}" ${isEditable ? 'contenteditable="true"' : ''}>${displayMessage}</p>
                 ${isEditable ? getEditButtons() : getReactionButtons(messageId)}
             </div>

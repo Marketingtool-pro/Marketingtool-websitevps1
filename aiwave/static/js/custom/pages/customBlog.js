@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const category = this.getAttribute('href').split('=')[1];
-            window.location.href = category ? `?category=${category}` : '{% url "aiwave-blog" %}';
+            window.location.href = category ? `?category=${encodeURIComponent(category)}` : '{% url "aiwave-blog" %}';
         });
     });
     
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const tag = this.textContent.trim();
-            window.location.href = `?search=${tag}`;
+            window.location.href = `?search=${encodeURIComponent(tag)}`;
         });
     });
 

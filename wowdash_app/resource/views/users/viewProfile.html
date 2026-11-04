@@ -175,8 +175,8 @@
             if (input && preview) {
                 input.addEventListener('change', function () {
                     const [file] = input.files;
-                    if (file) {
-                        preview.src = URL.createObjectURL(file);
+                    if (file && file.type.startsWith('image/')) {
+                        preview.src = URL.createObjectURL(new Blob([file], { type: file.type }));
                         preview.style.borderRadius = '9999px'; // Ensure circle
                         preview.classList.add('rounded-full', 'object-cover');
                     }
@@ -188,7 +188,7 @@
         function initializePasswordToggle(toggleSelector) {
             $(toggleSelector).on("click", function () {
                 $(this).toggleClass("ri-eye-off-line");
-                var input = $($(this).attr("data-toggle"));
+                var input = $(document.querySelector(this.getAttribute("data-toggle")));
                 if (input.attr("type") === "password") {
                     input.attr("type", "text");
                 } else {
