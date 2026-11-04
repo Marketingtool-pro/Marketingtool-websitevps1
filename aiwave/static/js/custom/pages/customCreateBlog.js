@@ -43,19 +43,30 @@ document.addEventListener('DOMContentLoaded', function() {
         reader.onload = function(e) {
             const modal = document.createElement('div');
             modal.className = 'preview-modal';
-            modal.innerHTML = `
-                <div class="preview-content">
-                    <img src="${e.target.result}" alt="${title}">
-                    <h2>${title}</h2>
-                    <p class="excerpt">${excerpt}</p>
-                    <div class="content">${content.replace(/\n/g, '<br>')}</div>
-                    <div class="meta">
-                        <span class="category">${category}</span>
-                        ${tags ? `<span class="tags">${tags}</span>` : ''}
-                    </div>
-                    <button class="btn-default btn-border btn-opacity" onclick="this.parentElement.parentElement.remove()">Close Preview</button>
-                </div>
-            `;
+            const previewContent = document.createElement('div');
+            previewContent.className = 'preview-content';
+            const addText = (parent, tagName, className, text) => {
+                const el = document.createElement(tagName);
+                if (className) el.className = className;
+                el.textContent = text;
+                parent.appendChild(el);
+                return el;
+            };
+            const previewImg = document.createElement('img');
+            previewImg.src = URL.createObjectURL(new Blob([featuredImage], { type: featuredImage.type }));
+            previewImg.alt = title;
+            previewContent.appendChild(previewImg);
+            addText(previewContent, 'h2', '', title);
+            addText(previewContent, 'p', 'excerpt', excerpt);
+            addText(previewContent, 'div', 'content', content).style.whiteSpace = 'pre-wrap';
+            const meta = document.createElement('div');
+            meta.className = 'meta';
+            addText(meta, 'span', 'category', category);
+            if (tags) addText(meta, 'span', 'tags', tags);
+            previewContent.appendChild(meta);
+            const closeBtn = addText(previewContent, 'button', 'btn-default btn-border btn-opacity', 'Close Preview');
+            closeBtn.addEventListener('click', () => modal.remove());
+            modal.appendChild(previewContent);
             document.body.appendChild(modal);
         };
         reader.readAsDataURL(featuredImage);
@@ -135,14 +146,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function updateSelectedTags() {
-        selectedTags.innerHTML = currentTags
-            .map(tag => `
-                <div class="tag-item">
-                    ${tag}
-                    <span class="remove-tag" data-tag="${tag}">&times;</span>
-                </div>
-            `)
-            .join('');
+        selectedTags.textContent = '';
+        currentTags.forEach(tag => {
+            const item = document.createElement('div');
+            item.className = 'tag-item';
+            item.append(document.createTextNode(tag + ' '));
+            const remove = document.createElement('span');
+            remove.className = 'remove-tag';
+            remove.dataset.tag = tag;
+            remove.innerHTML = '&times;';
+            item.appendChild(remove);
+            selectedTags.appendChild(item);
+        });
         
         // Update hidden input with comma-separated tags
         tagsInput.value = currentTags.join(', ');
