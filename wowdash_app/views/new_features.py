@@ -13,6 +13,7 @@ import os
 from datetime import datetime, timedelta
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from wowdash_app.utils import log_error_to_file
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.core.paginator import Paginator
@@ -261,9 +262,10 @@ def ai_blog_generate(request):
         })
     except Exception as e:
         draft.status = 'draft'
-        draft.generated_content = f"Error generating content: {str(e)}"
+        log_error_to_file(e)
+        draft.generated_content = "Error generating content. Please try again."
         draft.save()
-        return JsonResponse({'success': False, 'error': str(e)})
+        return JsonResponse({'success': False, 'error': 'Could not generate content. Please try again.'})
 
 
 @login_required
@@ -504,9 +506,10 @@ Current date: """ + datetime.now().strftime('%Y-%m-%d')
         })
 
     except Exception as e:
+        log_error_to_file(e)
         return JsonResponse({
             'success': False,
-            'error': str(e)
+            'error': 'An error occurred. Please try again.'
         })
 
 
