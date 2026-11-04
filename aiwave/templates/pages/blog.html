@@ -1,0 +1,234 @@
+{% extends '../partials/layout/layout2.html' %}
+{% load static %}
+{% load blog_tags %}
+{% block content %}
+
+<!-- Start Blog Area  -->
+<div class="rainbow-blog-area rainbow-section-gap bg-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                    <h4 class="subtitle">
+                        <span class="theme-gradient">Our Blog</span>
+                    </h4>
+                    <h1 class="title w-600 mb--20">
+                        Latest Articles & Resources
+                    </h1>
+                    {% if user.is_authenticated %}
+                    <div class="mt--20 mb--40">
+                        <a href="{% url 'aiwave-blog-create' %}" class="btn-default btn-border btn-opacity">
+                            <span>Create New Blog Post</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row row--30">
+            <div class="col-lg-8">
+                <div class="row mt_dec--30">
+                    <div class="col-lg-12">
+                        <div class="row row--15" id="blog-posts">
+                            {% for post in posts %}
+                            <div class="col-lg-6 col-md-6 col-12 mt--30">
+                                <div class="rainbow-card undefined" style="height: 100%;">
+                                    <div class="inner p--30" style="display: flex; flex-direction: column; height: 100%;">
+                                        <div class="thumbnail">
+                                            <a class="image" href="{% url 'aiwave-blog-details' post.slug %}">
+                                                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                                            </a>
+                                        </div>
+                                        <div class="content" style="display: flex; flex-direction: column; flex-grow: 1;">
+                                            <ul class="rainbow-meta-list">
+                                                <li><i class="fa-sharp fa-regular fa-calendar-days icon-left"></i> {{ post.created_at|date:"d M Y" }}</li>
+                                                <li class="separator"></li>
+                                                <li class="catagory-meta"><a href="?category={{ post.category }}">{{ post.category }}</a></li>
+                                            </ul>
+                                            <h4 class="title" style="margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
+                                                <a href="{% url 'aiwave-blog-details' post.slug %}">{{ post.title }}</a>
+                                            </h4>
+                                            <p class="description" style="flex-grow: 1; margin-bottom: 20px;">{{ post.excerpt|truncatewords:20 }}</p>
+                                            <a class="btn-read-more border-transparent" href="{% url 'aiwave-blog-details' post.slug %}" style="margin-top: auto;">
+                                                <span>Read More <i class="fa-sharp fa-regular fa-arrow-right"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <div class="col-12">
+                                <div class="alert alert-info">
+                                    No blog posts found.
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if posts.has_other_pages %}
+                    <div class="col-lg-12 text-center">
+                        <div class="rainbow-pagination mt--60">
+                            <ul class="page-list">
+                                {% if posts.has_previous %}
+                                <li><a href="?page={{ posts.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}"><i class="feather-chevron-left"></i></a></li>
+                                {% endif %}
+                                
+                                {% for num in posts.paginator.page_range %}
+                                    {% if posts.number == num %}
+                                    <li class="active"><a href="#">{{ num }}</a></li>
+                                    {% else %}
+                                    <li><a href="?page={{ num }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}">{{ num }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                {% if posts.has_next %}
+                                <li><a href="?page={{ posts.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}"><i class="feather-chevron-right"></i></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-4 mt_md--40 mt_sm--40">
+                <aside class="rainbow-sidebar">
+                    <div class="rbt-single-widget widget_search mt--40">
+                        <div class="inner">
+                            <form class="blog-search" action="{% url 'aiwave-blog' %}" method="GET" id="search-form">
+                                {% csrf_token %}
+                                <input type="text" name="search" placeholder="Search posts..." value="{{ search_query }}" class="search-input">
+                                <button type="submit" class="search-button">
+                                    <i class="feather-search"></i>
+                                </button>
+                            </form>
+                            {% if search_query %}
+                            <div class="search-results-info mt-3">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="search-stats">
+                                        {% if posts %}
+                                            <i class="feather-search me-2"></i>
+                                            <span>Found {{ posts.paginator.count }} result{{ posts.paginator.count|pluralize }} for</span>
+                                            <span class="search-query">"{{ search_query }}"</span>
+                                        {% else %}
+                                            <i class="feather-alert-circle me-2"></i>
+                                            <span>No results found for</span>
+                                            <span class="search-query">"{{ search_query }}"</span>
+                                        {% endif %}
+                                    </div>
+                                    <a href="{% url 'aiwave-blog' %}" class="clear-search">
+                                        <i class="feather-x me-1"></i>
+                                        Clear search
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="rbt-single-widget widget_categories mt--40">
+                        <h3 class="title">Categories</h3>
+                        <div class="inner">
+                            {% if selected_category %}
+                            <div class="text-center mb-4">
+                                <a href="{% url 'aiwave-blog' %}" class="btn-default btn-small">
+                                    <span>View All Posts</span>
+                                </a>
+                            </div>
+                            {% endif %}
+                            <ul class="category-list">
+                                {% for category in categories %}
+                                <li>
+                                    <a href="?category={{ category.category }}" class="category-link {% if selected_category == category.category %}active{% endif %}">
+                                        <span class="left-content">{{ category.category }}</span>
+                                        <span class="count-text">{{ category.count }}</span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% if recent_posts %}
+                    <div class="rbt-single-widget widget_recent_entries mt--40">
+                        <h3 class="title">Recent Posts</h3>
+                        <div class="inner">
+                            <ul>
+                                {% for recent_post in recent_posts %}
+                                <li>
+                                    <div class="list-blog-sm">
+                                        <div class="img">
+                                            <img src="{{ recent_post.featured_image.url }}" alt="{{ recent_post.title }}">
+                                        </div>
+                                        <div class="content">
+                                            <a class="d-block" href="{% url 'aiwave-blog-details' recent_post.slug %}">
+                                                {{ recent_post.title|truncatewords:8 }}
+                                            </a>
+                                            <span class="cate">{{ recent_post.category }}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="rbt-single-widget widget_archive mt--40">
+                        <h3 class="title">Archives</h3>
+                        <div class="inner">
+                            <ul class="category-list">
+                                {% for archive in archives %}
+                                {% if forloop.counter <= 4 %}
+                                <li>
+                                    <a href="?month={{ archive.month|date:'Y-m' }}">
+                                        <span class="left-content">{{ archive.month|date:"F Y" }}</span>
+                                        <span class="count-text">{{ archive.count }}</span>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% if all_tags %}
+                    <div class="rbt-single-widget widget_tag_cloud mt--40">
+                        <h3 class="title">Popular Tags</h3>
+                        <div class="inner">
+                            <div class="tagcloud">
+                                {% for tag in all_tags %}
+                                {% if forloop.counter <= 8 %}
+                                <a href="?search={{ tag }}" class="tag-link {% if search_query == tag %}active{% endif %}">{{ tag }}</a>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start CTA Area -->
+<div class="rainbow-callto-action-area rainbow-section-gapBottom-big bg-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="call-to-action-area text-center" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                    <h3 class="title">
+                        <span class="theme-gradient">Supercharge Your Marketing with AI</span>
+                    </h3>
+                    <p class="description">
+                        Unlock powerful AI-driven marketing tools to grow your business faster.
+                    </p>
+                    <div class="call-to-btn text-center mt--30">
+                        <a class="btn-default btn-icon" href="https://app.marketingtool.pro">
+                            Start Free Trial
+                            <i class="feather-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

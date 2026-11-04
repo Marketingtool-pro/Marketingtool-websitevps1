@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include 'partials/head.html' %}
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+<main class="page-wrapper">
+    <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+            <div class="row align-items-center row--0">
+                <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+                <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+                <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+            </div>
+        </div>
+    </header>
+    <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+    {% include 'partials/preloader.html' %}
+
+    <!-- Section 1: Hero -->
+    <div class="rainbow-service-area" style="padding-top:150px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h1 class="title mb--20">E-commerce & Shopify Tools</h1><p class="description">Boost your online store sales with AI-powered marketing automation.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+            <div class="row justify-content-center mt--40"><div class="col-lg-10"><video autoplay muted loop playsinline style="width:100%;max-height:450px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ecom-v1.mp4' %}" type="video/mp4"></video></div></div>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">SHOPIFY INTEGRATION</span></h4><h2 class="title">Seamless Store Connection</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> One-click integration</li><li><i class="fa-regular fa-circle-check"></i> Product sync</li><li><i class="fa-regular fa-circle-check"></i> Inventory-aware ads</li><li><i class="fa-regular fa-circle-check"></i> Order tracking</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ecom-hero.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ecom-shopping.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">PRODUCT FEEDS</span></h4><h2 class="title">Smart Feed Optimization</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Google Shopping feeds</li><li><i class="fa-regular fa-circle-check"></i> Facebook catalog</li><li><i class="fa-regular fa-circle-check"></i> Auto optimization</li><li><i class="fa-regular fa-circle-check"></i> Dynamic pricing</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">MULTI-CHANNEL</span></h4><h2 class="title">Unified Marketing</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Cross-platform sync</li><li><i class="fa-regular fa-circle-check"></i> Unified dashboard</li><li><i class="fa-regular fa-circle-check"></i> Automated workflows</li><li><i class="fa-regular fa-circle-check"></i> Real-time updates</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ecom-v2.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ecom-v3.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AUTOMATION</span></h4><h2 class="title">Smart Campaigns</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> AI-powered targeting</li><li><i class="fa-regular fa-circle-check"></i> Auto bidding</li><li><i class="fa-regular fa-circle-check"></i> Budget optimization</li><li><i class="fa-regular fa-circle-check"></i> Performance alerts</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">FACEBOOK & INSTAGRAM</span></h4><h2 class="title">Ads Setup for Growth</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Facebook ads</li><li><i class="fa-regular fa-circle-check"></i> Instagram marketing</li><li><i class="fa-regular fa-circle-check"></i> Retargeting</li><li><i class="fa-regular fa-circle-check"></i> Lookalike audiences</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ecom-v4.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ecom-v5.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">BOOST SALES</span></h4><h2 class="title">Increase Revenue</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> 35% increase in ROAS</li><li><i class="fa-regular fa-circle-check"></i> Reduce cart abandonment</li><li><i class="fa-regular fa-circle-check"></i> Email automation</li><li><i class="fa-regular fa-circle-check"></i> Smart bidding</li></ul><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Connect Store</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rainbow-cta-area" style="padding:50px 0 80px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h4 class="subtitle"><span class="theme-gradient">GET STARTED</span></h4><h2 class="title w-600 mb--20">Ready to Scale Your Store?</h2><p class="description b1">Connect Shopify and start growing your e-commerce business today.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+        </div>
+    </div>
+
+    
+    <!-- SEO/Content: E-commerce & Shopify Tools — benefits grid -->
+    <div class="rainbow-service-area aiwave-bg-gradient" style="padding:80px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb--40">
+                    <h2 class="title">Why Choose E-commerce & Shopify Tools</h2>
+                    <p class="description">AI tools for Shopify and e-commerce stores to automate product descriptions, ad creative, campaign optimization, and abandoned cart recovery.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-box" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">AI Product Descriptions</h5><p>Generate SEO-optimized product descriptions at scale. Works with Shopify, WooCommerce, and custom stores.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-cart-plus" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Abandoned Cart Recovery</h5><p>Trigger AI-written email sequences to recover abandoned carts with personalized subject lines and offers.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-tags" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Dynamic Pricing Insights</h5><p>AI analyzes competitor pricing and suggests optimal price points to protect margin while staying competitive.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-magnifying-glass-chart" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Collection SEO</h5><p>Auto-generate collection page copy with internal links, meta descriptions, and schema markup for rich results.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-bullhorn" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Shoppable Ad Creative</h5><p>Turn product catalogs into Google Shopping and Meta dynamic ad creative in one click.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-chart-pie" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Store Analytics Dashboard</h5><p>Unified view of Shopify sales, Google Ads spend, Meta Ads spend, and organic traffic in one dashboard.</p></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO/Content: FAQ section -->
+    <div class="rainbow-service-area" style="padding:80px 0 60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faq_ecommerce-shopify">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ecommerce-shopify_1" aria-expanded="false">What are E-commerce & Shopify Tools?</button></h2></div><div id="faq_ecommerce-shopify_1" class="accordion-collapse collapse" data-bs-parent="#faq_ecommerce-shopify"><div class="accordion-body card-body">AI-powered tools built for online store owners that automate product descriptions, ad creative, SEO, email campaigns, and cross-channel reporting for Shopify and other e-commerce platforms.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ecommerce-shopify_2" aria-expanded="false">Does it work with Shopify?</button></h2></div><div id="faq_ecommerce-shopify_2" class="accordion-collapse collapse" data-bs-parent="#faq_ecommerce-shopify"><div class="accordion-body card-body">Yes. MarketingTool integrates with Shopify, WooCommerce, BigCommerce, and custom stores via REST API or CSV import for product catalogs and order data.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ecommerce-shopify_3" aria-expanded="false">How do I get started?</button></h2></div><div id="faq_ecommerce-shopify_3" class="accordion-collapse collapse" data-bs-parent="#faq_ecommerce-shopify"><div class="accordion-body card-body">Start your 7-day free trial, connect your store via OAuth, and the AI begins generating product descriptions and ad creative immediately. No credit card required.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ecommerce-shopify_4" aria-expanded="false">Can I cancel anytime?</button></h2></div><div id="faq_ecommerce-shopify_4" class="accordion-collapse collapse" data-bs-parent="#faq_ecommerce-shopify"><div class="accordion-body card-body">Yes. All MarketingTool plans are month-to-month. Cancel from account settings. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ecommerce-shopify_5" aria-expanded="false">Which plan includes E-commerce Tools?</button></h2></div><div id="faq_ecommerce-shopify_5" class="accordion-collapse collapse" data-bs-parent="#faq_ecommerce-shopify"><div class="accordion-body card-body">E-commerce & Shopify Tools are available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: JSON-LD BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://marketingtool.pro/free-tools/"},{"@type":"ListItem","position":3,"name":"E-commerce & Shopify Tools","item":"https://marketingtool.pro/tools/ecommerce-shopify/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are E-commerce & Shopify Tools?","acceptedAnswer":{"@type":"Answer","text":"AI-powered tools built for online store owners that automate product descriptions, ad creative, SEO, email campaigns, and cross-channel reporting for Shopify and other e-commerce platforms."}},{"@type":"Question","name":"Does it work with Shopify?","acceptedAnswer":{"@type":"Answer","text":"Yes. MarketingTool integrates with Shopify, WooCommerce, BigCommerce, and custom stores via REST API or CSV import for product catalogs and order data."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Start your 7-day free trial, connect your store via OAuth, and the AI begins generating product descriptions and ad creative immediately. No credit card required."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. All MarketingTool plans are month-to-month. Cancel from account settings. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"Which plan includes E-commerce Tools?","acceptedAnswer":{"@type":"Answer","text":"E-commerce & Shopify Tools are available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations."}}]}</script>
+
+    {% include 'partials/footer.html' %}
+    {% include 'partials/progressbar.html' %}
+</main>
+{% include 'partials/scripts.html' %}
+</body>
+</html>
+
+<!-- VideoObject schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "E-commerce AI Marketing — MarketingTool",
+  "description": "Demo of MarketingTool AI marketing suite for Shopify and e-commerce",
+  "thumbnailUrl": "https://marketingtool.pro/static/videos/ecom-v1-thumb.jpg",
+  "contentUrl": "https://marketingtool.pro/static/videos/ecom-v1.mp4",
+  "uploadDate": "2026-01-15",
+  "duration": "PT30S",
+  "publisher": { "@type": "Organization", "name": "MarketingTool", "logo": { "@type": "ImageObject", "url": "https://marketingtool.pro/static/images/logo/logo.jpeg" } }
+}
+</script>

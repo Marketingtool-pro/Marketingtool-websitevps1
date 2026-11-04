@@ -1,0 +1,55 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+<div class="card border-0 max-w-3xl mx-auto">
+  <div class="card-header">
+    <h6 class="text-lg font-semibold mb-0">General Settings</h6>
+  </div>
+  <div class="card-body">
+    <form method="POST" action="{% url 'settings' %}">
+      {% csrf_token %}
+
+      <ul class="space-y-4">
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Default From Email *</label>
+          <input type="text" name="DEFAULT_FROM_EMAIL" value="{{ env_vars.DEFAULT_FROM_EMAIL }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Default From Email" required>
+        </li>
+
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Email_Backend *</label>
+          <input type="text" name="EMAIL_BACKEND" value="{{ env_vars.EMAIL_BACKEND }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Email Backend" required>
+        </li>
+
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Email Host *</label>
+          <input type="text" name="EMAIL_HOST" value="{{ env_vars.EMAIL_HOST }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Email Host" required>
+        </li>
+
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Email Host User *</label>
+          <input type="text" name="EMAIL_HOST_USER" value="{{ env_vars.EMAIL_HOST_USER }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="EMAIL HOST USER" required>
+        </li>
+
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Email Host Password *</label>
+          <input type="text" name="EMAIL_HOST_PASSWORD" value="{{ env_vars.EMAIL_HOST_PASSWORD }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="EMAIL HOST PASSWORD" required>
+        </li>
+
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Email Port *</label>
+          <input type="text" name="EMAIL_PORT" value="{{ env_vars.EMAIL_PORT }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Email Port" required>
+        </li>
+
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Email Use Tls *</label>
+          <input type="text" name="EMAIL_USE_TLS" value="{{ env_vars.EMAIL_USE_TLS }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Email Use Tls" required>
+        </li>
+      </ul>
+
+      <div class="mt-6 text-right">
+        <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

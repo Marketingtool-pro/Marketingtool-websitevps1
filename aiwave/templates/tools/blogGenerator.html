@@ -1,0 +1,64 @@
+{% extends 'partials/layout/layout1.html' %}
+{% load static %}
+
+{% block content %}
+<div class="rbt-dashboard-content">
+    <div class="content-page">
+        {% if user.is_authenticated %}
+        <div class="text-center mb--40">
+            <a href="{% url 'aiwave-blog-create' %}" class="btn-default btn-border btn-opacity">
+                <span>Create New Blog Post</span>
+            </a>
+        </div>
+        {% endif %}
+
+        <div class="chat-box-section">
+            <div class="chat-top-bar">
+                <div class="section-title">
+                    <div class="icon">
+                        <img src="{% static 'images/icons/document-file.png' %}" alt="">
+                    </div>
+                    <h6 class="title">New Conversation</h6>
+                </div>
+            </div>
+
+            <div class="chat-box-list pt--30" id="chatContainer">
+                {% include 'tools/components/initial_chat.html' %}
+
+                {% block chat_content %}
+                <!-- Default chat content - can be overridden by child templates -->
+                {% endblock %}
+            </div>
+
+            <div class="rbt-static-bar">
+                <form id="chatInput" class="new-chat-form border-gradient">
+                    {% csrf_token %}
+                    <textarea id="txtarea" name="chatMessage" rows="1" placeholder="Send a message..."></textarea>
+                    <div class="left-icons">
+                        <div title="AiWave" class="form-icon icon-gpt">
+                            <img src="{% if bot_image and bot_image.value %}{% if bot_image.value|slice:':1' == '/' %}{{ bot_image.value }}{% else %}/media/{{ bot_image.value }}{% endif %}{% else %}{% static 'images/team/avater.png' %}{% endif %}"
+                                alt="Bot Image"
+                                class="w-10 h-10 rounded-full object-cover border border-gray-300 shadow-sm">
+                        </div>
+                    </div>
+                    <div class="right-icons">
+                        <button class="form-icon icon-send" id="sendButton" onclick="sendMessage(e)"
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Send message">
+                            <i class="fa-sharp fa-solid fa-paper-plane-top"></i>
+                        </button>
+                    </div>
+                </form>
+                <p class="b3 small-text">AiWave can make mistakes. Consider checking important information.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.BOT_MODE = "{{ bot_mode }}";
+    window.userProfilePic = "{{ user.profile.profile_picture.url|default:'' }}";
+    window.botImageUrl = `{% if bot_image and bot_image.value %}{% if bot_image.value|slice:':1' == '/' %}{{ bot_image.value }}{% else %}/media/{{ bot_image.value }}{% endif %}{% else %}{% static 'images/team/avater.png' %}{% endif %}`;
+</script>
+
+{% endblock content %}

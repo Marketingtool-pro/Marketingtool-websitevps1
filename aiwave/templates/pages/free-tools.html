@@ -1,0 +1,136 @@
+{% extends "partials/layout/layout2.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Google Ads Performance Grader Section -->
+<div class="rainbow-service-area rainbow-section-gap bg-color-1">
+    <div class="container">
+        <div class="row row--30 align-items-center">
+            <div class="col-lg-5">
+                <div class="thumbnail" data-sal="slide-right" data-sal-duration="700">
+                    <img class="w-100 radius" src="{% static 'images/blog/blog-03.jpg' %}" alt="Google Ads Performance Grader">
+                </div>
+            </div>
+            <div class="col-lg-7 mt_md--40 mt_sm--40">
+                <div class="content" data-sal="slide-left" data-sal-duration="700">
+                    <h4 class="subtitle"><span class="theme-gradient"><i class="fa-brands fa-google"></i> Free Tool</span></h4>
+                    <h1 class="title w-600 mb--20">Google Ads Performance Grader</h1>
+                    <h4 class="mb--20" style="color: #ada1b7;">See Your Full Google Ads Performance Picture in Just 60 Seconds</h4>
+                    <p class="description b1 mb--30">Too often, grades are based on incomplete data. Get the full story on how your Google Ads account is really performing.</p>
+                    <ul class="list-style--1 mb--30">
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> See exactly how much ad spend is wasted due to issues like poor Quality Score, low click-through rate, and improper audience targeting.</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Deep analysis of your display and shopping campaigns reveals opportunities to improve reach and conversions.</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Detailed mobile optimization insights expose flaws in your mobile campaigns.</li>
+                    </ul>
+                    <a class="btn-default" href="{% url 'free-tool-google-ads' %}"><span>Get Your Grade</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Facebook Ads Performance Grader Section -->
+<div class="rainbow-service-area rainbow-section-gap bg-color-blackest">
+    <div class="container">
+        <div class="row row--30 align-items-center">
+            <div class="col-lg-7 order-2 order-lg-1 mt_md--40 mt_sm--40">
+                <div class="content" data-sal="slide-right" data-sal-duration="700">
+                    <h4 class="subtitle"><span class="theme-gradient"><i class="fa-brands fa-facebook"></i> Free Tool</span></h4>
+                    <h2 class="title w-600 mb--20">Facebook Ads Performance Grader</h2>
+                    <h4 class="mb--20" style="color: #ada1b7;">Unlock valuable insights about your Facebook Ads—without paying a cent.</h4>
+                    <p class="description b1 mb--30">Designed especially for small businesses and agencies, our Grader will reveal where you're missing opportunities to reach more people, drive more leads, and capture more conversions for your business with Facebook Ads. It's the knowledge you need to take quick action to drive your business goals forward. And it's totally free!</p>
+                    <ul class="list-style--1 mb--30">
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Our expert-identified, tried-and-true Facebook Fundamentals</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Audiences your ad sets should be targeting</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Placements and platforms you've got to use</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Potentially mismatched campaign objectives and account goals</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> How frequently you're working in your account</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Best (and worst!) performing ads in your account</li>
+                    </ul>
+                    <a class="btn-default" href="{% url 'free-tool-facebook-ads' %}"><span>Get Your Grade</span></a>
+                </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2">
+                <div class="thumbnail" data-sal="slide-left" data-sal-duration="700">
+                    <img class="w-100 radius" src="{% static 'images/blog/blog-02.jpg' %}" alt="Facebook Ads Performance Grader">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Website Grader Section -->
+<div class="rainbow-service-area rainbow-section-gap bg-color-1">
+    <div class="container">
+        <div class="row row--30 align-items-center">
+            <div class="col-lg-5">
+                <div class="thumbnail" data-sal="slide-right" data-sal-duration="700">
+                    <img class="w-100 radius" src="{% static 'images/blog/blog-01.jpg' %}" alt="Website Grader">
+                </div>
+            </div>
+            <div class="col-lg-7 mt_md--40 mt_sm--40">
+                <div class="content" data-sal="slide-left" data-sal-duration="700">
+                    <h4 class="subtitle"><span class="theme-gradient"><i class="fa-solid fa-globe"></i> Free Tool</span></h4>
+                    <h2 class="title w-600 mb--20">Website Grader</h2>
+                    <h4 class="mb--20" style="color: #ada1b7;">What's really happening across your online presence?</h4>
+                    <p class="description b1 mb--20">Our free Website Grader does more than just grade websites. It's a quick and easy tool that evaluates your overall digital presence across three key areas:</p>
+                    <ul class="list-style--1 mb--30">
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Website performance</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Social media presence</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Digital advertising effectiveness</li>
+                    </ul>
+                    <p class="description b1 mb--20">You'll get a complete, personalized report on your performance in each of these areas, plus actionable recommendations to improve your site performance fast.</p>
+                    <h5 class="mb--15">Every successful business needs a great web presence.</h5>
+                    <p class="description b1 mb--20">Find out if your site is optimized to show up for the right searches and rank high in results, based on key website performance metrics like:</p>
+                    <ul class="list-style--1 mb--30">
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Google ranking factors</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Site speed and SEO</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Your online ads</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Your competitors' metrics</li>
+                    </ul>
+                    <a class="btn-default" href="{% url 'free-tool-website' %}"><span>Get Your Score</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="rainbow-cta-area rainbow-section-gap rainbow-section-gapBottom-big bg-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="aiwave-cta">
+                    <div class="inner">
+                        <div class="content-left">
+                            <div class="section-title text-left" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                                <h4 class="subtitle">
+                                    <span class="theme-gradient">Want More Tools?</span>
+                                </h4>
+                                <h2 class="title w-600 mb--20">
+                                    Access 200+ AI Marketing Tools
+                                </h2>
+                                <p class="description b1">
+                                    Sign up free to unlock the full power of MarketingTool's <br> AI-powered marketing automation platform.
+                                </p>
+                            </div>
+                            <div class="mt--30">
+                                <a class="btn-default" href="https://app.marketingtool.pro">Get Started Free</a>
+                            </div>
+                        </div>
+                        <div class="content-right">
+                            <div class="img-right">
+                                <img src="{% static 'images/cta-img/view-img.png' %}" alt="Marketing Tools">
+                            </div>
+                        </div>
+                        <div class="bg-shape-one">
+                            <img src="{% static 'images/cta-img/bg-shape.png' %}" alt="Bg shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

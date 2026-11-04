@@ -1,0 +1,126 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="ai-blog-generator-page">
+    <div class="flex items-center justify-between mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-neutral-900 dark:text-white">AI Blog Generator</h1>
+            <p class="text-neutral-500">Generate blog posts with AI (Gemini)</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Generator Form -->
+        <div class="bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-4 flex items-center gap-2">
+                <iconify-icon icon="solar:magic-stick-3-outline" class="text-violet-500"></iconify-icon>
+                Generate New Blog
+            </h3>
+            <form id="generateForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Topic</label>
+                    <input type="text" name="topic" placeholder="e.g., AI Marketing Trends in 2025" class="w-full px-4 py-3 bg-neutral-100 dark:bg-neutral-800 rounded-lg border-0" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Keywords (comma separated)</label>
+                    <input type="text" name="keywords" placeholder="e.g., AI, marketing, automation, trends" class="w-full px-4 py-3 bg-neutral-100 dark:bg-neutral-800 rounded-lg border-0">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Tone</label>
+                    <select name="tone" class="w-full px-4 py-3 bg-neutral-100 dark:bg-neutral-800 rounded-lg border-0">
+                        <option value="professional">Professional</option>
+                        <option value="casual">Casual</option>
+                        <option value="friendly">Friendly</option>
+                        <option value="formal">Formal</option>
+                        <option value="persuasive">Persuasive</option>
+                    </select>
+                </div>
+                <button type="submit" id="generateBtn" class="w-full px-4 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2">
+                    <iconify-icon icon="solar:magic-stick-3-outline" class="text-xl"></iconify-icon>
+                    Generate Blog
+                </button>
+            </form>
+        </div>
+
+        <!-- Generated Content Preview -->
+        <div class="bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-4">Generated Content</h3>
+            <div id="generatedContent" class="prose dark:prose-invert max-w-none">
+                <p class="text-neutral-500">Generated content will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Previous Drafts -->
+    <div class="mt-6 bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700">
+        <div class="p-4 border-b border-neutral-200 dark:border-neutral-700 flex items-center justify-between">
+            <h3 class="font-semibold text-neutral-900 dark:text-white">Previous Drafts</h3>
+            <span class="text-sm text-neutral-500">{{ stats.total }} total</span>
+        </div>
+        <div class="divide-y divide-neutral-200 dark:divide-neutral-700">
+            {% for draft in drafts %}
+            <div class="p-4 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+                    <iconify-icon icon="solar:document-text-outline" class="text-violet-600"></iconify-icon>
+                </div>
+                <div class="flex-1">
+                    <p class="font-medium text-neutral-900 dark:text-white">{{ draft.topic|truncatechars:50 }}</p>
+                    <p class="text-sm text-neutral-500">{{ draft.created_at|date:"M d, Y" }} - {{ draft.tone|title }}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold
+                    {% if draft.status == 'published' %}bg-green-100 text-green-600
+                    {% elif draft.status == 'draft' %}bg-yellow-100 text-yellow-600
+                    {% else %}bg-neutral-100 text-neutral-600{% endif %}">
+                    {{ draft.status|title }}
+                </span>
+            </div>
+            {% empty %}
+            <div class="p-8 text-center">
+                <iconify-icon icon="solar:document-outline" class="text-4xl text-neutral-300 mb-2"></iconify-icon>
+                <p class="text-neutral-500">No drafts yet. Generate your first blog!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('generateForm').onsubmit = function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('generateBtn');
+    const content = document.getElementById('generatedContent');
+
+    btn.disabled = true;
+    btn.innerHTML = '<iconify-icon icon="solar:refresh-outline" class="animate-spin text-xl"></iconify-icon> Generating...';
+    content.innerHTML = '<p class="text-neutral-500">Generating content...</p>';
+
+    fetch('{% url "ai_blog_generate" %}', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            topic: this.topic.value,
+            keywords: this.keywords.value,
+            tone: this.tone.value
+        })
+    }).then(r => r.json()).then(data => {
+        btn.disabled = false;
+        btn.innerHTML = '<iconify-icon icon="solar:magic-stick-3-outline" class="text-xl"></iconify-icon> Generate Blog';
+
+        if (data.success) {
+            content.innerHTML = `
+                <h2 class="text-xl font-bold mb-4">${data.title}</h2>
+                <div class="whitespace-pre-wrap">${data.content}</div>
+            `;
+        } else {
+            content.innerHTML = `<p class="text-red-500">Error: ${data.error}</p>`;
+        }
+    });
+};
+</script>
+
+{% endblock %}

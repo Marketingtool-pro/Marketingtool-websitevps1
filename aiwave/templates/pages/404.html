@@ -1,0 +1,26 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+<div class="rainbow-section-gap bg-color-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="error-inner mt--80 mb--80">
+                    <img src="{% static 'Images/service/bg.png' %}" alt="Error Image" style="max-width:220px; margin-bottom:32px;">
+                    <h1>404</h1>
+                    <h2 class="title">Page Not Found</h2>
+                    <p class="description">Sorry, the page you are looking for does not exist, has been moved, or is temporarily unavailable.</p>
+                    <form class="blog-search mb--20" action="/" method="get" style="display:inline-block;">
+                        {% csrf_token %}
+                        <input type="text" name="search" placeholder="Search our site..." class="search-input">
+                        <button type="submit" class="search-button"><i class="feather-search"></i></button>
+                    </form>
+                    <div class="view-more-button">
+                        <a href="{% url 'aiwave-index' %}" class="btn-default btn-border">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

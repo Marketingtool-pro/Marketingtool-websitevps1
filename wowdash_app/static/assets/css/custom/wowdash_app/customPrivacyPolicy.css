@@ -1,0 +1,31 @@
+    /* Light mode: make toolbar icons dark for contrast */
+    .ql-toolbar .ql-stroke {
+        stroke: #2a4365 !important;
+    }
+
+    .ql-toolbar .ql-fill {
+        fill: #2a4365 !important;
+    }
+
+    .ql-toolbar button,
+    .ql-toolbar .ql-picker-label,
+    .ql-toolbar .ql-picker-item {
+        color: #2a4365 !important;
+    }
+
+    /* Dark mode: make toolbar icons light for contrast */
+    @media (prefers-color-scheme: dark) {
+        .ql-toolbar .ql-stroke {
+            stroke: #fff !important;
+        }
+
+        .ql-toolbar .ql-fill {
+            fill: #fff !important;
+        }
+
+        .ql-toolbar button,
+        .ql-toolbar .ql-picker-label,
+        .ql-toolbar .ql-picker-item {
+            color: #fff !important;
+        }
+    }

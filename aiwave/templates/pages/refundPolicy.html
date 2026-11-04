@@ -1,0 +1,140 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-content">
+    <div class="rainbow-privacy-policy-area rainbow-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="privacy-policy-wrapper">
+                        <div class="policy-header mb--40">
+                            <h1 class="title">Refund Policy</h1>
+                            <p class="description"><strong>Effective Date:</strong> January 1, 2026 | <strong>Last Updated:</strong> March 6, 2026</p>
+                            <p class="description mt--20"><strong>Company:</strong> AI MarketingTool LLC, 30 N Gould St, STE R, Sheridan, WY 82801, USA</p>
+                            <p class="description"><strong>Contact:</strong> <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></p>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">1. Overview</h4>
+                            <p class="description">AI MarketingTool LLC ("we", "us", "our") is committed to customer satisfaction. This Refund Policy outlines the terms and conditions under which refunds may be issued for our subscription-based SaaS platform at <a href="https://marketingtool.pro">marketingtool.pro</a>.</p>
+                            <p class="description">By subscribing to any paid plan, you agree to the terms of this Refund Policy.</p>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">2. Free Trial</h4>
+                            <ul class="list-style">
+                                <li>All new users receive a <strong>7-day free trial</strong> with access to core features.</li>
+                                <li>No credit card is required to start a free trial.</li>
+                                <li>If you do not upgrade to a paid plan, your account will automatically transition to read-only mode after the trial period.</li>
+                                <li>No charges are incurred during the free trial — therefore no refund applies.</li>
+                            </ul>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">3. Subscription Plans</h4>
+                            <p class="description">We offer the following paid plans:</p>
+                            <ul class="list-style">
+                                <li><strong>Starter:</strong> $29/month or $199/year</li>
+                                <li><strong>Professional:</strong> $59/month or $499/year</li>
+                                <li><strong>Growth:</strong> $99/month or $999/year</li>
+                                <li><strong>Agency:</strong> Custom pricing</li>
+                            </ul>
+                            <p class="description mt--20">All plans are billed in advance on a monthly or annual basis through Stripe, our payment processor.</p>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">4. Refund Eligibility</h4>
+                            <h5 class="subtitle mt--20">4.1 Monthly Plans</h5>
+                            <ul class="list-style">
+                                <li>You may request a full refund within <strong>7 days</strong> of your initial purchase if you are not satisfied with the service.</li>
+                                <li>Refund requests after 7 days will not be honored for the current billing period.</li>
+                                <li>You may cancel your subscription at any time. Your access will continue until the end of the current billing period.</li>
+                            </ul>
+
+                            <h5 class="subtitle mt--20">4.2 Annual Plans</h5>
+                            <ul class="list-style">
+                                <li>You may request a full refund within <strong>14 days</strong> of your initial annual purchase.</li>
+                                <li>After 14 days, annual subscriptions are non-refundable. You may cancel, and access will continue until the end of the annual billing period.</li>
+                            </ul>
+
+                            <h5 class="subtitle mt--20">4.3 Extra Token Purchases</h5>
+                            <ul class="list-style">
+                                <li>One-time token purchases ($3 per 100 generations) are <strong>non-refundable</strong> once tokens have been used.</li>
+                                <li>If tokens remain unused, a refund may be requested within 7 days of purchase.</li>
+                            </ul>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">5. How to Request a Refund</h4>
+                            <p class="description">To request a refund, please contact us at:</p>
+                            <ul class="list-style">
+                                <li><strong>Email:</strong> <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></li>
+                                <li><strong>Subject Line:</strong> Refund Request — [Your Account Email]</li>
+                            </ul>
+                            <p class="description mt--20">Please include the following in your request:</p>
+                            <ul class="list-style">
+                                <li>Your registered email address</li>
+                                <li>Date of purchase</li>
+                                <li>Plan name (Starter, Professional, Growth, or Agency)</li>
+                                <li>Reason for the refund request</li>
+                            </ul>
+                            <p class="description mt--20">We will review your request and respond within <strong>3 business days</strong>. Approved refunds will be processed to your original payment method within <strong>5–10 business days</strong>.</p>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">6. Non-Refundable Situations</h4>
+                            <p class="description">Refunds will <strong>not</strong> be issued in the following cases:</p>
+                            <ul class="list-style">
+                                <li>Failure to cancel before automatic renewal</li>
+                                <li>Dissatisfaction due to features not yet available (check our <a href="/roadmap/">Roadmap</a>)</li>
+                                <li>Violation of our <a href="/terms-policy/">Terms of Service</a></li>
+                                <li>Account suspension due to abuse or policy violations</li>
+                                <li>Requests made after the eligible refund window</li>
+                            </ul>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">7. Cancellation</h4>
+                            <p class="description">You can cancel your subscription at any time from your account Settings &gt; Billing page, or by contacting us at <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a>.</p>
+                            <ul class="list-style">
+                                <li>Cancellation takes effect at the end of the current billing period.</li>
+                                <li>Your data will be retained for 30 days after cancellation, after which it may be permanently deleted.</li>
+                                <li>You can reactivate your subscription at any time during the retention period.</li>
+                            </ul>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">8. Chargebacks</h4>
+                            <p class="description">We encourage you to contact us directly before initiating a chargeback with your bank or credit card company. Chargebacks may result in:</p>
+                            <ul class="list-style">
+                                <li>Immediate suspension of your account</li>
+                                <li>Loss of access to all data and generated content</li>
+                                <li>Additional processing fees</li>
+                            </ul>
+                            <p class="description mt--20">We are committed to resolving any billing disputes fairly and promptly.</p>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">9. Changes to This Policy</h4>
+                            <p class="description">We reserve the right to modify this Refund Policy at any time. Changes will be posted on this page with an updated "Last Updated" date. Continued use of the platform after changes constitutes acceptance of the revised policy.</p>
+                        </div>
+
+                        <div class="policy-section mb--40">
+                            <h4 class="title">10. Contact Us</h4>
+                            <p class="description">If you have any questions about this Refund Policy, please contact us:</p>
+                            <ul class="list-style">
+                                <li><strong>Email:</strong> <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></li>
+                                <li><strong>Company:</strong> AI MarketingTool LLC</li>
+                                <li><strong>Address:</strong> 30 N Gould St, STE R, Sheridan, WY 82801, USA</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

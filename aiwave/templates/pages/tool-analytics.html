@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include 'partials/head.html' %}
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+<main class="page-wrapper">
+    <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+            <div class="row align-items-center row--0">
+                <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+                <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+                <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+            </div>
+        </div>
+    </header>
+    <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+    {% include 'partials/preloader.html' %}
+
+    <!-- Section 1: Hero -->
+    <div class="rainbow-service-area" style="padding-top:150px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h1 class="title mb--20">Analytics Platform</h1><p class="description">Make smarter decisions with AI-powered data analytics and insights.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+            <div class="row justify-content-center mt--40"><div class="col-lg-10"><video autoplay muted loop playsinline style="width:100%;max-height:450px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/analytics-v1.mp4' %}" type="video/mp4"></video></div></div>
+        </div>
+    </div>
+
+    <!-- Section 2: Data Analytics -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">DATA INSIGHTS</span></h4><h2 class="title">Smart Analytics Solutions</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Real-time dashboards</li><li><i class="fa-regular fa-circle-check"></i> Custom reports</li><li><i class="fa-regular fa-circle-check"></i> Data visualization</li><li><i class="fa-regular fa-circle-check"></i> Trend analysis</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/analytics/data-analytics.jpeg' %}" alt="Data Analytics" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: AI Analysis -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/analytics-v2.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AI POWERED</span></h4><h2 class="title">AI Data Analysis</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Predictive analytics</li><li><i class="fa-regular fa-circle-check"></i> Machine learning insights</li><li><i class="fa-regular fa-circle-check"></i> Automated reporting</li><li><i class="fa-regular fa-circle-check"></i> Anomaly detection</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Smart Strategies -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">STRATEGY</span></h4><h2 class="title">Smart Success Strategies</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Performance tracking</li><li><i class="fa-regular fa-circle-check"></i> ROI optimization</li><li><i class="fa-regular fa-circle-check"></i> Goal setting</li><li><i class="fa-regular fa-circle-check"></i> KPI monitoring</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/analytics-v3.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Data Studio -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><img src="{% static 'images/analytics/data-studio.jpeg' %}" alt="Data Studio" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">REPORTING</span></h4><h2 class="title">Google Data Studio</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Custom templates</li><li><i class="fa-regular fa-circle-check"></i> Multi-source data</li><li><i class="fa-regular fa-circle-check"></i> Interactive reports</li><li><i class="fa-regular fa-circle-check"></i> Team collaboration</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Marketing Analytics -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">MARKETING</span></h4><h2 class="title">Campaign Analytics</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Cross-channel tracking</li><li><i class="fa-regular fa-circle-check"></i> Attribution modeling</li><li><i class="fa-regular fa-circle-check"></i> Conversion analysis</li><li><i class="fa-regular fa-circle-check"></i> Audience insights</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/analytics-v4.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Business Intelligence -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/analytics-v5.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">INTELLIGENCE</span></h4><h2 class="title">Business Intelligence</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Executive dashboards</li><li><i class="fa-regular fa-circle-check"></i> Data-driven decisions</li><li><i class="fa-regular fa-circle-check"></i> Competitive analysis</li><li><i class="fa-regular fa-circle-check"></i> Market trends</li></ul><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Get Started</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rainbow-cta-area" style="padding:50px 0 80px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h4 class="subtitle"><span class="theme-gradient">GET STARTED</span></h4><h2 class="title w-600 mb--20">Ready to Unlock Your Data?</h2><p class="description b1">Start making data-driven decisions with our analytics platform.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+        </div>
+    </div>
+
+    
+    <!-- SEO/Content: AI Analytics Platform — benefits grid -->
+    <div class="rainbow-service-area aiwave-bg-gradient" style="padding:80px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb--40">
+                    <h2 class="title">Why Choose AI Analytics Platform</h2>
+                    <p class="description">AI-powered marketing analytics with real-time dashboards, multi-channel attribution, predictive insights, and automated reports for performance teams.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-chart-line" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Real-Time Dashboards</h5><p>Live performance dashboards for Google Ads, Meta Ads, Instagram, and website traffic — refreshed every 5 minutes.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-diagram-project" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Multi-Touch Attribution</h5><p>AI attribution models show which touchpoints actually drive conversions — not just last-click.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-crystal-ball" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Predictive Insights</h5><p>Forecast next month's ROAS, CPA, and revenue using 12+ months of historical data and AI models.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-robot" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Automated Reports</h5><p>Weekly executive summaries generated by AI, delivered to email or Slack with key metrics and anomalies.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-triangle-exclamation" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Anomaly Detection</h5><p>AI flags unusual spend spikes, conversion drops, and attribution shifts in real time so you catch issues fast.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-users" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Cohort Analysis</h5><p>Track customer lifetime value by acquisition channel, campaign, and creative — identify your best-performing traffic sources.</p></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO/Content: FAQ section -->
+    <div class="rainbow-service-area" style="padding:80px 0 60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faq_analytics">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_analytics_1" aria-expanded="false">What is the AI Analytics Platform?</button></h2></div><div id="faq_analytics_1" class="accordion-collapse collapse" data-bs-parent="#faq_analytics"><div class="accordion-body card-body">A unified marketing analytics dashboard that connects Google Ads, Meta Ads, Instagram, and your website to deliver real-time performance data, AI-powered attribution, and predictive insights.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_analytics_2" aria-expanded="false">Which platforms does it connect to?</button></h2></div><div id="faq_analytics_2" class="accordion-collapse collapse" data-bs-parent="#faq_analytics"><div class="accordion-body card-body">Google Ads, Meta Ads, Instagram Business, Google Analytics 4, and any custom data source via CSV or REST API. More integrations added monthly.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_analytics_3" aria-expanded="false">How do I get started?</button></h2></div><div id="faq_analytics_3" class="accordion-collapse collapse" data-bs-parent="#faq_analytics"><div class="accordion-body card-body">Sign up for a 7-day free trial, connect your ad accounts via OAuth, and dashboards populate within minutes. No credit card required to start.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_analytics_4" aria-expanded="false">Can I cancel anytime?</button></h2></div><div id="faq_analytics_4" class="accordion-collapse collapse" data-bs-parent="#faq_analytics"><div class="accordion-body card-body">Yes. Month-to-month plans, cancel anytime from your account. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_analytics_5" aria-expanded="false">Which plan includes Analytics?</button></h2></div><div id="faq_analytics_5" class="accordion-collapse collapse" data-bs-parent="#faq_analytics"><div class="accordion-body card-body">AI Analytics is available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: JSON-LD BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://marketingtool.pro/free-tools/"},{"@type":"ListItem","position":3,"name":"AI Analytics Platform","item":"https://marketingtool.pro/tools/analytics/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the AI Analytics Platform?","acceptedAnswer":{"@type":"Answer","text":"A unified marketing analytics dashboard that connects Google Ads, Meta Ads, Instagram, and your website to deliver real-time performance data, AI-powered attribution, and predictive insights."}},{"@type":"Question","name":"Which platforms does it connect to?","acceptedAnswer":{"@type":"Answer","text":"Google Ads, Meta Ads, Instagram Business, Google Analytics 4, and any custom data source via CSV or REST API. More integrations added monthly."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Sign up for a 7-day free trial, connect your ad accounts via OAuth, and dashboards populate within minutes. No credit card required to start."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. Month-to-month plans, cancel anytime from your account. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"Which plan includes Analytics?","acceptedAnswer":{"@type":"Answer","text":"AI Analytics is available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations."}}]}</script>
+
+    {% include 'partials/footer.html' %}
+    {% include 'partials/progressbar.html' %}
+</main>
+{% include 'partials/scripts.html' %}
+</body>
+</html>
+
+<!-- VideoObject schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "AI Analytics Platform — MarketingTool",
+  "description": "Demo of MarketingTool unified analytics dashboard across Google Ads, Meta, GA4",
+  "thumbnailUrl": "https://marketingtool.pro/static/videos/analytics-v1-thumb.jpg",
+  "contentUrl": "https://marketingtool.pro/static/videos/analytics-v1.mp4",
+  "uploadDate": "2026-01-15",
+  "duration": "PT30S",
+  "publisher": { "@type": "Organization", "name": "MarketingTool", "logo": { "@type": "ImageObject", "url": "https://marketingtool.pro/static/images/logo/logo.jpeg" } }
+}
+</script>

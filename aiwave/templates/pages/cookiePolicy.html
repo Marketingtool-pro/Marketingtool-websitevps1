@@ -1,0 +1,261 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-content">
+    <div class="rainbow-privacy-policy-area rainbow-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="privacy-policy-wrapper">
+                        <div class="policy-header mb--40">
+                            <h1 class="title">Cookie Policy</h1>
+                            <p class="description"><strong>Last Updated:</strong> March 6, 2026</p>
+                            <p class="description mt--20">This Cookie Policy explains how MarketingTool.pro ("we", "us", "our") uses cookies and similar tracking technologies when you visit our website and use our services. By using our platform, you consent to the use of cookies as described in this policy.</p>
+                        </div>
+
+                        <!-- What Are Cookies -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">1. What Are Cookies?</h4>
+                            <p class="description">Cookies are small text files that are placed on your device (computer, smartphone, or tablet) when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.</p>
+                            <p class="description mt--20">Cookies help us:</p>
+                            <ul class="list-style">
+                                <li>Remember your preferences and settings</li>
+                                <li>Keep you securely logged in</li>
+                                <li>Understand how you use our platform</li>
+                                <li>Improve your user experience</li>
+                                <li>Analyze traffic and usage patterns</li>
+                            </ul>
+                        </div>
+
+                        <!-- Types of Cookies We Use -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">2. Types of Cookies We Use</h4>
+
+                            <div class="mb--30">
+                                <h5 class="subtitle">2.1 Essential Cookies (Strictly Necessary)</h5>
+                                <p class="description">These cookies are required for the platform to function properly:</p>
+                                <ul class="list-style mt--15">
+                                    <li><strong>Session Cookies:</strong> Keep you logged in during your session (Appwrite authentication).</li>
+                                    <li><strong>CSRF Tokens:</strong> Protect against cross-site request forgery attacks.</li>
+                                    <li><strong>Security Cookies:</strong> Protect against fraudulent activity and ensure secure connections.</li>
+                                    <li><strong>Load Balancing:</strong> Distribute server load for optimal performance.</li>
+                                </ul>
+                                <p class="description mt--15"><em>You cannot disable these cookies as they are essential for the Service to work.</em></p>
+                            </div>
+
+                            <div class="mb--30">
+                                <h5 class="subtitle">2.2 Functional Cookies (Preference Cookies)</h5>
+                                <p class="description">These cookies remember your choices and preferences:</p>
+                                <ul class="list-style mt--15">
+                                    <li>Language and region preferences</li>
+                                    <li>Theme and display settings</li>
+                                    <li>Dashboard layout customization</li>
+                                    <li>Recently used tools and favorites</li>
+                                    <li>Sidebar state and navigation preferences</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb--30">
+                                <h5 class="subtitle">2.3 Analytics Cookies (Performance Cookies)</h5>
+                                <p class="description">These cookies help us understand how visitors interact with our platform:</p>
+                                <ul class="list-style mt--15">
+                                    <li><strong>Matomo Analytics (Self-Hosted):</strong> Track page views, session duration, and user behavior. Unlike third-party analytics, Matomo runs on our own servers, so your data stays with us and is not shared with external parties.</li>
+                                </ul>
+                                <p class="description mt--15">The information collected is aggregated and used to improve our platform and user experience.</p>
+                            </div>
+
+                            <div class="mb--30">
+                                <h5 class="subtitle">2.4 Authentication Cookies (Third-Party Login)</h5>
+                                <p class="description">When you sign in using third-party providers, the following cookies may be set:</p>
+                                <ul class="list-style mt--15">
+                                    <li><strong>Google OAuth:</strong> Authentication cookies set by Google during the OAuth 2.0 sign-in flow. These are governed by <a href="https://policies.google.com/technologies/cookies" target="_blank">Google's Cookie Policy</a>.</li>
+                                    <li><strong>Facebook Login:</strong> Authentication cookies set by Meta during the Facebook Login flow. These are governed by <a href="https://www.facebook.com/policies/cookies/" target="_blank">Meta's Cookie Policy</a>.</li>
+                                </ul>
+                                <p class="description mt--15">These cookies are only set when you actively choose to sign in with these providers.</p>
+                            </div>
+
+                            <div class="mb--30">
+                                <h5 class="subtitle">2.5 Payment Cookies</h5>
+                                <p class="description">When you make a payment, our payment processor sets cookies:</p>
+                                <ul class="list-style mt--15">
+                                    <li><strong>Stripe:</strong> Fraud prevention and payment processing cookies. These are governed by <a href="https://stripe.com/cookie-settings" target="_blank">Stripe's Cookie Policy</a>.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Specific Cookies Table -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">3. Specific Cookies We Use</h4>
+                            <div class="mt--20">
+                                <table class="table" style="width:100%;border-collapse:collapse;">
+                                    <thead>
+                                        <tr style="border-bottom:2px solid rgba(255,255,255,.1);">
+                                            <th style="padding:12px;text-align:left;">Cookie Name</th>
+                                            <th style="padding:12px;text-align:left;">Type</th>
+                                            <th style="padding:12px;text-align:left;">Purpose</th>
+                                            <th style="padding:12px;text-align:left;">Duration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:10px;">sessionid</td><td style="padding:10px;">Essential</td><td style="padding:10px;">Django session management</td><td style="padding:10px;">2 weeks</td></tr>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:10px;">csrftoken</td><td style="padding:10px;">Essential</td><td style="padding:10px;">CSRF protection</td><td style="padding:10px;">1 year</td></tr>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:10px;">a_session_*</td><td style="padding:10px;">Essential</td><td style="padding:10px;">Appwrite authentication</td><td style="padding:10px;">Session</td></tr>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:10px;">_pk_id.*</td><td style="padding:10px;">Analytics</td><td style="padding:10px;">Matomo visitor ID</td><td style="padding:10px;">13 months</td></tr>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:10px;">_pk_ses.*</td><td style="padding:10px;">Analytics</td><td style="padding:10px;">Matomo session tracking</td><td style="padding:10px;">30 minutes</td></tr>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:10px;">__stripe_mid</td><td style="padding:10px;">Payment</td><td style="padding:10px;">Stripe fraud prevention</td><td style="padding:10px;">1 year</td></tr>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:10px;">__stripe_sid</td><td style="padding:10px;">Payment</td><td style="padding:10px;">Stripe session</td><td style="padding:10px;">30 minutes</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Google and Meta Cookies -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">4. Google and Meta Advertising Cookies</h4>
+                            <p class="description">When you connect your Google Ads or Meta advertising accounts to our platform, the following may apply:</p>
+
+                            <h5 class="subtitle mt--20">Google Ads Integration</h5>
+                            <p class="description">Google may set cookies during the OAuth authentication process. These cookies are managed by Google and are subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. We do not control Google's cookies. Our platform accesses your Google Ads data through API calls, not through cookies.</p>
+
+                            <h5 class="subtitle mt--20">Meta (Facebook) Integration</h5>
+                            <p class="description">Meta may set cookies during the Facebook Login process. These cookies are managed by Meta and are subject to <a href="https://www.facebook.com/privacy/policy/" target="_blank">Meta's Privacy Policy</a>. We do not control Meta's cookies. Our platform accesses your Meta advertising data through API calls, not through cookies.</p>
+
+                            <p class="description mt--20"><strong>Important:</strong> We do not use Google or Meta cookies to track you across the web, serve you advertisements, or build advertising profiles. These cookies are only used for the authentication flow when you connect your ad accounts.</p>
+                        </div>
+
+                        <!-- How Long Do Cookies Last -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">5. How Long Do Cookies Last?</h4>
+                            <ul class="list-style">
+                                <li><strong>Session Cookies:</strong> Temporary cookies deleted when you close your browser.</li>
+                                <li><strong>Persistent Cookies:</strong> Remain on your device until they expire or you delete them. Our persistent cookies last from 30 minutes to 13 months, depending on their purpose.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Managing Cookies -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">6. How to Manage and Control Cookies</h4>
+
+                            <div class="mb--30">
+                                <h5 class="subtitle">Browser Settings</h5>
+                                <p class="description">Most web browsers allow you to control cookies through their settings:</p>
+                                <ul class="list-style mt--15">
+                                    <li><strong>Google Chrome:</strong> Settings &gt; Privacy and Security &gt; Cookies and other site data</li>
+                                    <li><strong>Mozilla Firefox:</strong> Options &gt; Privacy &amp; Security &gt; Cookies and Site Data</li>
+                                    <li><strong>Safari:</strong> Preferences &gt; Privacy &gt; Cookies and website data</li>
+                                    <li><strong>Microsoft Edge:</strong> Settings &gt; Privacy, search, and services &gt; Cookies</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb--30">
+                                <h5 class="subtitle">Third-Party Opt-Out</h5>
+                                <ul class="list-style mt--15">
+                                    <li>Google: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a></li>
+                                    <li>Google: <a href="https://adssettings.google.com/" target="_blank">Google Ads Settings</a></li>
+                                    <li>Meta: <a href="https://www.facebook.com/settings/?tab=ads" target="_blank">Facebook Ad Preferences</a></li>
+                                    <li>DAA: <a href="https://optout.aboutads.info/" target="_blank">Digital Advertising Alliance Opt-Out</a></li>
+                                    <li>NAI: <a href="https://optout.networkadvertising.org/" target="_blank">Network Advertising Initiative Opt-Out</a></li>
+                                </ul>
+                            </div>
+
+                            <p class="description mt--20"><strong>Important:</strong> Blocking or deleting essential cookies may prevent you from logging in or using certain features of our platform.</p>
+                        </div>
+
+                        <!-- Do Not Track -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">7. Do Not Track (DNT) Signals</h4>
+                            <p class="description">Our self-hosted Matomo analytics respects the Do Not Track browser setting. If your browser sends a DNT signal, Matomo will not track your visit. For other cookies, we provide the management options described above.</p>
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">8. Mobile Devices and Apps</h4>
+                            <p class="description">When you access our platform through mobile devices or our mobile apps, we may use similar technologies:</p>
+                            <ul class="list-style">
+                                <li>Mobile device identifiers for authentication</li>
+                                <li>Local storage for session management and preferences</li>
+                                <li>SDK-based analytics (Matomo SDK)</li>
+                            </ul>
+                            <p class="description mt--20">You can manage these through your device settings or app permissions.</p>
+                        </div>
+
+                        <!-- Updates -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">9. Updates to This Cookie Policy</h4>
+                            <p class="description">We may update this Cookie Policy from time to time. We will notify you of significant changes by updating the "Last Updated" date at the top and, for material changes, by posting a notice on our platform or sending an email.</p>
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="policy-section mb--40">
+                            <h4 class="title">10. Contact Us</h4>
+                            <p class="description">If you have questions about our use of cookies, please contact us:</p>
+                            <div class="contact-info mt--20">
+                                <p class="description"><strong>AI MarketingTool LLC</strong></p>
+                                <p class="description">30 N Gould St, STE R<br>Sheridan, WY 82801, USA</p>
+                                <p class="description mt--10">F-12 Govindam Tower<br>Jaipur 302012, India</p>
+                                <p class="description mt--20">Email: <a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="policy-footer mt--60 pt--40" style="border-top: 1px solid #e5e7eb;">
+                            <p class="description">See also: <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms-policy/">Terms & Conditions</a> | <a href="/contact/">Contact Us</a> | <a href="/delete-account/">Delete Account</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start CTA Area -->
+    <div class="rainbow-cta-area rainbow-section-gap-big">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="aiwave-cta">
+                        <div class="inner">
+                            <div class="content-left">
+                                <div class="section-title text-left" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                                    <h4 class="subtitle">
+                                        <span class="theme-gradient">Get Started</span>
+                                    </h4>
+                                    <h2 class="title w-600 mb--20">
+                                        AI Marketing Tools
+                                    </h2>
+                                    <p class="description b1">
+                                        Available on Web, Android &amp; iOS.
+                                    </p>
+                                    <div class="mt--20">
+                                        <a href="https://app.marketingtool.pro" target="_blank" class="btn-default btn-small">Open Web App</a>
+                                    </div>
+                                </div>
+                                <div class="app-store-btn mt--20">
+                                    <a class="store-btn" href="https://play.google.com/store/apps/details?id=pro.marketingtool.app" target="_blank">
+                                        <img src="{% static 'images/cta-img/play-app.png' %}" alt="Play Store">
+                                    </a>
+                                    <a class="store-btn" href="https://apps.apple.com/app/marketingtool/id6758618412" target="_blank">
+                                        <img src="{% static 'images/cta-img/apple-app.png' %}" alt="App Store">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="content-right">
+                                <div class="img-right">
+                                    <img src="{% static 'images/cta-img/view-img.png' %}" alt="Mobile View">
+                                </div>
+                            </div>
+                            <div class="bg-shape-one">
+                                <img src="{% static 'images/cta-img/bg-shape.png' %}" alt="Bg shape">
+                            </div>
+                        </div>
+                        <div class="bg-shape-inside">
+                            <img src="{% static 'images/bg/bg-shape-tree.png' %}" alt="Bg shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

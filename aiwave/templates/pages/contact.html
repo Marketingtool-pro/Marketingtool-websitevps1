@@ -1,0 +1,166 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-content">
+
+    <div class="rainbow-contact-area rainbow-section-gapTop-big">
+        <div class="container">
+            <div class="row mb--40">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="section-title">
+                        <h1 class="title w-600 mb--20">Contact Us</h1>
+                        <p class="description b1">Have a question about our AI marketing tools? Need help with your Google Ads or Meta campaigns? We're here to help. Fill out the form below and our team will get back to you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt--40 row--15">
+                <div class="col-lg-8">
+                    <div class="contact-details-box">
+                        <h3 class="title">Send Us a Message</h3>
+
+                        {% if messages %}
+                        <div class="messages mb-4">
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <form action="{% url 'aiwave-help' %}" method="post" class="rbt-profile-row rbt-default-form row row--15">
+                            {% csrf_token %}
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input id="name" type="text" name="name" placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input id="email" type="email" name="email" placeholder="your@email.com" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input id="subject" type="text" name="subject" placeholder="How can we help?" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number (Optional)</label>
+                                    <input id="phone" type="tel" name="phone" placeholder="+1-202-555-0174">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" cols="20" rows="5" placeholder="Tell us about your question or feedback..." required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12 mt--20">
+                                <div class="form-group mb--0">
+                                    <button class="btn-default" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt_md--30 mt_sm--30">
+                    <div class="rainbow-address">
+                        <div class="icon">
+                            <i class="fa-sharp fa-regular fa-location-dot"></i>
+                        </div>
+                        <div class="inner">
+                            <h4 class="title">USA Office</h4>
+                            <p class="b2">30 N Gould St, STE R<br>Sheridan, WY 82801, USA</p>
+                        </div>
+                    </div>
+                    <div class="rainbow-address">
+                        <div class="icon">
+                            <i class="fa-sharp fa-regular fa-location-dot"></i>
+                        </div>
+                        <div class="inner">
+                            <h4 class="title">India Office</h4>
+                            <p class="b2">F-12 Govindam Tower<br>Jaipur 302012, India</p>
+                        </div>
+                    </div>
+                    <div class="rainbow-address">
+                        <div class="icon">
+                            <i class="fa-sharp fa-regular fa-envelope"></i>
+                        </div>
+                        <div class="inner">
+                            <h4 class="title">Email</h4>
+                            <p class="b2"><a href="mailto:help@marketingtool.pro">help@marketingtool.pro</a></p>
+                        </div>
+                    </div>
+                    <div class="rainbow-address">
+                        <div class="icon">
+                            <i class="fa-sharp fa-regular fa-clock"></i>
+                        </div>
+                        <div class="inner">
+                            <h4 class="title">Response Time</h4>
+                            <p class="b2">We respond to all inquiries within 24 hours during business days.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start CTA Area -->
+    <div class="rainbow-cta-area rainbow-section-gap-big">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="aiwave-cta">
+                        <div class="inner">
+                            <div class="content-left">
+                                <div class="section-title text-left" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                                    <h4 class="subtitle">
+                                        <span class="theme-gradient">Get Started Today</span>
+                                    </h4>
+                                    <h2 class="title w-600 mb--20">
+                                        AI Marketing Tools
+                                    </h2>
+                                    <p class="description b1">
+                                        Available on Web, Android &amp; iOS.
+                                    </p>
+                                    <div class="mt--20">
+                                        <a href="https://app.marketingtool.pro" target="_blank" class="btn-default btn-small">Open Web App</a>
+                                    </div>
+                                </div>
+                                <div class="app-store-btn mt--20">
+                                    <a class="store-btn" href="https://play.google.com/store/apps/details?id=pro.marketingtool.app" target="_blank">
+                                        <img src="{% static 'images/cta-img/play-app.png' %}" alt="Play Store Button">
+                                    </a>
+                                    <a class="store-btn" href="https://apps.apple.com/app/marketingtool/id6758618412" target="_blank">
+                                        <img src="{% static 'images/cta-img/apple-app.png' %}" alt="Apple Store Button">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="content-right">
+                                <div class="img-right">
+                                    <img src="{% static 'images/cta-img/view-img.png' %}" alt="Mobile View">
+                                </div>
+                            </div>
+                            <div class="bg-shape-one">
+                                <img src="{% static 'images/cta-img/bg-shape.png' %}" alt="Bg shape">
+                            </div>
+                        </div>
+                        <div class="bg-shape-inside">
+                            <img src="{% static 'images/bg/bg-shape-tree.png' %}" alt="Bg shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+/*============================================= Button Css Start =============================================*/
+.btn {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    display: inline-flex;
+    transition: all 0.2s ease;
+}
+.btn-primary-600, .btn-primary {
+    background-color: rgb(72 127 255);
+    color: rgb(255 255 255);
+}
+
+.btn-primary-600:hover, .btn-primary:hover {
+    background-color: rgb(72 108 234);
+}
+
+.btn-outline-primary, .btn-outline-primary-600 {
+    border: 1px solid rgb(72 127 255);
+    color: rgb(72 127 255);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary-600:hover {
+    background-color: rgb(72 127 255);
+    color: rgb(255 255 255);
+}
+/*============================================= Button Css End =============================================*/

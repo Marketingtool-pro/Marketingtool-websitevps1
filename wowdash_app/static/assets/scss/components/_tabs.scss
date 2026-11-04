@@ -1,0 +1,27 @@
+/*============================================= Nav Tabs Css Start =============================================*/
+.tab-style-gradient button[aria-selected="true"] {
+  background: linear-gradient(180deg, rgba(72, 127, 255, 0.12) 0%, rgba(72, 127, 255, 0.03) 100%);
+}
+.tab-style-button button[aria-selected="true"] {
+  background-color: rgb(72 127 255);
+  color: rgb(255 255 255);
+}
+
+.tab-style-button button[aria-selected="true"]:hover {
+  color: rgb(255 255 255);
+}
+
+.style-pill-focus li button[aria-selected="true"] {
+  background-color: rgb(228 241 255);
+  color: rgb(72 127 255);
+}
+.style-pill-button li button[aria-selected="true"] {
+  background-color: rgb(72 127 255);
+  color: rgb(255 255 255);
+  border-color: rgb(72 127 255);
+}
+
+.style-pill-button li button[aria-selected="true"]:hover {
+  color: rgb(255 255 255);
+}
+/*============================================= Nav Tabs Css End =============================================*/

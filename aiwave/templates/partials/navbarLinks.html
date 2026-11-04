@@ -1,0 +1,52 @@
+{% load static %}
+<div class="rbt-default-sidebar-wrapper">
+    <nav class="mainmenu-nav">
+        
+        <ul class="dashboard-mainmenu rbt-default-sidebar-list">
+            <li><a href="{% url 'aiwave-text-generator' %}"><img src="{% static 'images/generator-icon/text.png' %}" alt="AI Generator"><span>Text Generator</span></a></li>
+            <li><a href="{% url 'aiwave-code-generator' %}"><img src="{% static 'images/generator-icon/code-editor.png' %}" alt="AI Generator"><span>Code Generator</span></a></li>
+            <li><a href="{% url 'aiwave-email-generator' %}"><img src="{% static 'images/generator-icon/email.png' %}" alt="AI Generator"><span>Email Generator</span></a></li>
+            <li><a href="{% url 'aiwave-description-generator' %}"><img src="{% static 'images/generator-icon/photo.png' %}" alt="AI Generator"><span>Description Generator</span></a></li>
+            <li><a href="{% url 'aiwave-blog-generator' %}"><img src="{% static 'images/generator-icon/photo.png' %}" alt="AI Generator"><span>Blog Generator</span></a></li>
+            <li><a href="{% url 'aiwave-summary-generator' %}"><img src="{% static 'images/generator-icon/video-camera.png' %}" alt="AI Generator"><span>Summary Generator</span></a></li>
+           
+        </ul>
+    </nav>
+
+    <div class="rbt-sm-separator"></div>
+
+    <nav class="mainmenu-nav">
+        <ul class="dashboard-mainmenu rbt-default-sidebar-list">
+            <li class="has-submenu"><a class="collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseExampleMenu" role="button" aria-expanded="false" aria-controls="collapseExampleMenu"><i class="fa-sharp fa-solid fa-circle-plus"></i><span>Setting</span></a>
+                <div class="collapse" id="collapseExampleMenu">
+                    <ul class="submenu rbt-default-sidebar-list">
+                        <li>
+                            <a href="{% url 'aiwave-chat-export' %}" rel="nofollow">
+                                <i class="fa-sharp fa-regular fa-users"></i>
+                                <span>Chat Export</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'aiwave-plans-billing' %}">
+                                <i class="fa-sharp fa-regular fa-briefcase"></i>
+                                <span>Plans and Billing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'aiwave-sessions-page' %}" rel="nofollow">
+                                <i class="fa-sharp fa-regular fa-users"></i>
+                                <span>Sessions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="{% url 'aiwave-help' %}"><i class="fa-sharp fa-regular fa-award"></i><span>Help & FAQ</span></a></li>
+        </ul>
+        <div class="rbt-sm-separator"></div>
+        <ul class="dashboard-mainmenu rbt-default-sidebar-list">
+            <li><a href="{% url 'aiwave-release-notes' %}"><i class="fa-sharp fa-regular fa-bell"></i><span>Release notes</span></a></li>
+            <li><a href="{% url 'aiwave-terms-policy' %}"><i class="fa-sharp fa-regular fa-briefcase"></i><span>Terms & Policy</span></a></li>
+        </ul>
+    </nav>
+</div>

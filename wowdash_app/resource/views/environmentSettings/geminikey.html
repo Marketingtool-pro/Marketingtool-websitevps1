@@ -1,0 +1,27 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+<div class="card border-0 max-w-3xl mx-auto">
+  <div class="card-header">
+    <h6 class="text-lg font-semibold mb-0">Gemini Key Settings</h6>
+  </div>
+  <div class="card-body">
+    <form method="POST" action="{% url 'geminiKeySettings' %}">
+      {% csrf_token %}
+
+      <ul class="space-y-4">
+
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Gemini API Key *</label>
+          <input type="text" name="GEMINI_API_KEY" value="{{ env_vars.GEMINI_API_KEY }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="GEMINI API KEY" required>
+        </li>
+
+      </ul>
+
+      <div class="mt-6 text-right">
+        <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

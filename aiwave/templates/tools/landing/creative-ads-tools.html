@@ -1,0 +1,167 @@
+<!-- @format -->
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  {% include 'partials/head.html' %}
+  <body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+    <main class="page-wrapper">
+      <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+          <div class="row align-items-center row--0">
+            <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+            <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+            <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" target="_blank" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+          </div>
+        </div>
+      </header>
+      <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+      {% include 'partials/preloader.html' %}
+
+      <!-- Hero -->
+      <div class="slider-area slider-style-1 variation-default slider-bg-image bg-banner1 slider-bg-shape" data-black-overlay="1">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="inner text-center mt--60">
+                <div class="hero-icon mb--20">
+                  <img src="{% static 'images/generator-icon/photo.png' %}" alt="Creative" style="width: 80px; height: 80px;" />
+                </div>
+                <h1 class="title display-one">Creative & Ads Tools<br />
+                  <span class="header-caption"><span class="cd-headline rotate-1"><span class="cd-words-wrapper" style="width: 340px">
+                    <b class="theme-gradient is-visible">Design Ads</b>
+                    <b class="theme-gradient is-hidden">Stop Scrolls</b>
+                    <b class="theme-gradient is-hidden">Get Clicks</b>
+                  </span></span></span>
+                </h1>
+                <p class="description">AI-powered ad creative generator for Facebook, Instagram, Google, and TikTok.<br />No design skills needed. Create scroll-stopping ads in minutes.</p>
+                <div class="button-group mt--40">
+                  <a class="btn-default btn-large" href="https://app.marketingtool.pro">Create Ad Now <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                  <a class="btn-default btn-border btn-large" href="{% url 'aiwave-pricing' %}">Pricing</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 col-xl-10 mt--50">
+              <div class="video-popup icon-center">
+                <div class="thumbnail">
+                  <img class="radius-small" src="{% static 'images/generator-img/chat-export-vedio.png' %}" alt="Ad Creator" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-shape"><img class="bg-shape-one" src="{% static 'images/bg/bg-shape-four.png' %}" alt="" /><img class="bg-shape-two" src="{% static 'images/bg/bg-shape-five.png' %}" alt="" /></div>
+      </div>
+
+      <!-- Ad Features -->
+      <div class="rainbow-service-area rainbow-section-gap">
+        <div class="container">
+          <div class="row"><div class="col-lg-12"><div class="section-title text-center pb--60"><h4 class="subtitle"><span class="theme-gradient">AD CREATIVE AI</span></h4><h2 class="title mb--0">Ads That Actually Convert</h2></div></div></div>
+          <div class="row row--15">
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-image" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Image Ads</h5><p class="desc">Generate stunning image ads for any platform. AI designs visuals that match your brand and catch attention.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-video" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Video Ads</h5><p class="desc">Create short video ads from text descriptions. Perfect for TikTok, Reels, and Stories without a production team.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-clone" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Carousel Ads</h5><p class="desc">Multi-image carousel ads that tell a story and showcase products. Optimized for engagement and swipes.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="rainbow-advance-tab-area aiwave-bg-gradient rainbow-section-gap-big">
+        <div class="container">
+          <div class="row row--30 align-items-center">
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-5.png' %}" alt="Brief" /></div>
+            </div>
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 1</span></div>
+                <h2 class="title">Describe Your Ad</h2>
+                <p class="description">Tell AI about your product, audience, and campaign goal. Upload your logo and brand colors for consistent designs.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Set product details</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Define target audience</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Upload brand assets</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 order-lg-1 order-2">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 2</span></div>
+                <h2 class="title">AI Creates Variations</h2>
+                <p class="description">AI generates multiple ad creatives in all sizes - feed, story, square, landscape. Each variation is unique and A/B test ready.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Platform-specific sizes</li>
+                  <li><i class="fa-regular fa-circle-check"></i>10+ variations per brief</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Copy + visual combos</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 order-lg-2 order-1 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-3.png' %}" alt="AI Creates" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-2.png' %}" alt="Export" /></div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 3</span></div>
+                <h2 class="title">Export & Launch</h2>
+                <p class="description">Download your creatives or push directly to Facebook Ads Manager. Track which creatives perform best.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>High-res downloads</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Direct FB/IG push</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Performance tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="rainbow-cta-area rainbow-section-gap rainbow-section-gapBottom-big">
+        <div class="container"><div class="row"><div class="col-lg-12"><div class="aiwave-cta"><div class="inner">
+          <div class="content-left"><div class="section-title text-left"><h4 class="subtitle"><span class="theme-gradient">Create Better Ads</span></h4><h2 class="title w-600 mb--20">Ready for Scroll-Stopping Ads?</h2><p class="description b1">Join marketers creating winning ad creatives with AI.</p></div><div class="button-group mt--30"><a class="btn-default btn-large" href="https://app.marketingtool.pro">Create Ads Free <i class="fa-sharp fa-regular fa-arrow-right"></i></a></div></div>
+          <div class="content-right"><div class="img-right"><img src="{% static 'images/cta-img/view-img.png' %}" alt="MarketingTool AI marketing dashboard preview" /></div></div>
+          <div class="bg-shape-one"><img src="{% static 'images/cta-img/bg-shape.png' %}" alt="" /></div>
+        </div></div></div></div></div>
+      </div>
+
+      {% include 'partials/footer.html' %}
+      {% include 'partials/progressbar.html' %}
+    </main>
+    {% include 'partials/scripts.html' %}
+  </body>
+</html>

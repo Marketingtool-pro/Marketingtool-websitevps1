@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Your AIWave OTP</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px;">
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+    <div style="max-width: 600px; margin: auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 32px;">
+        <h2 style="color: #2a4365;">Password Reset OTP</h2>
+        <p>Hello <strong>{{ user.username }}</strong>,</p>
+        <p>Your One-Time Password (OTP) for password reset is:</p>
+        <div style="font-size: 2em; font-weight: bold; color: #3182ce; margin: 24px 0;">{{ otp }}</div>
+        <p>This OTP is valid for 5 minutes. Please do not share it with anyone.</p>
+        <p>If you did not request a password reset, you can safely ignore this email.</p>
+        <p style="margin-top: 32px; color: #888; font-size: 0.95em;">Best regards,<br>The AIWave Team</p>
+    </div>
+</body>
+</html> 

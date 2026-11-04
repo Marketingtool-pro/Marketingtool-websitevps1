@@ -1,0 +1,68 @@
+{% extends 'partials/layout/layout3.html' %}
+{% load static %}
+{% block content %}
+
+<div class="rbt-main-content mb--0">
+    <div class="rbt-daynamic-page-content center-width">
+        <!-- Dashboard Center Content -->
+        <div class="rbt-dashboard-content">
+            {% include 'partials/banner.html' %}
+            <div class="content-page pb--50">
+                <div class="chat-box-list">
+                    <!-- Chat Export Section -->
+                    <div class="single-settings-box chatexpo-box overflow-hidden">
+                        <div class="section-title">
+                            <h4 class="title">Chat Export</h4>
+                            <p class="description">Select the conversations you want to export.</p>
+                        </div>
+                        <div class="rbt-sm-separator mt-0"></div>
+                        <div class="rbt-checkbox-grp">
+                            {% for bot_mode, data in bot_modes.items %}
+                            <div class="bot-mode-section mb--20">
+                                <h5 class="bot-mode-title">{{ bot_mode|title }} Conversations</h5>
+                                <div class="sessions-list">
+                                    {% for session in data.sessions %}
+                                    <div class="rbt-checkbox-wrapper style-2">
+                                        <input type="checkbox" id="session-{{ session.id }}" name="session_ids[]" value="{{ session.id }}" class="session-checkbox">
+                                        <label for="session-{{ session.id }}">
+                                            <span class="img-section">
+                                                {% if bot_mode == 'text-generator' %}
+                                                    <img src="{% static 'images/generator-icon/text.png' %}" alt="Text Generator">
+                                                {% elif bot_mode == 'code-generator' %}
+                                                    <img src="{% static 'images/generator-icon/code-editor.png' %}" alt="Code Generator">
+                                                {% elif bot_mode == 'email-generator' %}
+                                                    <img src="{% static 'images/generator-icon/email.png' %}" alt="Email Generator">
+                                                {% elif bot_mode == 'blog-generator' %}
+                                                    <img src="{% static 'images/generator-icon/document.png' %}" alt="Blog Generator">
+                                                {% elif bot_mode == 'description-generator' %}
+                                                    <img src="{% static 'images/generator-icon/photo.png' %}" alt="Description Generator">
+                                                {% elif bot_mode == 'summary-generator' %}
+                                                    <img src="{% static 'images/generator-icon/text-voice.png' %}" alt="Summary Generator">
+                                                {% else %}
+                                                    <img src="{% static 'images/generator-icon/text.png' %}" alt="{{ bot_mode }}">
+                                                {% endif %}
+                                            </span>
+                                            <span class="content-section">
+                                                <span class="title">{{ session.title }}</span>
+                                                <span class="date">{{ session.modified_at|date:"M d, Y H:i" }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group mt--40">
+                            <button class="btn-default" id="export-btn">
+                                <i class="fa-solid fa-download"></i> Export Selected Chats
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

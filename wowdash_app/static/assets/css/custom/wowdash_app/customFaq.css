@@ -1,0 +1,11 @@
+.faq-question-btn,
+.faq-question-btn:focus,
+.faq-question-btn:active,
+.faq-question-btn:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#vertical-tab button.active {
+    color: #0d6efd;
+}

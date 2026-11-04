@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include 'partials/head.html' %}
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+<main class="page-wrapper">
+    <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+            <div class="row align-items-center row--0">
+                <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+                <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+                <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+            </div>
+        </div>
+    </header>
+    <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+    {% include 'partials/preloader.html' %}
+
+    <!-- Section 1: Hero -->
+    <div class="rainbow-service-area" style="padding-top:150px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h1 class="title mb--20">Optimization & PPC Tools</h1><p class="description">AI-powered PPC management and conversion rate optimization.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Optimizing</span></a></div></div>
+            <div class="row justify-content-center mt--40"><div class="col-lg-10"><video autoplay muted loop playsinline style="width:100%;max-height:450px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ppc-v1.mp4' %}" type="video/mp4"></video></div></div>
+        </div>
+    </div>
+
+    <!-- Section 2: PPC Agency -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">PPC AGENCY</span></h4><h2 class="title">Professional PPC Management</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Google Ads management</li><li><i class="fa-regular fa-circle-check"></i> Facebook Ads</li><li><i class="fa-regular fa-circle-check"></i> Campaign optimization</li><li><i class="fa-regular fa-circle-check"></i> Budget management</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/ppc/ppc-agency.jpeg' %}" alt="PPC Agency" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: CRM Integration -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ppc-v2.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">CRM</span></h4><h2 class="title">CRM Integration</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Lead tracking</li><li><i class="fa-regular fa-circle-check"></i> Customer data</li><li><i class="fa-regular fa-circle-check"></i> Sales pipeline</li><li><i class="fa-regular fa-circle-check"></i> Automation</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Conversion Rate -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">CONVERSION</span></h4><h2 class="title">Conversion Rate Optimization</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> A/B testing</li><li><i class="fa-regular fa-circle-check"></i> Landing pages</li><li><i class="fa-regular fa-circle-check"></i> User experience</li><li><i class="fa-regular fa-circle-check"></i> Funnel analysis</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/ppc/conversion-rate.jpeg' %}" alt="Conversion Rate" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Digital Marketing -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ppc-v5.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">MARKETING</span></h4><h2 class="title">Digital Marketing Strategy</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Data-driven approach</li><li><i class="fa-regular fa-circle-check"></i> Multi-channel campaigns</li><li><i class="fa-regular fa-circle-check"></i> ROI tracking</li><li><i class="fa-regular fa-circle-check"></i> Performance reports</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Traffic Growth -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">TRAFFIC</span></h4><h2 class="title">Increase Traffic</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Paid traffic</li><li><i class="fa-regular fa-circle-check"></i> Audience targeting</li><li><i class="fa-regular fa-circle-check"></i> Retargeting</li><li><i class="fa-regular fa-circle-check"></i> Scale campaigns</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/ppc/ppc-traffic.jpeg' %}" alt="Traffic Growth" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Social Growth -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/ppc-v6.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">GROWTH</span></h4><h2 class="title">Social Media Growth</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Social ads</li><li><i class="fa-regular fa-circle-check"></i> Engagement boost</li><li><i class="fa-regular fa-circle-check"></i> Follower growth</li><li><i class="fa-regular fa-circle-check"></i> Brand awareness</li></ul><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Get Started</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rainbow-cta-area" style="padding:50px 0 80px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h4 class="subtitle"><span class="theme-gradient">GET STARTED</span></h4><h2 class="title w-600 mb--20">Ready to Maximize Your ROI?</h2><p class="description b1">Start optimizing your campaigns with AI-powered PPC tools.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+        </div>
+    </div>
+
+    
+    <!-- SEO/Content: AI PPC Optimization Tools — benefits grid -->
+    <div class="rainbow-service-area aiwave-bg-gradient" style="padding:80px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb--40">
+                    <h2 class="title">Why Choose AI PPC Optimization Tools</h2>
+                    <p class="description">AI PPC optimization for automated bid management, wasted spend reduction, and maximum ROAS on Google Ads and Meta Ads.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-gavel" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Automated Bid Management</h5><p>AI adjusts bids every 15 minutes based on conversion signals, audience performance, and time-of-day trends.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-money-bill-wave" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Wasted Spend Finder</h5><p>Identifies underperforming keywords, audiences, placements, and creative in seconds — and suggests what to pause.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-chart-line" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">ROAS Optimization</h5><p>Target ROAS or target CPA bidding with AI adjustments that outperform platform defaults.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-user-gear" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Negative Keyword Mining</h5><p>Continuously mines search term reports for irrelevant queries and adds them to negative keyword lists automatically.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-clock" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Dayparting Intelligence</h5><p>Finds your best hours of day and day of week to concentrate spend where conversions happen.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-flask-vial" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Budget Reallocation</h5><p>Shifts budget from losing campaigns to winners automatically based on pacing and performance.</p></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO/Content: FAQ section -->
+    <div class="rainbow-service-area" style="padding:80px 0 60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faq_ppc-optimization">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ppc-optimization_1" aria-expanded="false">What are AI PPC Optimization Tools?</button></h2></div><div id="faq_ppc-optimization_1" class="accordion-collapse collapse" data-bs-parent="#faq_ppc-optimization"><div class="accordion-body card-body">AI tools for automated bid management, wasted spend detection, and ROAS optimization across Google Ads and Meta Ads. Works 24/7 without manual intervention.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ppc-optimization_2" aria-expanded="false">Does it work with Google Ads and Meta?</button></h2></div><div id="faq_ppc-optimization_2" class="accordion-collapse collapse" data-bs-parent="#faq_ppc-optimization"><div class="accordion-body card-body">Yes. Connects via OAuth to Google Ads and Meta Ads Manager. Instagram is included through the Meta connection.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ppc-optimization_3" aria-expanded="false">How much can I save on wasted spend?</button></h2></div><div id="faq_ppc-optimization_3" class="accordion-collapse collapse" data-bs-parent="#faq_ppc-optimization"><div class="accordion-body card-body">Results vary by account, but most accounts find 15-30% of spend is wasted on low-intent keywords, bad placements, or poor audiences. AI helps identify and reallocate it.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ppc-optimization_4" aria-expanded="false">Can I cancel anytime?</button></h2></div><div id="faq_ppc-optimization_4" class="accordion-collapse collapse" data-bs-parent="#faq_ppc-optimization"><div class="accordion-body card-body">Yes. Month-to-month plans, cancel anytime. Yearly includes 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ppc-optimization_5" aria-expanded="false">Which plan includes PPC Optimization?</button></h2></div><div id="faq_ppc-optimization_5" class="accordion-collapse collapse" data-bs-parent="#faq_ppc-optimization"><div class="accordion-body card-body">Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: JSON-LD BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://marketingtool.pro/free-tools/"},{"@type":"ListItem","position":3,"name":"AI PPC Optimization Tools","item":"https://marketingtool.pro/tools/ppc-optimization/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are AI PPC Optimization Tools?","acceptedAnswer":{"@type":"Answer","text":"AI tools for automated bid management, wasted spend detection, and ROAS optimization across Google Ads and Meta Ads. Works 24/7 without manual intervention."}},{"@type":"Question","name":"Does it work with Google Ads and Meta?","acceptedAnswer":{"@type":"Answer","text":"Yes. Connects via OAuth to Google Ads and Meta Ads Manager. Instagram is included through the Meta connection."}},{"@type":"Question","name":"How much can I save on wasted spend?","acceptedAnswer":{"@type":"Answer","text":"Results vary by account, but most accounts find 15-30% of spend is wasted on low-intent keywords, bad placements, or poor audiences. AI helps identify and reallocate it."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. Month-to-month plans, cancel anytime. Yearly includes 14-day money-back guarantee."}},{"@type":"Question","name":"Which plan includes PPC Optimization?","acceptedAnswer":{"@type":"Answer","text":"Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations."}}]}</script>
+
+    {% include 'partials/footer.html' %}
+    {% include 'partials/progressbar.html' %}
+</main>
+{% include 'partials/scripts.html' %}
+</body>
+</html>
+
+<!-- VideoObject schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "AI PPC Optimization — MarketingTool",
+  "description": "Demo of MarketingTool AI PPC optimization suite for Google and Meta Ads",
+  "thumbnailUrl": "https://marketingtool.pro/static/videos/ppc-v1-thumb.jpg",
+  "contentUrl": "https://marketingtool.pro/static/videos/ppc-v1.mp4",
+  "uploadDate": "2026-01-15",
+  "duration": "PT30S",
+  "publisher": { "@type": "Organization", "name": "MarketingTool", "logo": { "@type": "ImageObject", "url": "https://marketingtool.pro/static/images/logo/logo.jpeg" } }
+}
+</script>

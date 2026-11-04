@@ -1,0 +1,169 @@
+<!-- @format -->
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  {% include 'partials/head.html' %}
+  <body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+    <main class="page-wrapper">
+      <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+          <div class="row align-items-center row--0">
+            <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+            <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+            <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" target="_blank" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+          </div>
+        </div>
+      </header>
+      <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+      {% include 'partials/preloader.html' %}
+
+      <!-- Hero with Robot Icon -->
+      <div class="slider-area slider-style-1 variation-default slider-bg-image bg-banner1 slider-bg-shape" data-black-overlay="1">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="inner text-center mt--60">
+                <div class="hero-icon mb--20">
+                  <img src="{% static 'images/generator-icon/voice.png' %}" alt="AI Agent" style="width: 80px; height: 80px;" />
+                </div>
+                <h1 class="title display-one">AI Marketing Agents<br />
+                  <span class="header-caption"><span class="cd-headline rotate-1"><span class="cd-words-wrapper" style="width: 320px">
+                    <b class="theme-gradient is-visible">Work 24/7</b>
+                    <b class="theme-gradient is-hidden">Never Sleep</b>
+                    <b class="theme-gradient is-hidden">Scale Instantly</b>
+                  </span></span></span>
+                </h1>
+                <p class="description">Autonomous AI agents that manage your marketing campaigns around the clock.<br />Set goals, and let AI handle the execution, optimization, and scaling.</p>
+                <div class="button-group mt--40">
+                  <a class="btn-default btn-large" href="https://app.marketingtool.pro">Deploy Your Agent <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                  <a class="btn-default btn-border btn-large" href="{% url 'aiwave-pricing' %}">See Pricing</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 col-xl-10 mt--50">
+              <div class="video-popup icon-center">
+                <div class="thumbnail">
+                  <img class="radius-small" src="{% static 'images/generator-img/chat-export-audio.png' %}" alt="AI Agent Dashboard" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-shape"><img class="bg-shape-one" src="{% static 'images/bg/bg-shape-four.png' %}" alt="" /><img class="bg-shape-two" src="{% static 'images/bg/bg-shape-five.png' %}" alt="" /></div>
+      </div>
+
+      <!-- Agent Capabilities -->
+      <div class="rainbow-service-area rainbow-section-gap">
+        <div class="container">
+          <div class="row"><div class="col-lg-12"><div class="section-title text-center pb--60"><h4 class="subtitle"><span class="theme-gradient">AUTONOMOUS CAPABILITIES</span></h4><h2 class="title mb--0">Your AI Agent Can</h2></div></div></div>
+          <div class="row row--15">
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-brain" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Think & Decide</h5><p class="desc">AI analyzes performance data and makes intelligent decisions about budget allocation, audience targeting, and bid strategies.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-bolt" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Act Instantly</h5><p class="desc">When opportunities arise or threats emerge, your agent acts immediately - no waiting for human approval on routine tasks.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-chart-line" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Learn & Improve</h5><p class="desc">Continuously learns from results, adapts strategies, and gets smarter over time. Your agent improves with every campaign.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How Agents Work - Step 1 -->
+      <div class="rainbow-advance-tab-area aiwave-bg-gradient rainbow-section-gap-big">
+        <div class="container">
+          <div class="row row--30 align-items-center">
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-1.png' %}" alt="Set Goals" /></div>
+            </div>
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 1</span></div>
+                <h2 class="title">Define Your Goals</h2>
+                <p class="description">Tell your AI agent what you want to achieve - more leads, higher ROAS, lower CPA, or increased brand awareness. Set budgets, constraints, and priorities.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Set target KPIs (ROAS, CPA, CPL)</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Define budget limits and rules</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Specify audience preferences</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 order-lg-1 order-2">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 2</span></div>
+                <h2 class="title">Agent Takes Control</h2>
+                <p class="description">Your AI agent connects to your ad accounts and begins working. It monitors performance, identifies patterns, and starts optimizing immediately.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Real-time campaign monitoring</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Automatic bid adjustments</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Smart budget reallocation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 order-lg-2 order-1 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-4.png' %}" alt="Agent Working" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-3.png' %}" alt="Results" /></div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 3</span></div>
+                <h2 class="title">Review & Scale</h2>
+                <p class="description">Check daily reports, see what your agent accomplished, and scale what's working. You stay in control while AI does the heavy lifting.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Daily performance summaries</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Action logs and explanations</li>
+                  <li><i class="fa-regular fa-circle-check"></i>One-click scaling options</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="rainbow-cta-area rainbow-section-gap rainbow-section-gapBottom-big">
+        <div class="container"><div class="row"><div class="col-lg-12"><div class="aiwave-cta"><div class="inner">
+          <div class="content-left"><div class="section-title text-left"><h4 class="subtitle"><span class="theme-gradient">Deploy Your Agent Today</span></h4><h2 class="title w-600 mb--20">Ready for Autonomous Marketing?</h2><p class="description b1">Join marketers who've freed up 20+ hours/week with AI agents.</p></div><div class="button-group mt--30"><a class="btn-default btn-large" href="https://app.marketingtool.pro">Get Your AI Agent <i class="fa-sharp fa-regular fa-arrow-right"></i></a></div></div>
+          <div class="content-right"><div class="img-right"><img src="{% static 'images/cta-img/view-img.png' %}" alt="MarketingTool AI marketing dashboard preview" /></div></div>
+          <div class="bg-shape-one"><img src="{% static 'images/cta-img/bg-shape.png' %}" alt="" /></div>
+        </div></div></div></div></div>
+      </div>
+
+      {% include 'partials/footer.html' %}
+      {% include 'partials/progressbar.html' %}
+    </main>
+    {% include 'partials/scripts.html' %}
+  </body>
+</html>

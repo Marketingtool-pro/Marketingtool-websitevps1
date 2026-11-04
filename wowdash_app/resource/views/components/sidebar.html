@@ -1,0 +1,119 @@
+{% load static %}
+<aside class="sidebar">
+    <button type="button" class="sidebar-close-btn !mt-4">
+        <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
+    </button>
+    <div>
+        <a href="{% url 'wowdash-index' %}" class="sidebar-logo">
+            <img src="{{ meta_vars.site_logo }}" alt="site logo" class="dark-logo">
+        </a>
+    </div>
+    <div class="sidebar-menu-area">
+        <ul class="sidebar-menu" id="sidebar-menu">
+            <li>
+                <a href="{% url 'wowdash-index' %}">
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="sidebar-menu-group-title">UI Elements</li>
+            <li class="dropdown">
+                <a href="javascript:void(0)">
+                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
+                    <span>Users</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{% url 'usersList' %}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Users List</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'addUser' %}"><i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i> Add Admin</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-menu-group-title">Application</li>
+
+            <li>
+                <a href="{% url 'releaseNotes' %}">
+                    <iconify-icon icon="solar:gallery-wide-linear" class="menu-icon"></iconify-icon>
+                    <span>Release Note</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'team' %}">
+                    <iconify-icon icon="solar:gallery-wide-linear" class="menu-icon"></iconify-icon>
+                    <span>Team</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'blogManagement' %}">
+                    <iconify-icon icon="hugeicons:money-send-square" class="menu-icon"></iconify-icon>
+                    <span>Blog Management</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'userInquiries' %}">
+                    <iconify-icon icon="mage:message-question-mark-round" class="menu-icon"></iconify-icon>
+                    <span>User Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'faq' %}">
+                    <iconify-icon icon="mage:message-question-mark-round" class="menu-icon"></iconify-icon>
+                    <span>FAQ</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'termsCondition' %}">
+                    <iconify-icon icon="octicon:info-24" class="menu-icon"></iconify-icon>
+                    <span>Terms & Conditions</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'privacyPolicy' %}">
+                    <iconify-icon icon="octicon:info-24" class="menu-icon"></iconify-icon>
+                    <span>Privacy Policy</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-group-title">Settings</li>
+            <li class="dropdown">
+                <a href="javascript:void(0)">
+                    <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+                    <span>Environment Setting</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{% url 'settings' %}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> 
+                            General Settings</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'facebookKeySettings' %}"><i class="ri-circle-fill circle-icon text-warning-600 w-auto"></i>
+                            Facebook Key Settings</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'geminiKeySettings' %}"><i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>
+                            Gemini Key Settings</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)">
+                    <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+                    <span>Site Meta Settings</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{% url 'generalSiteSettings' %}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> 
+                            General Site Settings</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contactInformationSettings' %}"><i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>
+                            Contact Information</a>
+                    </li>   
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include 'partials/head.html' %}
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+<main class="page-wrapper">
+    <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+            <div class="row align-items-center row--0">
+                <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+                <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+                <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+            </div>
+        </div>
+    </header>
+    <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+    {% include 'partials/preloader.html' %}
+
+    <!-- Section 1: Hero -->
+    <div class="rainbow-service-area" style="padding-top:150px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h1 class="title mb--20">Content Writing Tools</h1><p class="description">AI-powered content creation for blogs, ads, and marketing copy.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Writing</span></a></div></div>
+            <div class="row justify-content-center mt--40"><div class="col-lg-10"><video autoplay muted loop playsinline style="width:100%;max-height:450px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/content-v1.mp4' %}" type="video/mp4"></video></div></div>
+        </div>
+    </div>
+
+    <!-- Section 2: Prompt Engineering -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">PROMPT ENGINEERING</span></h4><h2 class="title">AI Writing Hacks</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Smart prompts</li><li><i class="fa-regular fa-circle-check"></i> Template library</li><li><i class="fa-regular fa-circle-check"></i> Tone control</li><li><i class="fa-regular fa-circle-check"></i> Style matching</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/content-writing/prompt-hacks.jpeg' %}" alt="Prompt Engineering" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: AI Author -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/content-v2.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AI WRITING</span></h4><h2 class="title">Unleash Your Author</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Long-form content</li><li><i class="fa-regular fa-circle-check"></i> Story generation</li><li><i class="fa-regular fa-circle-check"></i> Creative writing</li><li><i class="fa-regular fa-circle-check"></i> Grammar check</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Sudowrite -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">SUDOWRITE AI</span></h4><h2 class="title">Smart Writing Assistant</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Auto-complete</li><li><i class="fa-regular fa-circle-check"></i> Rewrite suggestions</li><li><i class="fa-regular fa-circle-check"></i> Character development</li><li><i class="fa-regular fa-circle-check"></i> Plot assistance</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/content-writing/sudowrite.jpeg' %}" alt="Sudowrite" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: SEO Blogging -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><img src="{% static 'images/content-writing/seo-blogging.jpeg' %}" alt="SEO Blogging" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">SEO CONTENT</span></h4><h2 class="title">Automated Blogging</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> SEO optimization</li><li><i class="fa-regular fa-circle-check"></i> Keyword targeting</li><li><i class="fa-regular fa-circle-check"></i> Meta descriptions</li><li><i class="fa-regular fa-circle-check"></i> Content scheduling</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Content Creation -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AI CONTENT</span></h4><h2 class="title">Content Creation Studio</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Blog posts</li><li><i class="fa-regular fa-circle-check"></i> Social media copy</li><li><i class="fa-regular fa-circle-check"></i> Email campaigns</li><li><i class="fa-regular fa-circle-check"></i> Ad copy</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/content-v3.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: AI Tutorials -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/content-v4.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">TUTORIALS</span></h4><h2 class="title">AI Content Tutorials</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Step-by-step guides</li><li><i class="fa-regular fa-circle-check"></i> Best practices</li><li><i class="fa-regular fa-circle-check"></i> Template library</li><li><i class="fa-regular fa-circle-check"></i> Expert tips</li></ul><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Creating</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rainbow-cta-area" style="padding:50px 0 80px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h4 class="subtitle"><span class="theme-gradient">GET STARTED</span></h4><h2 class="title w-600 mb--20">Ready to Create Amazing Content?</h2><p class="description b1">Start writing with AI-powered tools today.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+        </div>
+    </div>
+
+    
+    <!-- SEO/Content: AI Content Writing Tools — benefits grid -->
+    <div class="rainbow-service-area aiwave-bg-gradient" style="padding:80px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb--40">
+                    <h2 class="title">Why Choose AI Content Writing Tools</h2>
+                    <p class="description">AI content writing tools for marketers to generate blog posts, ad copy, email campaigns, product descriptions, and landing pages with 8 AI models.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-pen-fancy" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Blog Post Generator</h5><p>Long-form SEO blog posts with H1/H2/H3 structure, internal links, and keyword optimization built-in.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-envelope" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Email Campaign Writer</h5><p>AI-generated subject lines, body copy, and CTAs optimized for open rates and click-throughs.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-bullhorn" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Ad Copy Generator</h5><p>Headlines, descriptions, and callouts for Google Ads RSA and Meta Ads creative, tested for performance.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-box" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Product Descriptions</h5><p>SEO-optimized product copy for e-commerce at scale. Brand voice training included.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-rectangle-list" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Landing Page Copy</h5><p>Hero sections, feature lists, social proof, and CTAs tuned for conversion rate optimization.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-language" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Multi-Language Output</h5><p>Generate content in 30+ languages with cultural and localization adjustments built into the AI.</p></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO/Content: FAQ section -->
+    <div class="rainbow-service-area" style="padding:80px 0 60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faq_content-writing">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_content-writing_1" aria-expanded="false">What are AI Content Writing Tools?</button></h2></div><div id="faq_content-writing_1" class="accordion-collapse collapse" data-bs-parent="#faq_content-writing"><div class="accordion-body card-body">AI-powered writing tools that generate blog posts, ad copy, email campaigns, product descriptions, and landing pages using multiple models trained on marketing best practices.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_content-writing_2" aria-expanded="false">Which AI models do you use?</button></h2></div><div id="faq_content-writing_2" class="accordion-collapse collapse" data-bs-parent="#faq_content-writing"><div class="accordion-body card-body">MarketingTool routes content tasks across Claude, Gemini, Llama, and other models based on task type. Long-form blog uses Claude; quick ad copy uses Llama for speed.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_content-writing_3" aria-expanded="false">Is the content plagiarism-free?</button></h2></div><div id="faq_content-writing_3" class="accordion-collapse collapse" data-bs-parent="#faq_content-writing"><div class="accordion-body card-body">All content is generated fresh by AI — not scraped or copied. We recommend running a plagiarism check before publishing long-form content.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_content-writing_4" aria-expanded="false">Can I cancel anytime?</button></h2></div><div id="faq_content-writing_4" class="accordion-collapse collapse" data-bs-parent="#faq_content-writing"><div class="accordion-body card-body">Yes. All plans are month-to-month. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_content-writing_5" aria-expanded="false">Which plan includes content writing?</button></h2></div><div id="faq_content-writing_5" class="accordion-collapse collapse" data-bs-parent="#faq_content-writing"><div class="accordion-body card-body">AI Content Writing is available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: JSON-LD BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://marketingtool.pro/free-tools/"},{"@type":"ListItem","position":3,"name":"AI Content Writing Tools","item":"https://marketingtool.pro/tools/content-writing/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are AI Content Writing Tools?","acceptedAnswer":{"@type":"Answer","text":"AI-powered writing tools that generate blog posts, ad copy, email campaigns, product descriptions, and landing pages using multiple models trained on marketing best practices."}},{"@type":"Question","name":"Which AI models do you use?","acceptedAnswer":{"@type":"Answer","text":"MarketingTool routes content tasks across Claude, Gemini, Llama, and other models based on task type. Long-form blog uses Claude; quick ad copy uses Llama for speed."}},{"@type":"Question","name":"Is the content plagiarism-free?","acceptedAnswer":{"@type":"Answer","text":"All content is generated fresh by AI \u2014 not scraped or copied. We recommend running a plagiarism check before publishing long-form content."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. All plans are month-to-month. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"Which plan includes content writing?","acceptedAnswer":{"@type":"Answer","text":"AI Content Writing is available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations."}}]}</script>
+
+    {% include 'partials/footer.html' %}
+    {% include 'partials/progressbar.html' %}
+</main>
+{% include 'partials/scripts.html' %}
+</body>
+</html>
+
+<!-- VideoObject schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "AI Content Writing — MarketingTool",
+  "description": "Demo of MarketingTool AI copywriting for ads, blogs, and emails",
+  "thumbnailUrl": "https://marketingtool.pro/static/videos/content-v1-thumb.jpg",
+  "contentUrl": "https://marketingtool.pro/static/videos/content-v1.mp4",
+  "uploadDate": "2026-01-15",
+  "duration": "PT30S",
+  "publisher": { "@type": "Organization", "name": "MarketingTool", "logo": { "@type": "ImageObject", "url": "https://marketingtool.pro/static/images/logo/logo.jpeg" } }
+}
+</script>

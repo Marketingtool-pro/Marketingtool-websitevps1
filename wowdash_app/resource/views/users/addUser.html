@@ -1,0 +1,107 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="card h-full p-0 rounded-xl border-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+        <div class="card-body p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 justify-center">
+                <div class="col-span-12 lg:col-span-10 xl:col-span-8 2xl:col-span-6 2xl:col-start-4">
+                    <div class="card border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-dark-2">
+                        <div class="card-body">
+                            <h6 class="text-base text-neutral-900 dark:text-neutral-200 mb-4">Profile Image</h6>
+
+                            <form id="addUserForm" method="POST" action="{% url 'addUser' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <!-- Upload Image Start -->
+                            <div class="mb-6 mt-4">
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit absolute bottom-0 end-0 me-6 mt-4 z-[1] cursor-pointer ">
+                                        <input type='file' id="imageUpload" name="profile_picture" class="imageUpload" accept=".png, .jpg, .jpeg" hidden>
+                                        <label for="imageUpload" class="w-8 h-8 flex justify-center items-center bg-primary-50 dark:bg-primary-600/25 text-primary-600 dark:text-primary-400 border border-primary-600 hover:bg-primary-100 text-lg rounded-full">
+                                            <iconify-icon icon="solar:camera-outline" class="icon"></iconify-icon>
+                                        </label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" class="imagePreview" style="width: 150px; height: 150px; border-radius: 50%; background-size: cover; background-position: center; background-repeat: no-repeat; border: 2px solid #e5e7eb;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Upload Image End -->
+
+                                <div class="mb-5">
+                                    <label for="name" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Full Name <span class="text-danger-600">*</span></label>
+                                    <input type="text" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="name" name="name" placeholder="Enter Full Name" required>
+                                </div>
+                                <div class="mb-5">
+                                    <label for="email" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Email <span class="text-danger-600">*</span></label>
+                                    <input type="email" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="email" name="email" placeholder="Enter email address" required>
+                                </div>
+                                <div class="mb-5">
+                                    <label for="password" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Password <span class="text-danger-600">*</span></label>
+                                    <input type="password" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="password" name="password" placeholder="Enter password" required>
+                                </div>
+                                <div class="mb-5">
+                                    <label for="department" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Department <span class="text-danger-600">*</span> </label>
+                                    <select class="form-control rounded-lg form-select bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700" id="department" name="department" required>
+                                        <option value="" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Select Department</option>
+                                        <option value="IT" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">IT</option>
+                                        <option value="HR" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">HR</option>
+                                        <option value="Finance" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Finance</option>
+                                        <option value="Marketing" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Marketing</option>
+                                        <option value="Sales" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Sales</option>
+                                    </select>
+                                </div>
+                                <div class="mb-5">
+                                    <label for="designation" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Designation <span class="text-danger-600">*</span> </label>
+                                    <select class="form-control rounded-lg form-select bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700" id="designation" name="designation" required>
+                                        <option value="" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Select Designation</option>
+                                        <option value="Manager" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Manager</option>
+                                        <option value="Developer" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Developer</option>
+                                        <option value="Designer" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Designer</option>
+                                        <option value="Analyst" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Analyst</option>
+                                        <option value="Executive" class="bg-white dark:bg-dark-2 text-neutral-900 dark:text-neutral-200">Executive</option>
+                                    </select>
+                                </div>
+                                <div class="flex items-center justify-center gap-3">
+                                    <button type="submit" class="btn btn-primary border border-primary-600 text-base px-14 py-3 rounded-lg">
+                                        Save
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+{% endblock %}
+
+{% block custom_script %}
+<script>
+// ======================== Upload Image Helper =====================
+    function readURL(input, previewElement) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                $(previewElement).css("background-image", "url(" + e.target.result + ")");
+                $(previewElement).hide().fadeIn(650);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+function attachImageUploadHandlers() {
+    $('.imageUpload').on('change', function () {
+        const preview = $(this).closest('.avatar-upload').find('#imagePreview');
+        readURL(this, preview);
+    });
+}
+// ======================== Main Script =====================
+$(document).ready(function() {
+    attachImageUploadHandlers();
+});
+</script>
+{% endblock %}
+

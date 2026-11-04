@@ -1,0 +1,282 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+<!-- SEO: page h1 -->
+<div class="rainbow-service-area" style="padding-top:150px;padding-bottom:30px;">
+    <div class="container">
+        <div class="row"><div class="col-lg-12 text-center">
+            <h1 class="title mb--20">MarketingTool Complete Guide</h1>
+            <p class="description">Learn how to use MarketingTool to automate Google Ads and Meta Ads with 8 AI models</p>
+        </div></div>
+    </div>
+</div>
+
+
+<!-- Start Guide Area -->
+<div class="rbt-utilize-area rainbow-section-gap-big">
+    <div class="container">
+        <div class="utilize-inner">
+            <div class="row g-5">
+                <div class="col-lg-3 order-2 order-lg-1">
+                    <div class="rbt-default-sidebar sticky-top rbt-shadow-box">
+                        <div class="inner">
+                            <div class="content-item-content">
+                                <div class="rbt-default-sidebar-wrapper">
+                                    <nav class="mainmenu-nav">
+                                        <ul class="dashboard-mainmenu rbt-default-sidebar-list">
+                                            <li class="has-submenu"><a class="collapse-btn" data-bs-toggle="collapse" href="#contentgen" role="button" aria-expanded="true" aria-controls="contentgen"><span>Content Generation</span></a>
+                                                <div class="show" id="contentgen">
+                                                    <ul class="submenu rbt-default-sidebar-list">
+                                                        <li><a href="#email-gen"><span>Email Generator</span></a></li>
+                                                        <li><a href="#ad-copy"><span>Ad Copy Generator</span></a></li>
+                                                        <li><a href="#social"><span>Social Media Content</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="has-submenu"><a class="collapse-btn collapsed" data-bs-toggle="collapse" href="#analytics" role="button" aria-expanded="false" aria-controls="analytics"><span>Analytics & Reporting</span></a>
+                                                <div class="collapse" id="analytics">
+                                                    <ul class="submenu rbt-default-sidebar-list">
+                                                        <li><a href="#dashboard"><span>Dashboard Overview</span></a></li>
+                                                        <li><a href="#metrics"><span>Key Metrics</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="has-submenu"><a class="collapse-btn collapsed" data-bs-toggle="collapse" href="#agents" role="button" aria-expanded="false" aria-controls="agents"><span>AI Marketing Agents</span></a>
+                                                <div class="collapse" id="agents">
+                                                    <ul class="submenu rbt-default-sidebar-list">
+                                                        <li><a href="#what-agents"><span>What are AI Agents?</span></a></li>
+                                                        <li><a href="#available-agents"><span>Available Agents</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li><a href="#integrations"><span>Integrations</span></a></li>
+                                            <li><a href="#ppc"><span>PPC Optimization</span></a></li>
+                                            <li><a href="{% url 'aiwave-help' %}"><span>Help and support</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 order-1 order-lg-2 inner-content pl--0">
+
+                    <!-- Content Generation Section -->
+                    <div id="contentgen_sec" class="single-inner-box">
+                        <h3 class="section-title">Content Generation</h3>
+                        
+                        <!-- Featured Image -->
+                        <div class="rbt-shadow-box overflow-hidden mb--30" style="border-radius: 12px;">
+                            <img src="/media/blog/new/blog-85.jpg" alt="MarketingTool Content Dashboard" style="width: 100%; height: auto; display: block;">
+                        </div>
+                        
+                        <div id="email-gen" class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Email Generator</h4>
+                                <div class="desc">
+                                    <p class="b1">Create compelling email campaigns with our AI. Simply describe your product/service and target audience, and get professionally written emails instantly.</p>
+                                    <h6>Features</h6>
+                                    <ul class="content-list">
+                                        <li>Subject line optimization for higher open rates</li>
+                                        <li>Multiple tone options (professional, casual, urgent)</li>
+                                        <li>A/B testing variants generation</li>
+                                        <li>Personalization tokens support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ad-copy" class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Ad Copy Generator</h4>
+                                <div class="desc">
+                                    <p class="b1">Generate high-converting ad copy for Google, Facebook, and Instagram campaigns with AI that understands your brand voice.</p>
+                                    <h6>Features</h6>
+                                    <ul class="content-list">
+                                        <li>Platform-specific formatting and character limits</li>
+                                        <li>Multiple headline and description variations</li>
+                                        <li>Call-to-action optimization</li>
+                                        <li>Competitor analysis and differentiation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="social" class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Social Media Content</h4>
+                                <div class="desc">
+                                    <p class="b1">Generate engaging social media posts for all platforms with optimized hashtags, emojis, and timing suggestions.</p>
+                                    <h6>Supported Platforms</h6>
+                                    <ul class="content-list">
+                                        <li>Facebook, Instagram, Twitter/X</li>
+                                        <li>LinkedIn professional posts</li>
+                                        <li>TikTok captions and scripts</li>
+                                        <li>Pinterest descriptions and YouTube video descriptions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Section -->
+                    <div id="analytics_sec" class="single-inner-box">
+                        <h3 class="section-title">Analytics & Reporting</h3>
+                        
+                        <!-- Analytics Image -->
+                        <div class="rbt-shadow-box overflow-hidden mb--30" style="border-radius: 12px;">
+                            <img src="/media/blog/new/blog-86.jpg" alt="Analytics Dashboard" style="width: 100%; height: auto; display: block;">
+                        </div>
+                        
+                        <div id="dashboard" class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Dashboard Overview</h4>
+                                <div class="desc">
+                                    <p class="b1">Your analytics dashboard provides real-time insights into campaign performance across all connected platforms in one unified view.</p>
+                                    <h6>Features</h6>
+                                    <ul class="content-list">
+                                        <li>Multi-platform data aggregation</li>
+                                        <li>Custom date range selection</li>
+                                        <li>Exportable reports (PDF, CSV, Excel)</li>
+                                        <li>Automated scheduled reports via email</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="metrics" class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Key Metrics</h4>
+                                <div class="desc">
+                                    <p class="b1">Track the most important metrics for your marketing campaigns with AI-powered insights.</p>
+                                    <h6>Metrics Tracked</h6>
+                                    <ul class="content-list">
+                                        <li>ROI and ROAS tracking with trends</li>
+                                        <li>Conversion rate analysis by source</li>
+                                        <li>Cost per acquisition (CPA) optimization</li>
+                                        <li>Click-through rates (CTR) benchmarking</li>
+                                        <li>Customer lifetime value (LTV) prediction</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Agents Section -->
+                    <div id="agents_sec" class="single-inner-box">
+                        <h3 class="section-title">AI Marketing Agents</h3>
+                        
+                        <!-- Team Image -->
+                        <div class="rbt-shadow-box overflow-hidden mb--30" style="border-radius: 12px;">
+                            <img src="/media/blog/new/blog-87.jpg" alt="AI Marketing Agents" style="width: 100%; height: auto; display: block;">
+                        </div>
+                        
+                        <div id="what-agents" class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">What are AI Agents?</h4>
+                                <div class="desc">
+                                    <p class="b1">AI Marketing Agents are autonomous systems that continuously monitor and optimize your campaigns 24/7 without manual intervention. They learn from your data and make intelligent decisions to improve performance.</p>
+                                    <h6>How They Work</h6>
+                                    <ul class="content-list">
+                                        <li>Connect your ad accounts to enable AI access</li>
+                                        <li>Set your goals (CPA, ROAS, conversions)</li>
+                                        <li>Enable agents and let them optimize automatically</li>
+                                        <li>Review AI recommendations and performance reports</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="available-agents" class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Available Agents</h4>
+                                <div class="desc">
+                                    <h6>Agent Types</h6>
+                                    <ul class="content-list">
+                                        <li><strong>Bid Optimizer:</strong> Automatically adjusts bids based on real-time performance data and competition</li>
+                                        <li><strong>Budget Allocator:</strong> Distributes budget across campaigns and ad sets for maximum ROI</li>
+                                        <li><strong>Keyword Manager:</strong> Discovers, adds, pauses, and optimizes keywords based on performance</li>
+                                        <li><strong>Ad Scheduler:</strong> Optimizes ad delivery times based on when your audience converts</li>
+                                        <li><strong>Creative Tester:</strong> Runs A/B tests and identifies winning creatives</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integrations Section -->
+                    <div id="integrations" class="single-inner-box">
+                        <h3 class="section-title">Integrations</h3>
+                        
+                        <!-- Meeting Image -->
+                        <div class="rbt-shadow-box overflow-hidden mb--30" style="border-radius: 12px;">
+                            <img src="/media/blog/new/blog-88.jpg" alt="Platform Integrations" style="width: 100%; height: auto; display: block;">
+                        </div>
+                        
+                        <div class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Supported Platforms</h4>
+                                <div class="desc">
+                                    <ul class="content-list">
+                                        <li><strong>Google Ads:</strong> Full campaign management and optimization</li>
+                                        <li><strong>Facebook/Meta Ads:</strong> Ad management, audience insights, and pixel tracking</li>
+                                        <li><strong>Instagram:</strong> Content scheduling, story ads, and analytics</li>
+                                        <li><strong>Shopify:</strong> E-commerce tracking, product feeds, and dynamic ads</li>
+                                        <li><strong>Google Analytics 4:</strong> Website performance and conversion tracking</li>
+                                        <li><strong>Microsoft Ads:</strong> Bing campaign management</li>
+                                    </ul>
+                                    <p class="b1 mt--20">Go to <strong>Settings > Integrations</strong> and click "Connect" next to each platform. Follow the OAuth flow to authorize MarketingTool.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PPC Section -->
+                    <div id="ppc" class="single-inner-box">
+                        <h3 class="section-title">PPC Optimization</h3>
+                        <div class="rbt-elements-area rbt-shadow-box">
+                            <div class="wrapper">
+                                <h4 class="title-sm">Keyword Research & Bid Management</h4>
+                                <div class="desc">
+                                    <p class="b1">Use our AI-powered keyword research tool to discover high-intent keywords with low competition. Set automated bidding rules or let our AI optimize bids based on your target CPA/ROAS.</p>
+                                    <h6>Quality Score Optimization</h6>
+                                    <ul class="content-list">
+                                        <li>Landing page relevance analysis and suggestions</li>
+                                        <li>Ad relevance scoring with improvement tips</li>
+                                        <li>Expected CTR predictions based on historical data</li>
+                                        <li>Negative keyword recommendations</li>
+                                    </ul>
+                                    <h6 class="mt--20">Best Practices</h6>
+                                    <ul class="content-list">
+                                        <li>Start with broad match keywords and refine based on data</li>
+                                        <li>Set up conversion tracking before enabling AI optimization</li>
+                                        <li>Review search terms report weekly for negative keywords</li>
+                                        <li>Use ad extensions to improve CTR and quality score</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start Call TO Action Area -->
+<div class="rainbow-callto-action rainbow-call-to-action style-8 content-wrapper rainbow-section-gapBottom">
+    <div class="container">
+        <div class="row row--0 align-items-center">
+            <div class="col-lg-12">
+                <div class="inner">
+                    <div class="content text-center">
+                        <h3 class="title">Need More Help?</h3>
+                        <p>Our support team is here to assist you with any questions.</p>
+                        <div class="call-to-btn text-center mt--30">
+                            <a class="rainbow-gradient-btn" href="/pricing/"><span>Get Started <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

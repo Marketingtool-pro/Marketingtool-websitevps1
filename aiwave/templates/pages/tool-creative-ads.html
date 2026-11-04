@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include 'partials/head.html' %}
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+<main class="page-wrapper">
+    <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+            <div class="row align-items-center row--0">
+                <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+                <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+                <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+            </div>
+        </div>
+    </header>
+    <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+    {% include 'partials/preloader.html' %}
+
+    <!-- Section 1: Hero -->
+    <div class="rainbow-service-area" style="padding-top:150px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h1 class="title mb--20">Creative & Ads Tools</h1><p class="description">AI-powered ad creation and creative automation for maximum ROI.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Create Ads Now</span></a></div></div>
+            <div class="row justify-content-center mt--40"><div class="col-lg-10"><video autoplay muted loop playsinline style="width:100%;max-height:450px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/creative-v1.mp4' %}" type="video/mp4"></video></div></div>
+        </div>
+    </div>
+
+    <!-- Section 2: QuickAds AI -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AI ADS</span></h4><h2 class="title">QuickAds AI Creation</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Auto ad generation</li><li><i class="fa-regular fa-circle-check"></i> Multi-format output</li><li><i class="fa-regular fa-circle-check"></i> Brand consistency</li><li><i class="fa-regular fa-circle-check"></i> A/B testing</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/creative-ads/quickads.jpeg' %}" alt="QuickAds" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Smart Automation -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/creative-v2.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AUTOMATION</span></h4><h2 class="title">Smart Ad Automation</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Chatbot integration</li><li><i class="fa-regular fa-circle-check"></i> Widget performance</li><li><i class="fa-regular fa-circle-check"></i> Lead capture</li><li><i class="fa-regular fa-circle-check"></i> Auto responses</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Business Modeling -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">BUSINESS</span></h4><h2 class="title">Future of Ad Modeling</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Idea to ad</li><li><i class="fa-regular fa-circle-check"></i> Creative templates</li><li><i class="fa-regular fa-circle-check"></i> Visual builder</li><li><i class="fa-regular fa-circle-check"></i> Export formats</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/creative-v3.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Creative Intelligence -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/creative-v4.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">CREATIVE AI</span></h4><h2 class="title">Creative Intelligence</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Design suggestions</li><li><i class="fa-regular fa-circle-check"></i> Color optimization</li><li><i class="fa-regular fa-circle-check"></i> Copy recommendations</li><li><i class="fa-regular fa-circle-check"></i> Performance insights</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Digital Marketing -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">DIGITAL MARKETING</span></h4><h2 class="title">Marketing Career Tools</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Campaign management</li><li><i class="fa-regular fa-circle-check"></i> Multi-platform ads</li><li><i class="fa-regular fa-circle-check"></i> Budget optimization</li><li><i class="fa-regular fa-circle-check"></i> ROI tracking</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/creative-v5.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Performance Boost -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/creative-v6.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">PERFORMANCE</span></h4><h2 class="title">Boost Ad Performance</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Real-time analytics</li><li><i class="fa-regular fa-circle-check"></i> Conversion tracking</li><li><i class="fa-regular fa-circle-check"></i> Audience insights</li><li><i class="fa-regular fa-circle-check"></i> Smart optimization</li></ul><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Get Started</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rainbow-cta-area" style="padding:50px 0 80px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h4 class="subtitle"><span class="theme-gradient">GET STARTED</span></h4><h2 class="title w-600 mb--20">Ready to Create Winning Ads?</h2><p class="description b1">Start creating high-converting ads with AI today.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+        </div>
+    </div>
+
+    
+    <!-- SEO/Content: AI Creative & Ads Tools — benefits grid -->
+    <div class="rainbow-service-area aiwave-bg-gradient" style="padding:80px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb--40">
+                    <h2 class="title">Why Choose AI Creative & Ads Tools</h2>
+                    <p class="description">AI creative tools for high-converting ad copy, images, and video scripts. A/B test creative variations at scale across Google Ads and Meta Ads.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-image" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">AI Image Generation</h5><p>Generate ad-ready images with DALL-E 3 and Stable Diffusion, branded to your style guide and product catalog.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-film" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Video Script Writing</h5><p>Scripts for 15s, 30s, and 60s video ads with hooks, body, and CTAs tuned for each platform.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-shuffle" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Creative Variations</h5><p>Generate 10+ variations from one winning creative — different headlines, angles, CTAs, and visuals.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-flask" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">A/B Test Automation</h5><p>Auto-launch creative tests, track performance, and promote winners without manual intervention.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-palette" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Brand Voice Training</h5><p>Train the AI on your brand voice from existing ads so new creative stays on-brand.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-chart-bar" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Creative Performance Analytics</h5><p>See which creative elements drive conversion — headline length, emoji use, color palette, CTA wording.</p></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO/Content: FAQ section -->
+    <div class="rainbow-service-area" style="padding:80px 0 60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faq_creative-ads">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_creative-ads_1" aria-expanded="false">What are AI Creative & Ads Tools?</button></h2></div><div id="faq_creative-ads_1" class="accordion-collapse collapse" data-bs-parent="#faq_creative-ads"><div class="accordion-body card-body">AI tools for generating high-converting ad copy, images, and video scripts for Google Ads, Meta Ads, and Instagram. Includes A/B testing and performance analytics.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_creative-ads_2" aria-expanded="false">Do you use DALL-E or Stable Diffusion?</button></h2></div><div id="faq_creative-ads_2" class="accordion-collapse collapse" data-bs-parent="#faq_creative-ads"><div class="accordion-body card-body">Both. MarketingTool routes image requests to DALL-E 3 for premium quality or Stable Diffusion for bulk generation, depending on your plan and use case.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_creative-ads_3" aria-expanded="false">Can I train on my brand voice?</button></h2></div><div id="faq_creative-ads_3" class="accordion-collapse collapse" data-bs-parent="#faq_creative-ads"><div class="accordion-body card-body">Yes. Upload 5-10 of your best-performing ads and the AI will match your tone, style, and structure in all new creative.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_creative-ads_4" aria-expanded="false">Can I cancel anytime?</button></h2></div><div id="faq_creative-ads_4" class="accordion-collapse collapse" data-bs-parent="#faq_creative-ads"><div class="accordion-body card-body">Yes. Monthly plans cancel anytime. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_creative-ads_5" aria-expanded="false">Which plan includes Creative & Ads Tools?</button></h2></div><div id="faq_creative-ads_5" class="accordion-collapse collapse" data-bs-parent="#faq_creative-ads"><div class="accordion-body card-body">Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: JSON-LD BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://marketingtool.pro/free-tools/"},{"@type":"ListItem","position":3,"name":"AI Creative & Ads Tools","item":"https://marketingtool.pro/tools/creative-ads/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are AI Creative & Ads Tools?","acceptedAnswer":{"@type":"Answer","text":"AI tools for generating high-converting ad copy, images, and video scripts for Google Ads, Meta Ads, and Instagram. Includes A/B testing and performance analytics."}},{"@type":"Question","name":"Do you use DALL-E or Stable Diffusion?","acceptedAnswer":{"@type":"Answer","text":"Both. MarketingTool routes image requests to DALL-E 3 for premium quality or Stable Diffusion for bulk generation, depending on your plan and use case."}},{"@type":"Question","name":"Can I train on my brand voice?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload 5-10 of your best-performing ads and the AI will match your tone, style, and structure in all new creative."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. Monthly plans cancel anytime. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"Which plan includes Creative & Ads Tools?","acceptedAnswer":{"@type":"Answer","text":"Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations."}}]}</script>
+
+    {% include 'partials/footer.html' %}
+    {% include 'partials/progressbar.html' %}
+</main>
+{% include 'partials/scripts.html' %}
+</body>
+</html>
+
+<!-- VideoObject schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "AI Creative & Ads Tools — MarketingTool",
+  "description": "Demo of MarketingTool AI creative and ads generation suite",
+  "thumbnailUrl": "https://marketingtool.pro/static/videos/creative-v1-thumb.jpg",
+  "contentUrl": "https://marketingtool.pro/static/videos/creative-v1.mp4",
+  "uploadDate": "2026-01-15",
+  "duration": "PT30S",
+  "publisher": { "@type": "Organization", "name": "MarketingTool", "logo": { "@type": "ImageObject", "url": "https://marketingtool.pro/static/images/logo/logo.jpeg" } }
+}
+</script>

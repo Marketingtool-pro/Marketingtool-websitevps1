@@ -1,0 +1,6 @@
+{% if initial_chat and initial_chat.session_id %}
+    <input type="hidden" id="initialSessionId" value="{{ initial_chat.session_id }}" />
+    <script>
+        window.INITIAL_SESSION_ID = "{{ initial_chat.session_id }}";
+    </script>
+{% endif %} 

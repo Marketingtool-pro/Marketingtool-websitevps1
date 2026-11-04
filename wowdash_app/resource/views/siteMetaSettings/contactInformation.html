@@ -1,0 +1,31 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+<div class="card border-0 max-w-3xl mx-auto">
+  <div class="card-header">
+    <h6 class="text-lg font-semibold mb-0">Contact Information</h6>
+  </div>
+  <div class="card-body">
+    <form method="POST" action="{% url 'contactInformationSettings' %}">
+      {% csrf_token %}
+      <ul class="space-y-4">
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Company Address</label>
+          <input type="text" name="company_address" value="{{ meta_vars.company_address }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Company Address">
+        </li>
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Contact Email</label>
+          <input type="email" name="contact_email" value="{{ meta_vars.contact_email }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Contact Email">
+        </li>
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Contact Phone</label>
+          <input type="text" name="contact_phone" value="{{ meta_vars.contact_phone }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Contact Phone">
+        </li>
+      </ul>
+      <div class="mt-6 text-right">
+        <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

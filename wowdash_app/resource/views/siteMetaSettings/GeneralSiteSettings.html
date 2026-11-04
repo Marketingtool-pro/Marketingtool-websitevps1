@@ -1,0 +1,151 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block content %}
+{% with display_style=meta_vars.site_img|yesno:'block,none' %}
+<div class="card border-0 max-w-3xl mx-auto">
+  <div class="card-header">
+    <h6 class="text-lg font-semibold mb-0">General Site Settings</h6>
+  </div>
+  <div class="card-body">
+    <form method="POST" action="{% url 'generalSiteSettings' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <ul class="space-y-4">
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Site Name *</label>
+          <input type="text" name="site_name" value="{{ meta_vars.site_name }}" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Site Name">
+        </li>
+        <li>
+          <label class="form-label text-gray-700 dark:text-gray-300">Site Description</label>
+          <textarea name="site_description" class="form-control w-full px-3 py-2 border border-neutral-200 dark:border-neutral-600 rounded" placeholder="Site Description">{{ meta_vars.site_description }}</textarea>
+        </li>
+        <li>
+          <div class="flex gap-4">
+            <div class="flex-1">
+              <label class="form-label text-gray-700 dark:text-gray-300">Site Image</label>
+              <div class="mt-2 mb-4">
+                  <img id="siteImgPreview"
+                      src="{% if meta_vars.site_img %}{{ meta_vars.site_img }}{% else %}{% static 'assets/images/logo-ai.png' %}{% endif %}"
+                      alt="Site Image" class="rounded" style="max-width: 120px;" {% if not meta_vars.site_img %}hidden{% endif %} />
+              </div>
+              <div class="relative w-max">
+                <input type="file" name="site_img" id="siteImgInput" accept="image/*"
+                       class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                <label for="siteImgInput"
+                       class="inline-block px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer font-semibold shadow">
+                  <i class="fa fa-upload mr-2"></i>Choose File
+                </label>
+                <span id="siteImgFileName" class="ml-3 text-sm text-gray-500"></span>
+              </div>
+            </div>
+            
+            <div class="flex-1">
+              <label class="form-label text-gray-700 dark:text-gray-300">Small Logo</label>
+              <div class="mt-2 mb-4">
+                <img id="smallLogoPreview"
+                  src="{% if meta_vars.small_logo %}{{ meta_vars.small_logo }}{% else %}{% static 'assets/images/logo-ai.png' %}{% endif %}"
+                  alt="Small Logo" class="rounded" style="max-width: 120px;" {% if not meta_vars.small_logo %}hidden{% endif %} />
+              </div>
+              <div class="relative w-max">
+                <input type="file" name="small_logo" id="smallLogoInput" accept="image/*"
+                  class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                <label for="smallLogoInput"
+                  class="inline-block px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer font-semibold shadow">
+                  <i class="fa fa-upload mr-2"></i>Choose File
+                </label>
+                <span id="smallLogoFileName" class="ml-3 text-sm text-gray-500"></span>
+              </div>
+            </div>
+
+            <div class="flex-1">
+              <label class="form-label text-gray-700 dark:text-gray-300">Favicon Logo</label>
+              <div class="mt-2 mb-4">
+                <img id="faviconLogoPreview"
+                  src="{% if meta_vars.favicon_logo %}{{ meta_vars.favicon_logo }}{% else %}{% static 'assets/images/logo-ai.png' %}{% endif %}"
+                  alt="Favicon Logo" class="rounded" style="max-width: 120px;" {% if not meta_vars.favicon_logo %}hidden{% endif %} />
+              </div>
+              <div class="relative w-max">
+                <input type="file" name="favicon_logo" id="faviconLogoInput" accept="image/*"
+                  class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                <label for="faviconLogoInput"
+                  class="inline-block px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer font-semibold shadow">
+                  <i class="fa fa-upload mr-2"></i>Choose File
+                </label>
+                <span id="faviconLogoFileName" class="ml-3 text-sm text-gray-500"></span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="mt-6 text-right">
+        <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endwith %}
+{% endblock %}
+
+{% block custom_script %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Generic function to handle file input with preview
+  function initializeFilePreview(inputId, previewId, fileNameId) {
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    const fileName = document.getElementById(fileNameId);
+    
+    if (!input || !preview || !fileName) {
+      console.warn(`Missing elements for file preview: ${inputId}, ${previewId}, ${fileNameId}`);
+      return;
+    }
+    
+    input.addEventListener('change', function() {
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        
+        // Create object URL for preview
+        const objectUrl = URL.createObjectURL(file);
+        preview.src = objectUrl;
+        
+        // Show preview
+        preview.style.display = 'block';
+        preview.hidden = false;
+        
+        // Show file name
+        fileName.textContent = file.name;
+        
+        // Clean up object URL when preview is loaded
+        preview.onload = function() {
+          URL.revokeObjectURL(objectUrl);
+        };
+      }
+    });
+  }
+
+  // Configuration for all file inputs
+  const fileInputs = [
+    {
+      inputId: 'siteImgInput',
+      previewId: 'siteImgPreview',
+      fileNameId: 'siteImgFileName'
+    },
+    {
+      inputId: 'smallLogoInput',
+      previewId: 'smallLogoPreview',
+      fileNameId: 'smallLogoFileName'
+    },
+    {
+      inputId: 'faviconLogoInput',
+      previewId: 'faviconLogoPreview',
+      fileNameId: 'faviconLogoFileName'
+    }
+  ];
+
+  // Initialize all file previews
+  fileInputs.forEach(function(config) {
+    initializeFilePreview(config.inputId, config.previewId, config.fileNameId);
+  });
+});
+</script>
+{% endblock %}
+

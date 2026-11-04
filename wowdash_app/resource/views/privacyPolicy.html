@@ -1,0 +1,77 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+    <div class="bg-neutral-50 dark:bg-neutral-800 min-h-screen py-4">
+        {% csrf_token %}
+        <div class="card basic-data-table rounded-xl overflow-hidden border-0 bg-white dark:bg-neutral-700">
+            <div class="card-body p-0 text-secondary-light dark:text-neutral-200">
+                <!-- Editor Toolbar Start -->
+                <div id="toolbar-container">
+                    <span class="ql-formats">
+                        <select class="ql-font bg-neutral-100 dark:bg-neutral-700 text-secondary-light dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600"></select>
+                        <select class="ql-size"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-bold bg-neutral-100 dark:bg-neutral-700 text-secondary-light dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600"></button>
+                        <button class="ql-italic"></button>
+                        <button class="ql-underline"></button>
+                        <button class="ql-strike"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <select class="ql-color"></select>
+                        <select class="ql-background"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-script" value="sub"></button>
+                        <button class="ql-script" value="super"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-header" value="1"></button>
+                        <button class="ql-header" value="2"></button>
+                        <button class="ql-blockquote"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-list" value="ordered"></button>
+                        <button class="ql-list" value="bullet"></button>
+                        <button class="ql-indent" value="-1"></button>
+                        <button class="ql-indent" value="+1"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-direction" value="rtl"></button>
+                        <select class="ql-align"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-link"></button>
+                        <button class="ql-image"></button>
+                        <button class="ql-video"></button>
+                        <button class="ql-formula"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-clean"></button>
+                    </span>
+                </div>
+                <!-- Editor Toolbar Start -->
+                <!-- Editor start -->
+                <div id="editor"></div>
+
+                <!-- Edit End -->
+
+            </div>
+
+            <div class="card-footer p-6 bg-white dark:bg-neutral-700 border border-b border-neutral-200 dark:border-neutral-600 border-end-0 border-start-0">
+                <div class="flex items-center justify-center gap-3">
+                    <button type="button" class="border border-danger-600 bg-hover-danger-200 text-danger-600 text-base px-[50px] py-[11px] rounded-lg">
+                        Cancel
+                    </button>
+                    <button type="button" id="save-privacy" class="btn btn-primary border border-primary-600 text-base px-7 py-3 rounded-lg">
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script>
+    window.INITIAL_PRIVACY_CONTENT = "{{ privacy_content|escapejs }}";
+</script>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid bg-neutral-50 dark:bg-neutral-800 min-h-screen py-4">
+    <div class="row">
+        <div class="col-12">
+            <!-- Message Details Section (Initially Hidden) -->
+            <div id="messageDetails" class="card mb-4" style="display: none;">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h5 class="mb-0 text-neutral-800 dark:text-white" id="detailName"></h5>
+                                <small class="text-neutral-600 dark:text-neutral-300" id="detailEmail"></small>
+                                <div class="mb-2">
+                                    <span class="text-neutral-600 dark:text-neutral-300">
+                                        <i class="fas fa-phone me-1"></i><span id="detailPhone"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-50 dark:bg-neutral-800 p-3 rounded mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h6 class="mb-0 text-primary-600 dark:text-primary-400" id="detailSubject"></h6>
+                            <span class="text-neutral-600 dark:text-neutral-300 small" id="detailDate"></span>
+                        </div>
+
+                    </div>
+                    <div class="bg-white dark:bg-neutral-900 p-3 rounded">
+                        <p id="detailMessage" class="mb-0 text-neutral-700 dark:text-neutral-200"></p>
+                    </div>
+                    <div class="mt-3 text-end">
+                        <button type="button" class="btn btn-sm btn-light dark:bg-neutral-700 dark:text-white" onclick="hideMessageDetails()">
+                            <i class="fas fa-times"></i> close
+                        </button>
+                        <button type="button" class="btn btn-primary toggle-read-btn d-none">
+                            <i class="fas fa-check me-1"></i> <span class="toggle-read-label">Mark as Read</span>
+                        </button>
+                        <button type="button" class="btn btn-danger delete-btn d-none">
+                            <i class="fas fa-trash me-1"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquiries List -->
+            <div class="card border-0 rounded-2xl shadow-lg bg-white dark:bg-neutral-700">
+                <div class="card-header border-b border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-700 py-4 px-6 flex items-center flex-wrap gap-3 justify-between">
+                    <div class="flex items-center flex-wrap gap-3">
+                        <div class="filter-section mb-0">
+                            {% if show_unread %}
+                                <a href="?unread=false" class="btn btn-secondary">
+                                    Show All
+                                </a>
+                            {% else %}
+                                <a href="?unread=true" class="btn btn-primary">
+                                    Show Unread
+                                </a>
+                            {% endif %}
+                        </div>
+                        <form method="post" action="{% url 'deleteAllReadInquiries' %}" class="d-inline-block mb-0">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete all read inquiries?');">
+                                <i class="fas fa-trash me-1"></i> Delete All Read
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-hover">
+                            <thead class="sticky-top bg-white">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for query in queries %}
+                                <tr id="query-{{ query.id }}" class="{% if not query.is_read %}bg-light-blue{% endif %}">
+                                    <td>{{ query.name }}</td>
+                                    <td>{{ query.email }}</td>
+                                    <td>{{ query.phone }}</td>
+                                    <td>{{ query.subject }}</td>
+                                    <td>{{ query.created_at|date:"M d, Y H:i" }}</td>
+                                    <td>
+                                        {% if query.is_read %}
+                                            <span class="badge bg-secondary">Read</span>
+                                        {% else %}
+                                            <span class="badge bg-primary">Unread</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary rounded-pill view-message" 
+                                                data-query-id="{{ query.id }}"
+                                                data-name="{{ query.name }}"
+                                                data-email="{{ query.email }}"
+                                                data-phone="{{ query.phone }}"
+                                                data-subject="{{ query.subject }}"
+                                                data-message="{{ query.message }}"
+                                                data-date="{{ query.created_at|date:'M d, Y H:i' }}">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="7" class="text-center">No inquiries found</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

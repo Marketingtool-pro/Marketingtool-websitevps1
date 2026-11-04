@@ -1,0 +1,59 @@
+
+
+<!-- flotingalerts.html -->
+<div style="position: fixed; top: 14%; left: 50%; transform: translate(-50%,-50%); z-index: 9999; width:500px;">
+  {% if messages %}
+    {% for message in messages %}
+      {% if "primary" in message.tags %}
+      <div class="alert alert-primary bg-primary-100 dark:bg-primary-600/25 text-primary-600 dark:text-primary-400 border-primary-50 px-6 py-[11px] mb-0 font-semibold text-lg rounded-lg flex items-center justify-between" role="alert">
+        <div class="flex items-center gap-2">
+            <iconify-icon icon="mingcute:emoji-line" class="icon text-xl"></iconify-icon>
+          <span>{{ message }}</span>
+          </div>
+          <button class="remove-button text-primary-600 text-2xl line-height-1"> <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+      </div>
+      {% elif "secondary" in message.tags %}
+      <div class="alert alert-purple bg-purple-100 dark:bg-purple-600/25 text-purple-600 dark:text-purple-400 border-purple-100 px-6 py-[11px] mb-0 font-semibold text-lg rounded-lg flex items-center justify-between" role="alert">
+        <div class="flex items-center gap-2">
+            <iconify-icon icon="mingcute:emoji-line" class="icon text-xl"></iconify-icon>
+          <span>{{ message }}</span>
+          </div>
+          <button class="remove-button text-purple-600 dark:text-purple-400 text-2xl line-height-1"> <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+      </div>
+      {% elif "warning" in message.tags %}
+      <div class="alert alert-warning bg-warning-100 dark:bg-warning-600/25 text-warning-600 dark:text-warning-400 border-warning-100 px-6 py-[11px] mb-0 font-semibold text-lg rounded-lg flex items-center justify-between" role="alert">
+        <div class="flex items-center gap-2">
+            <iconify-icon icon="mdi:alert-circle-outline" class="icon text-xl"></iconify-icon>
+          <span>{{ message }}</span>
+          </div>
+          <button class="remove-button text-warning-600 text-2xl line-height-1"> <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+      </div>
+      {% elif "info" in message.tags %}
+      <div class="alert alert-info bg-info-100 dark:bg-info-600/25 text-info-600 dark:text-info-400 border-info-100 px-6 py-[11px] mb-0 font-semibold text-lg rounded-lg flex items-center justify-between" role="alert">
+        <div class="flex items-center gap-2">
+            <iconify-icon icon="ci:link" class="icon text-xl"></iconify-icon>
+          <span>{{ message }}</span>
+          </div>
+          <button class="remove-button text-info-600 text-2xl line-height-1"> <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+      </div>
+      {% elif "danger" in message.tags %}
+      <div class="alert alert-danger bg-danger-100 dark:bg-danger-600/25 text-danger-600 dark:text-danger-400 border-danger-100 px-6 py-[11px] mb-0 font-semibold text-lg rounded-lg flex items-center justify-between" role="alert">
+        <div class="flex items-center gap-2">
+            <iconify-icon icon="mingcute:delete-2-line" class="icon text-xl"></iconify-icon>
+          <span>{{ message }}</span>
+          </div>
+          <button class="remove-button text-danger-600 text-2xl line-height-1"> <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+      </div>
+      {% elif "success" in message.tags %}
+      <div class="alert alert-success bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 border-success-100 px-6 py-[11px] mb-0 font-semibold text-lg rounded-lg flex items-center justify-between" role="alert">
+        <div class="flex items-center gap-2">
+            <iconify-icon icon="akar-icons:double-check" class="icon text-xl"></iconify-icon>
+          <span>{{ message }}</span>
+          </div>
+          <button class="remove-button text-success-600 text-2xl line-height-1"> <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+      </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+

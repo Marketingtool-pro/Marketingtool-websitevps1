@@ -1,0 +1,51 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-content">
+    <div class="rainbow-privacy-policy-area rainbow-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="privacy-policy-wrapper">
+                        <div class="policy-header mb--40">
+                            <h1 class="title">Release Notes</h1>
+                            <p class="description">Stay up to date with the latest improvements, new features, and bug fixes for MarketingTool.</p>
+                        </div>
+
+                        {% for note in release_notes|dictsortreversed:"version" %}
+                        <div class="policy-section mb--40" id="v{{ note.version|slugify }}">
+                            <div class="row align-items-start">
+                                <div class="col-lg-3 mb--20">
+                                    <h5 class="title" style="color: #805AF5;">v{{ note.version }}</h5>
+                                    <p class="description"><strong>{{ note.release_date|date:"d F Y" }}</strong></p>
+                                    <p class="description">{{ note.heading }}</p>
+                                </div>
+                                <div class="col-lg-9">
+                                    {% for key, items in note.features.items %}
+                                        {% for item in items %}
+                                            <p class="description">
+                                                <span style="display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-right: 8px; color: #fff; {% if key == 'fixed' %}background: #e74c3c;{% elif key == 'updated' %}background: #3498db;{% elif key == 'improved' %}background: #2ecc71;{% elif key == 'added' %}background: #805AF5;{% else %}background: #95a5a6;{% endif %}">
+                                                    {{ key|upper }}
+                                                </span>
+                                                {{ item }}
+                                            </p>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <hr style="border-color: rgba(255,255,255,0.1); margin-top: 30px;">
+                        </div>
+                        {% empty %}
+                        <div class="policy-section mb--40">
+                            <p class="description text-center">No release notes available yet. Check back soon!</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

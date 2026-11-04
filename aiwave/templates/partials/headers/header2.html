@@ -1,0 +1,78 @@
+  {% load static %}
+  <!-- Start Header Area  -->
+  <header class="rainbow-header header-default header-transparent header-sticky">
+    <div class="container position-relative">
+        <div class="row align-items-center row--0">
+            <div class="col-lg-2 col-md-6 col-6">
+                <div class="logo">
+                    <a href="/">
+                        <img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool Logo" style="max-height:36px;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-7 d-none d-lg-block">
+                <nav class="mainmenu-nav d-none d-lg-flex justify-content-center">
+                    {% include '../mainMenuItem.html' %}
+                </nav>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 position-static">
+                <div class="header-right d-flex align-items-center justify-content-end">
+                    {% if user.is_authenticated %}
+                    <div class="header-btn">
+                        <a class="btn-default btn-small" href="https://app.marketingtool.pro"><span>Dashboard</span></a>
+                    </div>
+                    <div class="header-btn ml--10">
+                        <form method="POST" action="{% url 'aiwave-logout' %}" style="margin: 0">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-default btn-small btn-border" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;">
+                                <span>Logout</span>
+                            </button>
+                        </form>
+                    </div>
+                    {% else %}
+                    <div class="header-btn">
+                        <a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a>
+                    </div>
+                    {% endif %}
+                    <div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none">
+                        <div class="hamberger">
+                            <button class="hamberger-button">
+                                <i class="fa-sharp fa-regular fa-bars"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End Header Area  -->
+<div class="popup-mobile-menu">
+    <div class="inner-popup">
+        <div class="header-top">
+            <div class="logo">
+                <a href="/">
+                    <img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool Logo">
+                </a>
+            </div>
+            <div class="close-menu">
+                <button class="close-button">
+                    <i class="fa-sharp fa-regular fa-x"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            {% include '../mainMenuItem.html' %}
+
+            <div class="rbt-sm-separator"></div>
+            {% include '../navbarLinks.html' %}
+        </div>
+
+        <div class="header-btn d-block d-md-none">
+            <a class="rainbow-gradient-btn" href="https://app.marketingtool.pro" style="width: 100%; text-align: center;"><span>Get Started Free</span></a>
+        </div>
+    </div>
+</div>

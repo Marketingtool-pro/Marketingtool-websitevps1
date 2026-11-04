@@ -1,0 +1,131 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="rainbow-blog-section rainbow-section-gap-big bg-color-1">
+    <div class="container">
+        <div class="row row--30">
+            <div class="col-lg-8">
+                <div class="rainbow-blog-details-area">
+                    <div class="post-page-banner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="content text-center">
+                                        <div class="thumbnail"><video class="w-100 radius" autoplay loop muted playsinline><source src="{% static 'videos/ad-library/ai-business-video-5.mp4' %}" type="video/mp4"></video></div>
+                                        <ul class="rainbow-meta-list">
+                                            <li><i class="feather-user"></i><a href="#">MarketingTool Team</a></li>
+                                            <li><i class="feather-calendar"></i>19 Jan 2026</li>
+                                            <li><i class="feather-eye"></i>Content</li>
+                                            <li><i class="feather-tag"></i><a href="{% url 'aiwave-index' %}" class="category-link">Marketing Solutions</a></li>
+                                        </ul>
+                                        <h1 class="title">Summary Generator: Condense Complex Marketing Data Into Clear, Actionable Summaries</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-details-content pt--40 rainbow-section-gapBottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="content">
+                                        <h3>Transform Walls of Data and Reports Into Executive-Ready Summaries in Seconds</h3>
+                                        <p>Marketing teams drown in data. Campaign reports, analytics dashboards, competitor analyses, meeting notes, and research documents pile up faster than anyone can read them. The MarketingTool Summary Generator uses AI to distill lengthy content into concise, structured summaries that capture the essential insights, recommendations, and action items. Whether you need to brief a client, update your team, or prepare an executive report, the generator extracts what matters and presents it in a format that drives decisions.</p>
+
+                                        <h4>Campaign Performance Summaries That Executives Actually Read</h4>
+                                        <p>Raw campaign data means nothing to stakeholders who need to understand business impact. Our generator transforms detailed performance reports into executive summaries that lead with key outcomes, highlight wins and concerns, and present clear recommendations. It automatically identifies the most significant metrics, calculates period-over-period changes, and frames everything in business language rather than platform jargon. The output is structured for quick scanning with bullet points, bold highlights, and a priority-ordered recommendation section.</p>
+                                        <ul class="list-style--1">
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Automated extraction of key performance metrics from detailed campaign reports</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Period-over-period comparison calculations presented in business language</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Win and concern identification with context for each highlighted metric</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Priority-ordered recommendations section with expected impact per action</li>
+                                        </ul>
+
+                                        <div class="thumbnail mt--30 mb--30"><video class="w-100 radius" autoplay loop muted playsinline><source src="{% static 'videos/summary-v2.mp4' %}" type="video/mp4"></video></div>
+
+                                        <h4>Competitor and Market Research Condensation</h4>
+                                        <p>Competitive intelligence reports and market research documents are essential for strategic planning but often run dozens of pages long. Our generator identifies the strategically relevant findings, competitive threats, market opportunities, and actionable takeaways from any research document. It separates signal from noise, grouping related insights together and highlighting the findings most relevant to your specific business situation and marketing objectives.</p>
+                                        <ul class="list-style--1">
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Competitive threat identification and prioritization from research documents</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Market opportunity extraction with relevance scoring for your business</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Strategic insight grouping that connects related findings across sources</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Actionable takeaway lists ordered by potential business impact</li>
+                                        </ul>
+
+                                        <h4>Meeting Notes and Strategy Document Summaries</h4>
+                                        <p>Marketing meetings generate ideas, decisions, and action items that get lost in unstructured notes. Our generator processes meeting transcripts and notes to produce clean summaries with decisions made, action items assigned, deadlines set, and open questions flagged. For strategy documents, it extracts the core strategy, key assumptions, success metrics, and resource requirements into a one-page overview that anyone can understand without reading the full document.</p>
+                                        <ul class="list-style--1">
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Meeting summary extraction with decisions, action items, and owners</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Strategy document distillation into core objectives and key assumptions</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Deadline and milestone tracking from unstructured document content</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Open question flagging for items requiring follow-up or additional input</li>
+                                        </ul>
+
+                                        <h4>Multi-Format Output for Different Audiences</h4>
+                                        <p>Different stakeholders need different levels of detail. Our generator produces summaries in multiple formats from the same source material. Executive briefs for C-suite leadership focus on business outcomes and ROI. Team summaries include tactical details and next steps. Client-facing reports use professional language with visual-friendly formatting. Slack-ready updates condense everything into a few key bullet points for quick channel posts.</p>
+                                        <ul class="list-style--1">
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Executive brief format focused on business outcomes and strategic implications</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Team summary format with tactical details and assigned next steps</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Client-facing report format with professional language and clear structure</li>
+                                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Quick-update format for Slack, email, or chat-based team communication</li>
+                                        </ul>
+
+                                        <h4>What You Get With the Summary Generator</h4>
+                                        <ul class="list-style--1">
+                                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> AI-powered distillation of long reports into concise, structured summaries</li>
+                                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Campaign performance summaries with metrics, trends, and recommendations</li>
+                                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Competitor research condensation highlighting threats and opportunities</li>
+                                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Meeting notes processing with action items and decision tracking</li>
+                                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Multiple output formats for executives, teams, clients, and quick updates</li>
+                                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Source material analysis preserving context while eliminating redundancy</li>
+                                        </ul>
+
+                                        <div class="mt--40 text-center">
+                                            <a class="btn-default btn-large" href="/pricing/"><span>Generate Your First Summary</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt_md--40 mt_sm--40">
+                <aside class="rainbow-sidebar">
+                    <div class="rbt-single-widget widget_search mt--40"><div class="inner"><form class="blog-search" action="#" method="GET"><input type="text" name="search" placeholder="Search ..."><button type="submit" class="search-button"><i class="feather-search"></i></button></form></div></div>
+                    <div class="rbt-single-widget widget_categories mt--40"><h3 class="title">Categories</h3><div class="inner"><ul class="category-list"><li><a href="#"><span class="left-content">Google Ads</span><span class="count-text">5</span></a></li><li><a href="#"><span class="left-content">Meta Ads</span><span class="count-text">4</span></a></li><li><a href="#"><span class="left-content">Campaign Management</span><span class="count-text">3</span></a></li><li><a href="#"><span class="left-content">Analytics</span><span class="count-text">4</span></a></li><li><a href="#"><span class="left-content">AI Tools</span><span class="count-text">6</span></a></li><li><a href="#"><span class="left-content">App Google Ads</span><span class="count-text">5</span></a></li><li><a href="#"><span class="left-content">SEO</span><span class="count-text">2</span></a></li><li><a href="#"><span class="left-content">Automation</span><span class="count-text">3</span></a></li></ul></div></div>
+                    <div class="rbt-single-widget widget_recent_entries mt--40"><h3 class="title">Post</h3><div class="inner"><ul><li><div class="list-blog-sm"><div class="img"><img src="{% static 'images/content-writing/seo-blogging.jpeg' %}" alt="Summary Generator"></div><div class="content"><a class="d-block" href="#">Summary Generator</a><span class="cate">Content Marketing</span></div></div></li><li><div class="list-blog-sm"><div class="img"><img src="{% static 'images/content-writing/sudowrite.jpeg' %}" alt="Content Condensation AI"></div><div class="content"><a class="d-block" href="#">Content Condensation AI</a><span class="cate">AI Tools</span></div></div></li><li><div class="list-blog-sm"><div class="img"><img src="{% static 'images/content-writing/ai-content.jpeg' %}" alt="Quick Brief Creator"></div><div class="content"><a class="d-block" href="#">Quick Brief Creator</a><span class="cate">SEO</span></div></div></li></ul></div></div>
+                    <div class="rbt-single-widget widget_archive mt--40"><h3 class="title">Archives</h3><div class="inner"><ul class="category-list"><li><a href="#">15 Mar 2026</a></li><li><a href="#">28 Feb 2026</a></li><li><a href="#">20 Jan 2026</a></li><li><a href="#">10 Dec 2025</a></li><li><a href="#">18 Nov 2025</a></li><li><a href="#">05 Oct 2025</a></li><li><a href="#">22 Sep 2025</a></li></ul></div></div>
+                    <div class="rbt-single-widget widget_tag_cloud mt--40"><h3 class="title">Tags</h3><div class="inner"><div class="tagcloud"><a href="#">Google Ads</a><a href="#">Meta Ads</a><a href="#">AI Marketing</a><a href="#">Campaign Optimization</a><a href="#">ROAS</a><a href="#">Ad Creative</a><a href="#">PPC</a><a href="#">Analytics</a><a href="#">Automation</a><a href="#">SEO</a><a href="#">Content Marketing</a><a href="#">Lead Generation</a></div></div></div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- SEO/Content: FAQ section (dynamic per mainTitle) -->
+    <div class="rainbow-service-area" style="padding:60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faqGeneric">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG1">What is {{ mainTitle }}?</button></h2></div><div id="faqG1" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">{{ mainTitle }} is part of the MarketingTool.Pro AI Marketing Operating System, helping performance marketers automate Google Ads, Meta Ads, and campaign workflows with 10 AI models.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG2">Who is {{ mainTitle }} for?</button></h2></div><div id="faqG2" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Performance marketers, agencies, and e-commerce brands who manage Google Ads, Meta Ads, Instagram, or multi-channel campaigns and want AI-driven automation and analytics.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG3">How do I get started?</button></h2></div><div id="faqG3" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Start your 7-day free trial, connect your ad accounts via OAuth, and MarketingTool begins analyzing and optimizing immediately. No credit card required to start.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG4">Can I cancel anytime?</button></h2></div><div id="faqG4" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Yes. All plans are month-to-month — cancel anytime from account settings. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG5">What plans include {{ mainTitle }}?</button></h2></div><div id="faqG5" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"{{ mainTitle|escapejs }}","item":"https://marketingtool.pro{{ request.path }}"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is {{ mainTitle|escapejs }}?","acceptedAnswer":{"@type":"Answer","text":"{{ mainTitle|escapejs }} is part of the MarketingTool.Pro AI Marketing Operating System, helping performance marketers automate Google Ads, Meta Ads, and campaign workflows with 10 AI models."}},{"@type":"Question","name":"Who is {{ mainTitle|escapejs }} for?","acceptedAnswer":{"@type":"Answer","text":"Performance marketers, agencies, and e-commerce brands who manage Google Ads, Meta Ads, Instagram, or multi-channel campaigns and want AI-driven automation and analytics."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Start your 7-day free trial, connect your ad accounts via OAuth, and MarketingTool begins analyzing and optimizing immediately. No credit card required to start."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. All plans are month-to-month, cancel anytime from account settings. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"What plans include {{ mainTitle|escapejs }}?","acceptedAnswer":{"@type":"Answer","text":"Included in Professional, All Tools, and Agency plans. Starter includes limited usage. 7-day free trial for all plans."}}]}</script>
+
+{% endblock content %}

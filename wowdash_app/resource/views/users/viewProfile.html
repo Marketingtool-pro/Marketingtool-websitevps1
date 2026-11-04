@@ -1,0 +1,264 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-neutral-100 dark:bg-neutral-800">
+        <div class="col-span-12 lg:col-span-4">
+            <div class="user-grid-card relative border border-neutral-300 dark:border-neutral-700 rounded-2xl overflow-hidden bg-white dark:bg-dark-2 h-full">
+                <img src="{% static 'assets/images/user-grid/user-grid-bg1.png' %}" alt="" class="w-full object-fit-cover">
+                <div class="pb-6 ms-6 mb-6 me-6 -mt-[100px]">
+                    <div class="text-center border-b border-neutral-300 dark:border-neutral-700">
+                        {% if user.profile.profile_picture %}
+                            <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="border br-white border-width-2-px w-200-px h-[200px] rounded-full object-fit-cover mx-auto">
+                        {% else %}
+                            <img src="{% static 'assets/images/user-grid/user-grid-img14.png' %}" alt="Default Profile Picture" class="border br-white border-width-2-px w-200-px h-[200px] rounded-full object-fit-cover mx-auto">
+                        {% endif %}
+                        <h6 class="mb-0 mt-4 text-neutral-900 dark:text-white">{{ request.user.username }}</h6>
+                        <span class="text-secondary-light dark:text-neutral-200 mb-4">{{ request.user.email }}</span>
+                    </div>
+                    <div class="mt-6">
+                        <h6 class="text-xl mb-4 text-neutral-900 dark:text-white">Personal Info</h6>
+                        <ul>
+                            <li class="flex items-center gap-1 mb-3">
+                                <span class="w-[30%] text-base font-semibold text-neutral-900 dark:text-neutral-200">Full Name</span>
+                                <span class="w-[70%] text-secondary-light dark:text-neutral-200 font-medium">: {{ request.user.username }}</span>
+                            </li>
+                            <li class="flex items-center gap-1 mb-3">
+                                <span class="w-[30%] text-base font-semibold text-neutral-900 dark:text-neutral-200"> Email</span>
+                                <span class="w-[70%] text-secondary-light dark:text-neutral-200 font-medium">: {{ request.user.email }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 lg:col-span-8">
+            <div class="card h-full border-0 bg-white dark:bg-dark-2">
+                <div class="card-body p-6">
+
+                    <ul class="tab-style-gradient flex flex-wrap text-sm font-medium text-center mb-5" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                        <li class="" role="presentation">
+                            <button class="py-2.5 px-4 border-t-2 font-semibold text-base inline-flex items-center gap-3 text-neutral-700 dark:text-neutral-200" id="edit-profile-tab" data-tabs-target="#edit-profile" type="button" role="tab" aria-controls="edit-profile" aria-selected="false">
+                                Edit Profile
+                            </button>
+                        </li>
+                        <li class="" role="presentation">
+                            <button class="py-2.5 px-4 border-t-2 font-semibold text-base inline-flex items-center gap-3 text-neutral-700 dark:text-neutral-200 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="change-password-tab" data-tabs-target="#change-password" type="button" role="tab" aria-controls="change-password" aria-selected="false">
+                                Change Password
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div id="default-tab-content">
+                        <div class="hidden" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
+                            <form method="post" enctype="multipart/form-data" action="">
+                                {% csrf_token %}
+                                <div class="flex flex-row gap-8 mb-6 mt-4">
+                                    <!-- Profile Image Upload -->
+                                    <div class="avatar-upload flex-1 relative">
+                                        <div class="avatar-preview flex justify-center items-center">
+                                            <div class=" relative inline-block">
+                                                <div class="imagePreview">
+                                                    {% if user.profile.profile_picture %}
+                                                        <img id="profileImagePreview" src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="w-32 h-32 rounded-full object-cover border-2 border-neutral-300 shadow mx-auto" style="aspect-ratio: 1/1;" />
+                                                    {% else %}
+                                                        <img id="profileImagePreview" src="{% static 'assets/images/user-grid/user-grid-img14.png' %}" alt="Default Profile Picture" class="w-32 h-32 rounded-full object-cover border-2 border-neutral-300 shadow mx-auto" style="aspect-ratio: 1/1;" />
+                                                    {% endif %}
+                                                </div>
+                                                <div class="avatar-edit absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 z-10 cursor-pointer">
+                                                <input type='file' id="imageUpload1" name="imageUpload" class="imageUpload" accept=".png, .jpg, .jpeg" hidden>
+                                                    <label for="imageUpload1" class="w-8 h-8 flex justify-center items-center bg-primary-100 dark:bg-primary-600/25 text-primary-600 dark:text-primary-400 border border-primary-600 hover:bg-primary-100 text-lg rounded-full shadow">
+                                                    <iconify-icon icon="solar:camera-outline" class="icon"></iconify-icon>
+                                                </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center mt-2 font-semibold text-neutral-700 dark:text-neutral-200">Profile Image</div>
+                                    </div>
+                                    <!-- Chat Bot Image Upload -->
+                                    <div class="avatar-upload flex-1 relative">
+                                        <div class="avatar-preview flex justify-center items-center">
+                                            <div class="relative inline-block">
+                                                <div class="imagePreview">
+                                                    {% if bot_image %}
+                                                        <img id="chatBotImagePreview" src="{% if bot_image|slice:':1' == '/' %}{{ bot_image }}{% else %}/media/{{ bot_image }}{% endif %}" alt="Chat Bot Image" class="w-32 h-32 rounded-full object-cover border-2 border-neutral-300 shadow mx-auto" style="aspect-ratio: 1/1;" />
+                                                    {% else %}
+                                                        <img id="chatBotImagePreview" src="{% static 'assets/images/user-grid/user-grid-img14.png' %}" alt="Default Chat Bot Image" class="w-32 h-32 rounded-full object-cover border-2 border-neutral-300 shadow mx-auto" style="aspect-ratio: 1/1;" />
+                                                    {% endif %}
+                                                </div>
+                                                <div class="avatar-edit absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 z-10 cursor-pointer">
+                                                <input type='file' id="imageUpload2" name="chatBotImage" class="imageUpload" accept=".png, .jpg, .jpeg" hidden>
+                                                    <label for="imageUpload2" class="w-8 h-8 flex justify-center items-center bg-primary-100 dark:bg-primary-600/25 text-primary-600 dark:text-primary-400 border border-primary-600 hover:bg-primary-100 text-lg rounded-full shadow">
+                                                    <iconify-icon icon="solar:camera-outline" class="icon"></iconify-icon>
+                                                </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center mt-2 font-semibold text-neutral-700 dark:text-neutral-200">Chat Bot Image</div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-12 gap-x-6">
+                                    <div class="col-span-12 sm:col-span-6">
+                                        <div class="mb-5">
+                                            <label for="name" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Full Name <span class="text-danger-600">*</span></label>
+                                            <input type="text" name="username" value="{{ request.user.username }}" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="name" placeholder="Enter Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-span-12 sm:col-span-6">
+                                        <div class="mb-5">
+                                            <label for="email" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Email <span class="text-danger-600">*</span></label>
+                                            <input type="email" name="email" value="{{ request.user.email }}" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="email" placeholder="Enter email address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center gap-3">
+                                    <button type="reset" class="border border-danger-600 bg-hover-danger-200 text-danger-600 text-base px-14 py-[11px] rounded-lg">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-primary border border-primary-600 text-base px-14 py-3 rounded-lg">
+                                        Save
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="hidden" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
+                            <form id="changePasswordForm" method="post" action="{% url 'changePassword' %}">
+                                {% csrf_token %}
+                                <div class="mb-5">
+                                    <label for="current_password" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Current Password <span class="text-danger-600">*</span></label>
+                                    <div class="relative">
+                                        <input type="password" name="current_password" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="current_password" placeholder="Enter Current Password*" required>
+                                        <span class="toggle-password ri-eye-line cursor-pointer absolute end-0 top-1/2 -translate-y-1/2 me-4 text-secondary-light dark:text-neutral-200" data-toggle="#current_password"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-5">
+                                    <label for="new_password" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">New Password <span class="text-danger-600">*</span></label>
+                                    <div class="relative">
+                                        <input type="password" name="new_password" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="new_password" placeholder="Enter New Password*" required>
+                                        <span class="toggle-password ri-eye-line cursor-pointer absolute end-0 top-1/2 -translate-y-1/2 me-4 text-secondary-light dark:text-neutral-200" data-toggle="#new_password"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-5">
+                                    <label for="confirm_password" class="inline-block font-semibold text-neutral-900 dark:text-neutral-200 text-sm mb-2">Confirmed Password <span class="text-danger-600">*</span></label>
+                                    <div class="relative">
+                                        <input type="password" name="confirm_password" class="form-control rounded-lg bg-white dark:bg-dark-2 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700" id="confirm_password" placeholder="Confirm Password*" required>
+                                        <span class="toggle-password ri-eye-line cursor-pointer absolute end-0 top-1/2 -translate-y-1/2 me-4 text-secondary-light dark:text-neutral-200" data-toggle="#confirm_password"></span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center gap-3">
+                                    <button type="button" class="border border-danger-600 bg-hover-danger-200 text-danger-600 text-base px-14 py-[11px] rounded-lg" onclick="resetForm()">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-primary border border-primary-600 text-base px-14 py-3 rounded-lg">
+                                        Change Password
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+    {% block custom_script %}
+    <script>
+        // ======================== Upload Image Helper =====================
+        // Remove readURL and attachImageUploadHandlers
+
+        function setupImagePreview(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+            if (input && preview) {
+                input.addEventListener('change', function () {
+                    const [file] = input.files;
+                    if (file) {
+                        preview.src = URL.createObjectURL(file);
+                        preview.style.borderRadius = '9999px'; // Ensure circle
+                        preview.classList.add('rounded-full', 'object-cover');
+                    }
+                });
+            }
+        }
+
+        // ================== Password Show/Hide Helper =====================
+        function initializePasswordToggle(toggleSelector) {
+            $(toggleSelector).on("click", function () {
+                $(this).toggleClass("ri-eye-off-line");
+                var input = $($(this).attr("data-toggle"));
+                if (input.attr("type") === "password") {
+                    input.attr("type", "text");
+                } else {
+                    input.attr("type", "password");
+                }
+            });
+        }
+
+        // ================== Tabs Initialization =====================
+        function initializeTabs() {
+            const tabs = document.querySelectorAll('[data-tabs-toggle] button');
+            const tabContents = document.querySelectorAll('[role="tabpanel"]');
+            if (tabs.length > 0) {
+                tabs[0].classList.add('active');
+                const firstTabContent = document.querySelector(tabs[0].getAttribute('data-tabs-target'));
+                if (firstTabContent) {
+                    firstTabContent.classList.remove('hidden');
+                }
+            }
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.add('hidden'));
+                    tab.classList.add('active');
+                    const targetContent = document.querySelector(tab.getAttribute('data-tabs-target'));
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                });
+            });
+        }
+
+        // ================== Password Change Form Handler =====================
+        function handlePasswordChangeForm() {
+            $('#changePasswordForm').on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            resetForm();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        const response = xhr.responseJSON;
+                        alert(response && response.message ? response.message : 'An error occurred while changing password');
+                    }
+                });
+            });
+        }
+
+        function resetForm() {
+            $('#changePasswordForm')[0].reset();
+        }
+
+        // ================== Main Script =====================
+        $(document).ready(function () {
+            initializePasswordToggle(".toggle-password");
+            initializeTabs();
+            handlePasswordChangeForm();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setupImagePreview('imageUpload1', 'profileImagePreview');
+            setupImagePreview('imageUpload2', 'chatBotImagePreview');
+        });
+    </script>
+    {% endblock %}

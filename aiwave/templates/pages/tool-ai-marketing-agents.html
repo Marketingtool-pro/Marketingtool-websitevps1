@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include 'partials/head.html' %}
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+<main class="page-wrapper">
+    <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+            <div class="row align-items-center row--0">
+                <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+                <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+                <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+            </div>
+        </div>
+    </header>
+    <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+    {% include 'partials/preloader.html' %}
+
+    <!-- Section 1: Hero -->
+    <div class="rainbow-service-area" style="padding-top:150px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h1 class="title mb--20">AI Marketing Agents</h1><p class="description">Deploy intelligent AI agents that work 24/7 to optimize your campaigns.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+            <div class="row justify-content-center mt--40"><div class="col-lg-10"><img src="{% static 'images/ai-agents/hero.jpg' %}" alt="Dashboard" style="width:100%;max-height:400px;object-fit:cover;width:100%;border-radius:10px;"></div></div>
+        </div>
+    </div>
+
+    <!-- Section 2: Original Video 1 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">CAMPAIGN OPTIMIZATION</span></h4><h2 class="title">AI-Powered Automation</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Auto-optimize campaigns</li><li><i class="fa-regular fa-circle-check"></i> Smart targeting</li><li><i class="fa-regular fa-circle-check"></i> Budget allocation</li><li><i class="fa-regular fa-circle-check"></i> Performance analytics</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"><source src="{% static 'videos/agents-v3.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Original Video 2 -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"><source src="{% static 'videos/ai-agents-video-new-2.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">WHY AI AGENTS</span></h4><h2 class="title">Work Smarter, Scale Faster</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> 24/7 optimization</li><li><i class="fa-regular fa-circle-check"></i> Reduce work by 80%</li><li><i class="fa-regular fa-circle-check"></i> Improve ROAS 40%</li><li><i class="fa-regular fa-circle-check"></i> Scale effortlessly</li></ul><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Get Started</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: New Video 1 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AI AUTOMATION</span></h4><h2 class="title">30K/Month Passive System</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Automated income</li><li><i class="fa-regular fa-circle-check"></i> AI-powered scaling</li><li><i class="fa-regular fa-circle-check"></i> Passive revenue</li><li><i class="fa-regular fa-circle-check"></i> Smart optimization</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"><source src="{% static 'videos/agents-v1.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: New Video 2 -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"><source src="{% static 'videos/agents-v2.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">CHATGPT CHATBOTS</span></h4><h2 class="title">Custom AI Chatbots</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Business automation</li><li><i class="fa-regular fa-circle-check"></i> 24/7 support</li><li><i class="fa-regular fa-circle-check"></i> Lead generation</li><li><i class="fa-regular fa-circle-check"></i> Custom training</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: New Video 3 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AI ADVERTISING</span></h4><h2 class="title">AI Ads Creation</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Auto ad generation</li><li><i class="fa-regular fa-circle-check"></i> Smart targeting</li><li><i class="fa-regular fa-circle-check"></i> Creative optimization</li><li><i class="fa-regular fa-circle-check"></i> Performance tracking</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"><source src="{% static 'videos/agents-v6.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: New Video 4 -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"><source src="{% static 'videos/agents-v4.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">CONTENT STRATEGY</span></h4><h2 class="title">Visual Content Creation</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Engaging visuals</li><li><i class="fa-regular fa-circle-check"></i> Brand consistency</li><li><i class="fa-regular fa-circle-check"></i> Content scheduling</li><li><i class="fa-regular fa-circle-check"></i> Performance tracking</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 8: New Video 5 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">DATA ANALYTICS</span></h4><h2 class="title">AI Data Analysis</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Complex data analysis</li><li><i class="fa-regular fa-circle-check"></i> Predictive insights</li><li><i class="fa-regular fa-circle-check"></i> Smart reporting</li><li><i class="fa-regular fa-circle-check"></i> Decision support</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"><source src="{% static 'videos/agents-v5.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 9: Image -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><img src="{% static 'images/ai-agents/roi-focus.jpg' %}" alt="ROI-focused paid traffic campaign dashboard" style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">PAID TRAFFIC</span></h4><h2 class="title">ROI-Focused Campaigns</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> 150% ROI increase</li><li><i class="fa-regular fa-circle-check"></i> Smart bidding</li><li><i class="fa-regular fa-circle-check"></i> Conversion tracking</li><li><i class="fa-regular fa-circle-check"></i> Cost optimization</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 10: Image 2 -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">SOCIAL MARKETING</span></h4><h2 class="title">Future of Marketing</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> AI-powered tools</li><li><i class="fa-regular fa-circle-check"></i> Automation</li><li><i class="fa-regular fa-circle-check"></i> Smart insights</li><li><i class="fa-regular fa-circle-check"></i> Growth hacking</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/ai-agents/section2.jpg' %}" alt="AI-powered social marketing tools and automation" style="width:100%;max-height:350px;object-fit:cover;width:100%;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rainbow-cta-area" style="padding:50px 0 80px 0;">
+        <div class="container">
+            <div class="aiwave-cta"><div class="inner"><div class="content-left"><h4 class="subtitle"><span class="theme-gradient">START TODAY</span></h4><h2 class="title w-600 mb--20">Ready to Deploy AI Agents?</h2><p class="description b1">Join thousands of marketers using AI.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div><div class="content-right"><div class="img-right"><img src="{% static 'images/cta-img/view-img.png' %}" alt="MarketingTool AI marketing dashboard preview"></div></div><div class="bg-shape-one"><img src="{% static 'images/cta-img/bg-shape.png' %}" alt=""></div></div></div>
+        </div>
+    </div>
+
+    
+    <!-- SEO/Content: AI Marketing Agents — benefits grid -->
+    <div class="rainbow-service-area aiwave-bg-gradient" style="padding:80px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb--40">
+                    <h2 class="title">Why Choose AI Marketing Agents</h2>
+                    <p class="description">Automate Google Ads and Meta Ads campaigns 24/7 with intelligent agents that optimize, test, and scale without manual effort.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-robot" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">24/7 Campaign Automation</h5><p>AI agents watch your campaigns around the clock, pausing losers, scaling winners, and rebalancing budget in real time.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-chart-line" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Smart Bid Optimization</h5><p>Agents adjust bids based on conversion signals, audience performance, and time-of-day patterns across Google and Meta.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-wand-magic-sparkles" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Creative Generation</h5><p>Generate new ad copy, headlines, and creative variations from proven winners, then A/B test automatically.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-bullseye" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Audience Intelligence</h5><p>Discover high-intent audiences, refresh lookalikes, and exclude wasted impressions based on real performance data.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-money-bill-wave" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Budget Pacing</h5><p>Smart budget allocation across campaigns, ad sets, and creatives to maximize ROAS within your monthly spend.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-chart-column" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Unified Reporting</h5><p>See Google Ads, Meta Ads, and Instagram performance in one dashboard with AI-powered insights and recommendations.</p></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO/Content: FAQ section -->
+    <div class="rainbow-service-area" style="padding:80px 0 60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faqAgents">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA1" aria-expanded="false">What are AI Marketing Agents?</button></h2></div><div id="faqA1" class="accordion-collapse collapse" data-bs-parent="#faqAgents"><div class="accordion-body card-body">AI Marketing Agents are autonomous software workers that manage your Google Ads and Meta Ads campaigns 24/7. They use multiple AI models to analyze performance, adjust bids, generate creative, and optimize targeting without manual intervention.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA2" aria-expanded="false">Who should use AI Marketing Agents?</button></h2></div><div id="faqA2" class="accordion-collapse collapse" data-bs-parent="#faqAgents"><div class="accordion-body card-body">Performance marketers, agencies, and e-commerce brands who run Google Ads, Meta Ads, or Instagram Ads and want to reduce manual campaign management time while improving ROAS through AI-driven optimization.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA3" aria-expanded="false">How do I get started?</button></h2></div><div id="faqA3" class="accordion-collapse collapse" data-bs-parent="#faqAgents"><div class="accordion-body card-body">Sign up for a free 7-day trial, connect your Google Ads and Meta Ads accounts via OAuth, and the AI agents start analyzing your campaigns immediately. No credit card required to start.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA4" aria-expanded="false">Can I cancel anytime?</button></h2></div><div id="faqA4" class="accordion-collapse collapse" data-bs-parent="#faqAgents"><div class="accordion-body card-body">Yes. All MarketingTool plans are month-to-month with no long-term contract. Cancel anytime from your account settings. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA5" aria-expanded="false">Which plans include AI Marketing Agents?</button></h2></div><div id="faqA5" class="accordion-collapse collapse" data-bs-parent="#faqAgents"><div class="accordion-body card-body">AI Marketing Agents are available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: JSON-LD BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://marketingtool.pro/free-tools/"},{"@type":"ListItem","position":3,"name":"AI Marketing Agents","item":"https://marketingtool.pro/tools/ai-marketing-agents/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are AI Marketing Agents?","acceptedAnswer":{"@type":"Answer","text":"AI Marketing Agents are autonomous software workers that manage your Google Ads and Meta Ads campaigns 24/7. They use multiple AI models to analyze performance, adjust bids, generate creative, and optimize targeting without manual intervention."}},{"@type":"Question","name":"Who should use AI Marketing Agents?","acceptedAnswer":{"@type":"Answer","text":"Performance marketers, agencies, and e-commerce brands who run Google Ads, Meta Ads, or Instagram Ads and want to reduce manual campaign management time while improving ROAS through AI-driven optimization."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Sign up for a free 7-day trial, connect your Google Ads and Meta Ads accounts via OAuth, and the AI agents start analyzing your campaigns immediately. No credit card required to start."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. All MarketingTool plans are month-to-month with no long-term contract. Cancel anytime from your account settings. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"Which plans include AI Marketing Agents?","acceptedAnswer":{"@type":"Answer","text":"AI Marketing Agents are available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations."}}]}</script>
+
+    {% include 'partials/footer.html' %}
+    {% include 'partials/progressbar.html' %}
+</main>
+{% include 'partials/scripts.html' %}
+</body>
+</html>

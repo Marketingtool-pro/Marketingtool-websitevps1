@@ -1,0 +1,138 @@
+{% load static %}
+<!-- jQuery library js -->
+    <script src="{% static 'assets/js/lib/jquery-3.7.1.min.js' %}"></script>
+    <!-- Apex Chart js -->
+    <script src="{% static 'assets/js/lib/apexcharts.min.js' %}"></script>
+    <!-- Data Table js -->
+    <script src="{% static 'assets/js/lib/simple-datatables.min.js' %}"></script>
+    <!-- Iconify Font js -->
+    <script src="{% static 'assets/js/lib/iconify-icon.min.js' %}"></script>
+    <!-- jQuery UI js -->
+    <script src="{% static 'assets/js/lib/jquery-ui.min.js' %}"></script>
+    <!-- Vector Map js -->
+    <script src="{% static 'assets/js/lib/jquery-jvectormap-2.0.5.min.js' %}"></script>
+    <script src="{% static 'assets/js/lib/jquery-jvectormap-world-mill-en.js' %}"></script>
+    <!-- Popup js -->
+    <script src="{% static 'assets/js/lib/magnifc-popup.min.js' %}"></script>
+    <!-- Slick Slider js -->
+    <script src="{% static 'assets/js/lib/slick.min.js' %}"></script>
+    <!-- prism js -->
+    <script src="{% static 'assets/js/lib/prism.js' %}"></script>
+    <!-- file upload js -->
+    <script src="{% static 'assets/js/lib/file-upload.js' %}"></script>  
+    <!-- audio player -->
+    <script src="{% static 'assets/js/lib/audioplayer.js' %}"></script>
+
+    <script src="{% static 'assets/js/flowbite.min.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
+
+    <!-- main js -->
+    <script src="{% static 'assets/js/app.js' %}"></script>
+
+    {% if multi_script %}
+        {% for script_path in multi_script %}
+            <script src="{% static script_path %}"></script>
+        {% endfor %}
+    {% endif %}
+
+    {% if script %}
+        <script src="{% static script %}"></script>
+    {% endif %} 
+
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            showGlobalAlert('{{ message.tags|default:"primary" }}', '{{ message|escapejs }}');
+          });
+        </script>
+      {% endfor %}
+    {% endif %}
+
+    <script>   
+     // ================== Alert Js Start ==========
+        document.addEventListener('DOMContentLoaded', function() {
+          const alerts = document.querySelectorAll('.alert');
+          // Function to dismiss an alert with a smooth transition
+          function dismissAlert(alert) {
+            alert.classList.add('hiding');
+            setTimeout(() => {
+              alert.remove();
+            }, 300); // Wait 300ms for the transition to complete
+          }
+          alerts.forEach(alert => {
+            // Auto-dismiss after 5 seconds
+            setTimeout(() => {
+              dismissAlert(alert);
+            }, 5000);
+            // Manual dismiss on button click
+            const closeBtn = alert.querySelector('.remove-button');
+            if (closeBtn) {
+              closeBtn.addEventListener('click', () => {
+                dismissAlert(alert);
+              });
+            }
+          });
+
+          // Global function to show alert instantly
+          window.showGlobalAlert = function(type, message) {
+            // Map type to alert class (reuse your existing classes)
+            let alertClass = '';
+            switch(type) {
+              case 'primary': alertClass = 'alert-primary bg-primary-100 dark:bg-primary-600/25 text-primary-600 dark:text-primary-400 border-primary-50'; break;
+              case 'secondary': alertClass = 'alert-purple bg-purple-100 dark:bg-purple-600/25 text-purple-600 dark:text-purple-400 border-purple-100'; break;
+              case 'warning': alertClass = 'alert-warning bg-warning-100 dark:bg-warning-600/25 text-warning-600 dark:text-warning-400 border-warning-100'; break;
+              case 'info': alertClass = 'alert-info bg-info-100 dark:bg-info-600/25 text-info-600 dark:text-info-400 border-info-100'; break;
+              case 'danger': alertClass = 'alert-danger bg-danger-100 dark:bg-danger-600/25 text-danger-600 dark:text-danger-400 border-danger-100'; break;
+              case 'success': alertClass = 'alert-success bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 border-success-100'; break;
+              default: alertClass = 'alert-primary bg-primary-100 dark:bg-primary-600/25 text-primary-600 dark:text-primary-400 border-primary-50';
+            }
+            // Icon for each type (reuse your existing icons)
+            let icon = '';
+            switch(type) {
+              case 'primary': icon = '<iconify-icon icon="mingcute:emoji-line" class="icon text-xl"></iconify-icon>'; break;
+              case 'secondary': icon = '<iconify-icon icon="mingcute:emoji-line" class="icon text-xl"></iconify-icon>'; break;
+              case 'warning': icon = '<iconify-icon icon="mdi:alert-circle-outline" class="icon text-xl"></iconify-icon>'; break;
+              case 'info': icon = '<iconify-icon icon="ci:link" class="icon text-xl"></iconify-icon>'; break;
+              case 'danger': icon = '<iconify-icon icon="mingcute:delete-2-line" class="icon text-xl"></iconify-icon>'; break;
+              case 'success': icon = '<iconify-icon icon="akar-icons:double-check" class="icon text-xl"></iconify-icon>'; break;
+              default: icon = '<iconify-icon icon="mingcute:emoji-line" class="icon text-xl"></iconify-icon>';
+            }
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert ${alertClass} px-6 py-[11px] mb-0 font-semibold text-lg rounded-lg flex items-center justify-between`;
+            alertDiv.setAttribute('role', 'alert');
+            alertDiv.innerHTML = `
+              <div class="flex items-center gap-2">
+                ${icon}
+                <span>${message}</span>
+              </div>
+              <button class="remove-button text-2xl line-height-1"> <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon></button>
+            `;
+            // Append to alert container (same as flotingalert.html)
+            let alertContainer = document.querySelector('.fixed.top-5.right-5.z-50');
+            if (!alertContainer) {
+              // If not found, create and append to body
+              alertContainer = document.createElement('div');
+              alertContainer.className = 'fixed top-5 right-5 z-50 space-y-3 w-96';
+              document.body.appendChild(alertContainer);
+            }
+            alertContainer.appendChild(alertDiv);
+            // Auto-dismiss after 5 seconds
+            setTimeout(() => {
+              dismissAlert(alertDiv);
+            }, 5000);
+            // Manual dismiss
+            const closeBtn = alertDiv.querySelector('.remove-button');
+            if (closeBtn) {
+              closeBtn.addEventListener('click', () => {
+                dismissAlert(alertDiv);
+              });
+            }
+          };
+        });
+        // ========================= Alert Js End ===========================
+    </script>
+        

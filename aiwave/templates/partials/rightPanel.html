@@ -1,0 +1,32 @@
+<div class="rbt-right-side-panel popup-dashboardright-section">
+
+    <div class="right-side-top">
+        <a class="btn-default bg-solid-primary" name="newChatBtn" data-bs-toggle="modal" data-bs-target="#newchatModal">
+            <span class="icon"><i class="fa-sharp fa-regular fa-circle-plus"></i></span>
+            <span>New Chat</span>
+        </a>
+    </div>
+    <div class="right-side-bottom">
+        <ul id="sessionList">
+        
+            </ul>
+        </div>
+
+
+<div id="sessionModalOverlay" class="modal rbt-modal fade" tabindex="-1" style="display:none;">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 480px;">
+    <div class="modal-content rbt-modal-content" style="border-radius: 18px;">
+      <div class="modal-header rbt-modal-header" style="border-bottom: 1px solid #e5e7eb; background: #f0f4ff;">
+        <h5 class="modal-title rbt-modal-title" style="font-weight: 600; color: #2563eb;">All Sessions</h5>
+        <button type="button" class="btn-close rbt-modal-close" id="closeSessionModal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body rbt-modal-body" style="max-height: 70vh; overflow-y: auto;">
+        <!-- Sessions will be rendered here, grouped and styled like your sidebar -->
+        <div id="modalSessionList" class="p-0"></div>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+    </div>
+</div>

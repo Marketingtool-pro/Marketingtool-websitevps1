@@ -1,0 +1,415 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://www.reddit.com/r/technology/top.json?limit=20&t=day",
+        "options": {}
+      },
+      "name": "Get News",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        120
+      ],
+      "id": "6c400fb0-c4ee-489f-b28c-d380ede6daff"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Assume the input is the whole Reddit response JSON as you showed\nconst children = items[0].json.data.children;\n\nreturn children.map(child => {\n  const d = child.data;\n\n  return {\n    json: {\n      title: d.title,\n      url: d.url, // canonical URL\n      subreddit: d.subreddit,\n      score: d.score,\n      permalink: `https://www.reddit.com${d.permalink}`,\n      num_comments: d.num_comments,\n      created_utc: d.created_utc,\n      thumbnail: d.thumbnail\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        120
+      ],
+      "id": "cf83b529-ec12-47c7-b073-411d68727a66",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        360
+      ],
+      "id": "048eea70-d1b7-462d-abaf-c75a421527a3",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "0qx7MVBn4PpeYK6I",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        820,
+        120
+      ],
+      "id": "05ac36c7-3059-4439-afe8-7d8774862e9b",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "include": "allFieldsExcept",
+        "fieldsToExclude": "subreddit",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        120
+      ],
+      "id": "f2f048f6-67f3-4eed-9806-820c9e6dc591",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"title\": \"DOJ goes after US citizen for developing anti-ICE app\",\n  \"url\": \"https://appleinsider.com/articles/25/07/07/doj-goes-after-us-citizen-for-developing-anti-ice-app/amp/\",\n  \"score\": 24596,\n  \"permalink\": \"https://www.reddit.com/r/technology/comments/1luaenu/doj_goes_after_us_citizen_for_developing_antiice/\",\n  \"num_comments\": 1283,\n  \"created_utc\": 1751933549,\n  \"thumbnail\": \"https://external-preview.redd.it/JW2nbVjDUpmXoooQu6zWLuF4F21pcjh8gjYRF0Sj1_8.jpeg?width=140&height=78&crop=140:78,smart&auto=webp&s=eb082058f67b1a60550ab78d0842ddaaddfe208a\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1920,
+        360
+      ],
+      "id": "e4684382-6266-468b-bafc-6643516868f2",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2140,
+        360
+      ],
+      "id": "946d651e-c7c0-4c1a-bd05-65f8a53b6442",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "0qx7MVBn4PpeYK6I",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/aiwave/api/n8n-create-blog/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $json.output.title }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $json.output.content }}"
+            },
+            {
+              "name": "excerpt",
+              "value": "={{ $json.output.excerpt }}"
+            },
+            {
+              "name": "category",
+              "value": "={{ $json.output.category }}"
+            },
+            {
+              "name": "tags",
+              "value": "={{ $json.output.tags }}"
+            },
+            {
+              "name": "author_username",
+              "value": "={{ $json.output.author_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2980,
+        120
+      ],
+      "id": "9b48f6fd-e2dc-48b8-869c-b6ac61a546b3",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert content strategist for a leading IT company.\n\nYour task is to select the ONE best topic to post about.\n\nCriteria for selection:\n\nThe topic must be relevant to technology, IT, or digital business.\n\nThe topic must be interesting and engaging for an audience of tech professionals and business decision-makers.\n\nPrefer topics that are current or trending.\nmake sure that topic are releted to tech industry.\n\n{{ JSON.stringify($json) }}\nReturn only the JSON object without any commentary or code fences.\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        1740,
+        120
+      ],
+      "id": "14962776-8716-4f3b-b30a-61cdc0d4c6f0",
+      "name": "find best topic"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert blog writer specializing in technology and IT topics. \n\nBelow is the information about the topic selected for today's blog post:\n\n{\n  \"title\": \"{{ $json.output.title }}\",\n  \"url\": \"{{ $json.output.url }}\",\n  \"score\": {{ $json.output.score }},\n  \"permalink\": \"{{ $json.output.permalink }}\",\n  \"num_comments\": {{ $json.output.num_comments }},\n  \"created_utc\": {{ $json.output.created_utc }},\n  \"thumbnail\": \"{{ $json.output.thumbnail }}\"\n}\n\nInstructions:\n1. Write a professional, engaging blog post about this topic.\n2. Start with a short **hook paragraph** that draws in the reader.\n3. Provide context explaining why this topic matters, including any implications for the technology sector or IT companies.\n4. Summarize the key facts from the provided URL and Reddit discussion.\n5. Optionally, highlight trends, controversies, or lessons companies can learn from this event.\n6. End with a **call to action** inviting readers to share their thoughts or follow the blog for more updates.\n\nTone: Informative, engaging, and suitable for a technology company audience.\n\nLength: Approximately 500–800 words.\n\nOutput your response as plain text only, without any code blocks or formatting markers.\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        2140,
+        120
+      ],
+      "id": "68722305-6c68-4c72-880f-0a6ac4a3b398",
+      "name": "blog generator"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=i want you to restructure the data as i need \n{\n  \"title\": \"post title\",\n  \"content\": \"{{ $json.output }}\",\n  \"excerpt\": \"summary\",\n  \"category\": \"category\",\n  \"tags\": \"example\",\n  \"author_email\": \"admin@admin.com\",\n  \"is_published\": true\n}\n\nmake sure that output should be in this form author email should be \"admin@admin.com\". in case of all other fields you have to analyze the data and give appropriate value to each key\nyou can take you time to do this",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        2520,
+        120
+      ],
+      "id": "a9b06460-771a-4bd5-856f-37f742234130",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"title\": \"My Blog Post\",\n  \"content\": \"This is the content of the post.\",\n  \"excerpt\": \"Short summary...\",\n  \"category\": \"AI\",\n  \"tags\": \"ai,automation,python\",\n  \"author_email\": \"user@example.com\",\n  \"is_published\": true\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2660,
+        360
+      ],
+      "id": "de429a6b-f59e-4843-bd53-92e9463f5613",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-1.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        340
+      ],
+      "id": "a508adcd-b52e-40fa-99e8-a3bec5aba089",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "0qx7MVBn4PpeYK6I",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        560
+      ],
+      "id": "202d58c0-8483-4293-8310-733a3539e349",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "0qx7MVBn4PpeYK6I",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Get News": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "find best topic",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "find best topic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "find best topic",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "blog generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "find best topic": {
+      "main": [
+        [
+          {
+            "node": "blog generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "blog generator": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ae21f7ff983ee929f98e8d7968bbd21b49d1a44f2e129169348ba847d37dd5ac"
+  }
+}

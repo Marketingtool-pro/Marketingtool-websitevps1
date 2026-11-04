@@ -1,0 +1,200 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% load faq_extras %}
+{% block content %}
+
+<div class="rbt-main-content mb--0">
+    <div class="rbt-daynamic-page-content center-width">
+        <!-- Dashboard Center Content -->
+        <div class="rbt-dashboard-content">
+            <div class="content-page pb--50">
+                <div class="banner-area">
+                    <div class="settings-area">
+                        <h3 class="title">Help & FAQ</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Main Content - FAQ and Contact Form -->
+                    <div class="col-lg-11">
+                        <div class="chat-box-list">
+                            <div class="content">
+                                <!-- FAQ Section -->
+                                <div class="rainbow-accordion-style accordion rainbow-section-gapBottom">
+                                    <div class="accordion" id="accordionExamplea">
+                                        {% for category in faq_categories %}
+                                        <div class="category-section" id="category-{{ category|slugify }}">
+                                            <h3 class="category-title">{{ category }}</h3>
+                                            {% for faq in faqs_by_category|get_item:category %}
+                                            <div class="accordion-item card">
+                                                <h2 class="accordion-header card-header" id="heading{{ faq.id }}">
+                                                    <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" 
+                                                            type="button" 
+                                                            data-bs-toggle="collapse" 
+                                                            data-bs-target="#collapse{{ faq.id }}" 
+                                                            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" 
+                                                            aria-controls="collapse{{ faq.id }}">
+                                                        {{ faq.question }}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse{{ faq.id }}" 
+                                                     class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" 
+                                                     aria-labelledby="heading{{ faq.id }}" 
+                                                     data-bs-parent="#accordionExamplea">
+                                                    <div class="accordion-body card-body">
+                                                        {{ faq.answer|safe }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form Section -->
+                        <div class="single-settings-box contact-box overflow-hidden mt-5">
+                            <h4 class="title mb--30">Contact Us</h4>
+                            {% if messages %}
+                            <div class="messages mb-4">
+                                {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <form method="POST" action="{% url 'aiwave-help' %}" class="rbt-profile-row rbt-default-form row row--15">
+                                {% csrf_token %}
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <div class="input-group">
+                                            <input id="name" name="name" type="text" class="form-control" placeholder="Your name" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <div class="input-group">
+                                            <input id="email" name="email" type="email" class="form-control" placeholder="your.email@example.com" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="subject">Subject</label>
+                                        <div class="input-group">
+                                            <input id="subject" name="subject" type="text" class="form-control" placeholder="Subject" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <div class="input-group">
+                                            <input id="phone" name="phone" type="tel" class="form-control" placeholder="+1-202-555-0174" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="message">Your message</label>
+                                        <div class="input-group">
+                                            <textarea id="message" name="message" class="form-control" cols="20" rows="8" placeholder="Your message" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt--20">
+                                    <div class="form-group mb--0">
+                                        <button type="submit" class="btn-default">Send message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Right side - Categories -->
+                    <div class="col-lg-3 position-fixed" style="width: 350px; right: 20px; top: 100px; z-index: 1;">
+                        <div class="single-settings-box categories-box">
+                            <div class="categories-header">
+                                <h4 class="title mb--20">
+                                    <i class="fa-solid fa-list-ul"></i>
+                                    Categories
+                                </h4>
+                            </div>
+                            <div class="rbt-default-form">
+                                <div class="categories-list">
+                                    {% for category in faq_categories %}
+                                    <a href="#category-{{ category|slugify }}" 
+                                       class="category-link"
+                                       data-category="{{ category }}">
+                                        <div class="category-content">
+                                            <span class="category-name">{{ category }}</span>
+                                            <i class="fa-solid fa-chevron-right category-arrow"></i>
+                                        </div>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start CTA Area -->
+    <div class="rainbow-cta-area rainbow-section-gap-big">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="aiwave-cta">
+                        <div class="inner">
+                            <div class="content-left">
+                                <div class="section-title text-left" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                                    <h4 class="subtitle">
+                                        <span class="theme-gradient">Get Started</span>
+                                    </h4>
+                                    <h1 class="title w-600 mb--20">
+                                        AI Marketing Tools
+                                    </h1>
+                                    <p class="description b1">
+                                        Available on Web, Android &amp; iOS.
+                                    </p>
+                                    <div class="mt--20">
+                                        <a href="https://app.marketingtool.pro" target="_blank" class="btn-default btn-small">Open Web App</a>
+                                    </div>
+                                </div>
+                                <div class="app-store-btn mt--20">
+                                    <a class="store-btn" href="https://play.google.com/store/apps/details?id=pro.marketingtool.app" target="_blank">
+                                        <img src="{% static 'images/cta-img/play-app.png' %}" alt="Play Store">
+                                    </a>
+                                    <a class="store-btn" href="https://apps.apple.com/app/marketingtool/id6758618412" target="_blank">
+                                        <img src="{% static 'images/cta-img/apple-app.png' %}" alt="App Store">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="content-right">
+                                <div class="img-right">
+                                    <img src="{% static 'images/cta-img/view-img.png' %}" alt="Mobile View">
+                                </div>
+                            </div>
+                            <div class="bg-shape-one">
+                                <img src="{% static 'images/cta-img/bg-shape.png' %}" alt="Bg shape">
+                            </div>
+                        </div>
+                        <div class="bg-shape-inside">
+                            <img src="{% static 'images/bg/bg-shape-tree.png' %}" alt="Bg shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

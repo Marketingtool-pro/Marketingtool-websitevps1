@@ -1,0 +1,41 @@
+{% load static %}
+<div class="rbt-left-panel popup-dashboardleft-section">
+    <div class="rbt-default-sidebar">
+        <div class="inner">
+            <div class="content-item-content">
+                {% include './navbarLinks.html' %}
+            </div>
+        </div>
+        <div class="subscription-box">
+            <div class="inner">
+                <a href="{% url 'aiwave-profile-details' %}" class="autor-info" style="display: flex; align-items: center; gap: 12px;">
+                    <div class="author-img active" style="width: 48px; height: 48px; min-width: 48px; min-height: 48px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f3f3f3;">
+                        {% if user.profile.profile_picture %}
+                            <img src="{{ user.profile.profile_picture.url }}" alt="Profile picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        {% else %}
+                            <img src="{% static 'images/team/team-01sm.jpg' %}" alt="Admin" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        {% endif %}
+                    </div>
+                    <div class="author-desc" style="flex: 1; min-width: 0;">
+                        <h6 style="margin-bottom: 2px; font-size: 1.55rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            {% if request.user.is_authenticated %}
+                                {{ request.user.username }}
+                            {% else %}
+                                Guest
+                            {% endif %}
+                        </h6>
+                        <p style="margin-bottom: 0; font-size: 1.15rem; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            {% if request.user.is_authenticated %}
+                                {{ request.user.email }}
+                            {% else %}
+                                Not Logged In
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="author-badge">Free</div>
+                </a>
+            </div>
+        </div>
+        <p class="subscription-copyright copyright-text text-center b3  small-text">© 2025 <a href="https://themeforest.net/user/pixcelsthemes">Pixcels Themes</a>.</p>
+    </div>
+</div>

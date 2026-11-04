@@ -1,0 +1,167 @@
+<!-- @format -->
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  {% include 'partials/head.html' %}
+  <body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+    <main class="page-wrapper">
+      <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+          <div class="row align-items-center row--0">
+            <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+            <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+            <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" target="_blank" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+          </div>
+        </div>
+      </header>
+      <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+      {% include 'partials/preloader.html' %}
+
+      <!-- Hero -->
+      <div class="slider-area slider-style-1 variation-default slider-bg-image bg-banner1 slider-bg-shape" data-black-overlay="1">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="inner text-center mt--60">
+                <div class="hero-icon mb--20">
+                  <i class="fa-solid fa-magnifying-glass" style="font-size: 60px; color: #8B5CF6;"></i>
+                </div>
+                <h1 class="title display-one">SEO Tools<br />
+                  <span class="header-caption"><span class="cd-headline rotate-1"><span class="cd-words-wrapper" style="width: 340px">
+                    <b class="theme-gradient is-visible">Rank #1</b>
+                    <b class="theme-gradient is-hidden">Get Traffic</b>
+                    <b class="theme-gradient is-hidden">Beat Rivals</b>
+                  </span></span></span>
+                </h1>
+                <p class="description">AI-powered SEO toolkit that finds keywords, audits your site, and tracks rankings.<br />Outrank competitors with data-driven optimization.</p>
+                <div class="button-group mt--40">
+                  <a class="btn-default btn-large" href="https://app.marketingtool.pro">Free SEO Audit <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                  <a class="btn-default btn-border btn-large" href="{% url 'aiwave-pricing' %}">Pricing</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 col-xl-10 mt--50">
+              <div class="video-popup icon-center">
+                <div class="thumbnail">
+                  <img class="radius-small" src="{% static 'images/generator-img/chat-export-document.png' %}" alt="SEO Dashboard" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-shape"><img class="bg-shape-one" src="{% static 'images/bg/bg-shape-four.png' %}" alt="" /><img class="bg-shape-two" src="{% static 'images/bg/bg-shape-five.png' %}" alt="" /></div>
+      </div>
+
+      <!-- SEO Features -->
+      <div class="rainbow-service-area rainbow-section-gap">
+        <div class="container">
+          <div class="row"><div class="col-lg-12"><div class="section-title text-center pb--60"><h4 class="subtitle"><span class="theme-gradient">COMPLETE SEO TOOLKIT</span></h4><h2 class="title mb--0">Everything You Need to Rank</h2></div></div></div>
+          <div class="row row--15">
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-key" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Keyword Research</h5><p class="desc">Find profitable keywords your competitors miss. AI suggests terms based on search volume, difficulty, and intent.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-stethoscope" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Site Audit</h5><p class="desc">Comprehensive technical SEO audit that finds and prioritizes issues. Get actionable fixes for every problem.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-ranking-star" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Rank Tracker</h5><p class="desc">Track your positions daily across all keywords. Get alerts when rankings change and understand why.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="rainbow-advance-tab-area aiwave-bg-gradient rainbow-section-gap-big">
+        <div class="container">
+          <div class="row row--30 align-items-center">
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-2.png' %}" alt="Enter URL" /></div>
+            </div>
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 1</span></div>
+                <h2 class="title">Enter Your Website</h2>
+                <p class="description">Just enter your URL and AI begins crawling. Within minutes, you'll have a complete picture of your SEO health.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Full site crawl</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Technical analysis</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Competitor comparison</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 order-lg-1 order-2">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 2</span></div>
+                <h2 class="title">AI Finds Opportunities</h2>
+                <p class="description">AI identifies keyword gaps, backlink opportunities, and content improvements. Prioritized by impact so you know what to fix first.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Keyword opportunities</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Content gaps analysis</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Backlink suggestions</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 order-lg-2 order-1 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-4.png' %}" alt="AI Analysis" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-1.png' %}" alt="Track" /></div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 3</span></div>
+                <h2 class="title">Optimize & Track</h2>
+                <p class="description">Follow AI recommendations, track your progress, and watch rankings climb. Get weekly reports on what's improving.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Daily rank updates</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Progress tracking</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Weekly reports</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="rainbow-cta-area rainbow-section-gap rainbow-section-gapBottom-big">
+        <div class="container"><div class="row"><div class="col-lg-12"><div class="aiwave-cta"><div class="inner">
+          <div class="content-left"><div class="section-title text-left"><h4 class="subtitle"><span class="theme-gradient">Start Ranking Higher</span></h4><h2 class="title w-600 mb--20">Ready to Dominate Search?</h2><p class="description b1">Join thousands of websites ranking higher with AI SEO tools.</p></div><div class="button-group mt--30"><a class="btn-default btn-large" href="https://app.marketingtool.pro">Free SEO Audit <i class="fa-sharp fa-regular fa-arrow-right"></i></a></div></div>
+          <div class="content-right"><div class="img-right"><img src="{% static 'images/cta-img/view-img.png' %}" alt="MarketingTool AI marketing dashboard preview" /></div></div>
+          <div class="bg-shape-one"><img src="{% static 'images/cta-img/bg-shape.png' %}" alt="" /></div>
+        </div></div></div></div></div>
+      </div>
+
+      {% include 'partials/footer.html' %}
+      {% include 'partials/progressbar.html' %}
+    </main>
+    {% include 'partials/scripts.html' %}
+  </body>
+</html>

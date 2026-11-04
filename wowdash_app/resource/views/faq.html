@@ -1,0 +1,138 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% load faq_extras %}
+{% block content %}
+
+    <div class="card border-0 overflow-hidden bg-white dark:bg-neutral-700">
+        <div class="card-header p-0 border-0 bg-white dark:bg-neutral-700">
+            <div class="py-10 px-10 xl:px-[60px] 2xl:px-[100px] 3xl:px-[140px] bg-gradient-to-r from-pink-600/10 to-white dark:from-pink-600/20 dark:to-neutral-800">
+                <div class="grid grid-cols-1 xl:grid-cols-12 items-center">
+                    <div class="col-span-12 xl:col-span-7">
+                        <h4 class="mb-5 text-secondary-light dark:text-neutral-200">Frequently asked questions.</h4>
+                        <p class="mb-0 text-secondary-light dark:text-neutral-200 max-w-[634px] text-xl">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard du text ever since the 1400s, when an unkn</p>
+                    </div>
+                    <div class="col-span-12 xl:col-span-5 hidden xl:block">
+                        <img src="{% static 'assets/images/faq-img.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-white dark:bg-neutral-700 responsive-padding-40-150 text-secondary-light dark:text-neutral-200">
+            <div class="flex justify-end mb-6 pr-0">
+                <button id="add-faq-btn" class="btn btn-primary px-6 py-2 rounded-xl shadow min-w-[140px]">Add FAQ</button>
+            </div>
+            <!-- Add FAQ Modal -->
+            <div id="add-faq-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <div class="relative p-10 w-full max-w-[496px] rounded-2xl bg-white dark:bg-dark-2 shadow-lg flex flex-col items-center">
+                    <button id="close-faq-modal" type="button" class="absolute top-4 end-4 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-xl w-8 h-8 flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                        <span class="sr-only">Close modal</span>
+                        &times;
+                    </button>
+                    <div class="p-2.5 text-center">
+                        <h3 class="text-2xl font-semibold mb-6 text-secondary-light dark:text-neutral-200">Add New FAQ</h3>
+                        <form id="add-faq-form" class="space-y-5 text-left">
+                            {% csrf_token %}
+                            <div class="flex flex-col gap-4">
+                                <div class="flex items-center gap-4">
+                                    <label class="block font-medium w-28 text-right">Category</label>
+                                    <input type="text" name="category" class="form-control h-[48px] w-full max-w-xs border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl px-4" required>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label class="block font-medium w-28 text-right">Question</label>
+                                    <input type="text" name="question" class="form-control h-[48px] w-full max-w-xs border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl px-4" required>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label class="block font-medium w-28 text-right">Answer</label>
+                                    <textarea name="answer" class="form-control w-full max-w-xs border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl px-4 py-2" rows="3" required></textarea>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="is_active" class="block font-medium w-28 text-right mb-0">Visible</label>
+                                    <input type="checkbox" name="is_active" id="is_active" class="form-check-input border border-neutral-300 mt-1.5" checked>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 mt-6">
+                                <button type="button" id="cancel-faq-btn" class="btn btn-secondary w-full rounded-xl">Cancel</button>
+                                <button type="submit" class="btn btn-primary w-full rounded-xl">Add FAQ</button>
+                            </div>
+                            <div id="add-faq-message" class="mt-2 text-sm text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Add FAQ Modal -->
+            <div class="grid grid-cols-1 xl:grid-cols-12 items-start gap-6">
+
+                <div class="col-span-12 lg:col-span-4">
+                    <ul class="flex flex-wrap text-sm font-medium text-center active-text-tab nav flex-col nav-pills bg-white dark:bg-neutral-700 shadow-lg py-0 px-6 rounded-xl border border-neutral-200 dark:border-neutral-600" id="vertical-tab" data-tabs-toggle="#vertical-tab-content" role="tablist">
+                        {% for category in faq_categories %}
+                        <li role="presentation" class="border-b border-neutral-200 last:border-b-0">
+                            <button class="block py-4 w-full text-xl text-start font-semibold hover:text-primary-600 text-secondary-light dark:text-neutral-200 {% if forloop.first %}active{% endif %}" id="vertical-{{ category|slugify }}-tab" data-tabs-target="#vertical-{{ category|slugify }}" type="button" role="tab" aria-controls="vertical-{{ category|slugify }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ category }}</button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="col-span-12 lg:col-span-8">
+                    <div id="vertical-tab-content">
+                        {% for category in faq_categories %}
+                        <div id="vertical-{{ category|slugify }}" role="tabpanel" aria-labelledby="vertical-{{ category|slugify }}-tab" class="hidden">
+                            <div id="accordion-collapse-{{ category|slugify }}" data-accordion="collapse">
+                                {% for faq in faqs_by_category|get_item:category %}
+                                <div class="accordion-item border border-neutral-300 dark:border-neutral-600 mb-5 last:mb-0 rounded-2xl">
+                                    <div id="accordion-collapse-{{ category|slugify }}-heading-{{ forloop.counter }}" class="flex items-center relative">
+                                        <div class="flex-grow">
+                                            <button type="button" class="flex items-start justify-start w-full text-xl font-semibold text-neutral-900 dark:text-neutral-200 p-5 rounded-2xl transition-colors bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent faq-question-btn" data-accordion-target="#accordion-collapse-{{ category|slugify }}-body-{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="accordion-collapse-{{ category|slugify }}-body-{{ forloop.counter }}">
+                                                <span class="break-words w-full block" style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important;">{{ faq.question }}</span>
+                                                <span class="w-6 h-6 flex justify-center items-center border border-primary-600 rounded-full text-primary-600 text-base ml-2 flex-shrink-0"><i class="ri-add-line"></i></span>
+                                            </button>
+                                        </div>
+                                        <div class="flex gap-1 px-4">
+                                            <button 
+                                                href="#"
+                                                class="toggle-faq-btn btn btn-xs px-2 py-1 {% if faq.is_active %}btn-success{% else %}btn-warning{% endif %}"
+                                                data-faq-id="{{ faq.id }}"
+                                                data-faq-is_active="{{ faq.is_active|yesno:'true,false' }}"
+                                                title="{% if faq.is_active %}Hide FAQ{% else %}Show FAQ{% endif %}"
+                                            >
+                                                <i class="ri-{% if faq.is_active %}eye-line{% else %}eye-off-line{% endif %}"></i>
+                                                <span class="sr-only">{% if faq.is_active %}Hide{% else %}Show{% endif %}</span>
+                                            </button>
+                                            <a 
+                                                href="#"
+                                                class="edit-faq-btn btn btn-xs btn-secondary px-2 py-1"
+                                                data-faq-id="{{ faq.id }}"
+                                                data-faq-category="{{ faq.category }}"
+                                                data-faq-question="{{ faq.question }}"
+                                                data-faq-answer="{{ faq.answer }}"
+                                                data-faq-is_active="{{ faq.is_active|yesno:'true,false' }}"
+                                                title="Edit FAQ"
+                                            >
+                                                <i class="ri-edit-line"></i> <span class="sr-only">Edit</span>
+                                            </a>
+                                            <a 
+                                                href="#"
+                                                class="delete-faq-btn btn btn-xs btn-danger px-2 py-1"
+                                                data-faq-id="{{ faq.id }}"
+                                                title="Delete FAQ"
+                                            >
+                                                <i class="ri-delete-bin-line"></i> <span class="sr-only">Delete</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="accordion-collapse-{{ category|slugify }}-body-{{ forloop.counter }}" class="hidden" aria-labelledby="accordion-collapse-{{ category|slugify }}-heading-{{ forloop.counter }}">
+                                        <div class="p-5 pt-0">
+                                            <p>{{ faq.answer }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

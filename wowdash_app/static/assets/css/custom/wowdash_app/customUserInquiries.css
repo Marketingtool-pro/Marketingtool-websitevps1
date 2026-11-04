@@ -1,0 +1,101 @@
+.btn-outline-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bg-light-blue {
+    background-color: rgba(13, 110, 253, 0.05) !important;
+}
+
+/* Make table cells wrap and prevent horizontal scroll */
+.table td,
+.table th {
+    white-space: normal !important;
+    word-break: break-word;
+    max-width: 180px;
+}
+
+/* Custom scrollbar styles */
+.table-responsive::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Force button colors for visibility */
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+    border-color: #0d6efd !important;
+}
+
+.btn-danger,
+.btn-danger:active,
+.btn-danger:focus,
+.btn-danger:hover {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    border-color: #dc3545 !important;
+}
+
+.btn-secondary,
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary:hover {
+    background-color: #6c757d !important;
+    color: #fff !important;
+    border-color: #6c757d !important;
+}
+
+.btn-warning,
+.btn-warning:active,
+.btn-warning:focus,
+.btn-warning:hover {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+    border-color: #ffc107 !important;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .bg-light-blue {
+        background-color: rgba(13, 110, 253, 0.15) !important;
+    }
+
+    .table-responsive::-webkit-scrollbar-track {
+        background: #2d3748;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb {
+        background: #4a5568;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb:hover {
+        background: #718096;
+    }
+}

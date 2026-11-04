@@ -1,0 +1,238 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% load blog_tags %}
+{% block content %}
+
+
+<div class="container" style="padding-top:120px;">
+    <div class="row"><div class="col-lg-12">
+                <!-- SEO/UX: back button to blog listing -->
+                <div class="text-start mb--30">
+                    <a href="{% url 'aiwave-blog' %}" class="btn-default btn-border btn-opacity">
+                        <i class="feather-chevron-left"></i> Back to Blog
+                    </a>
+                </div>
+    </div></div>
+</div>
+<div class="rainbow-blog-section rainbow-section-gap-big bg-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {% if user.is_authenticated %}
+                <div class="text-center mb--40">
+                    <a href="{% url 'aiwave-blog-create' %}" class="btn-default btn-border btn-opacity">
+                        <span>Create New Blog Post</span>
+                    </a>
+                </div>
+                {% endif %}
+                {% if user.is_authenticated and user == post.author %}
+                <div class="text-center mb--20">
+                    <form method="post" action="{% url 'aiwave-blog-delete' post.pk %}" class="delete-blog-form" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="button" class="btn-default btn-border btn-opacity btn-delete-blog">
+                            <i class="feather-trash-2"></i> Delete Blog
+                        </button>
+                        <span class="delete-confirmation" style="display:none;">
+                            Are you sure?
+                            <button type="button" class="btn-confirm-delete">Yes, Delete</button>
+                        </span>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row row--30">
+            <div class="col-lg-8">
+                <div class="rainbow-blog-details-area">
+                    <div class="post-page-banner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="content text-center">
+                                        <div class="thumbnail">
+                                            <img class="w-100 radius" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                                        </div>
+                                        <ul class="rainbow-meta-list">
+                                            <li>
+                                                <i class="feather-user"></i>
+                                                <a href="#">{{ post.author.get_full_name|default:post.author.username }}</a>
+                                            </li>
+                                            <li>
+                                                <i class="feather-calendar"></i>
+                                                {{ post.created_at|date:"d M Y" }}
+                                            </li>
+                                            <li>
+                                                <i class="feather-eye"></i>
+                                                {{ post.views }} views
+                                            </li>
+                                            <li>
+                                                <i class="feather-tag"></i>
+                                                <a href="{% url 'aiwave-blog' %}?category={{ post.category }}" class="category-link">{{ post.category }}</a>
+                                            </li>
+                                        </ul>
+                                        <h1 class="title">{{ post.title }}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-details-content pt--40">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="content">
+                                        {{ post.html_content|safe }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if post.tags %}
+                    <div class="blog-tag-and-share mt--30 mb--30">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="tagcloud border-top-1 pt--30">
+                                        <span class="me-2"><strong>Tags:</strong></span>
+                                        {% for tag in post.get_tags_as_list %}
+                                        <a href="{% url 'aiwave-blog' %}?search={{ tag }}">{{ tag }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="blog-comment-area mt--40 rainbow-section-gapBottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="section-title">
+                                        <h4 class="title">Have a Comment?</h4>
+                                        <p class="description mt--10">Leave a Reply</p>
+                                    </div>
+                                    <form class="mt--30 comment-form" action="#" method="POST">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="rnform-group">
+                                                    <input type="text" placeholder="Name" name="name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="rnform-group">
+                                                    <input type="email" placeholder="Email" name="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="rnform-group mt--20">
+                                                    <textarea placeholder="Your Comment" name="comment" rows="5" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="comment-btn mt--20">
+                                                    <button type="submit" class="btn-default btn-border">
+                                                        <span>SEND MESSAGE</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt_md--40 mt_sm--40">
+                <aside class="rainbow-sidebar">
+                    <div class="rbt-single-widget widget_search mt--40">
+                        <div class="inner">
+                            <form class="blog-search" action="{% url 'aiwave-blog' %}" method="GET">
+                                {% csrf_token %}
+                                <input type="text" name="search" placeholder="Search ...">
+                                <button type="submit" class="search-button">
+                                    <i class="feather-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="rbt-single-widget widget_categories mt--40">
+                        <h3 class="title">Categories</h3>
+                        <div class="inner">
+                            <ul class="category-list">
+                                <li>
+                                    <a href="{% url 'aiwave-blog' %}" class="category-link">
+                                        <span class="left-content">All Posts</span>
+                                        <span class="count-text">{{ total_posts_count }}</span>
+                                    </a>
+                                </li>
+                                {% for category in categories %}
+                                <li>
+                                    <a href="{% url 'aiwave-blog' %}?category={{ category.category }}" class="category-link {% if selected_category == category.category %}active{% endif %}">
+                                        <span class="left-content">{{ category.category }}</span>
+                                        <span class="count-text">{{ category.count }}</span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rbt-single-widget widget_recent_entries mt--40">
+                        <h3 class="title">Recent Posts</h3>
+                        <div class="inner">
+                            <ul>
+                                {% for recent_post in recent_posts %}
+                                <li>
+                                    <div class="list-blog-sm">
+                                        <div class="img">
+                                            <img src="{{ recent_post.featured_image.url }}" alt="{{ recent_post.title }}">
+                                        </div>
+                                        <div class="content">
+                                            <a class="d-block" href="{% url 'aiwave-blog-details' recent_post.slug %}">
+                                                {{ recent_post.title }}
+                                            </a>
+                                            <span class="cate">{{ recent_post.category }}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% if archives %}
+                    <div class="rbt-single-widget widget_archive mt--40">
+                        <h3 class="title">Archives</h3>
+                        <div class="inner">
+                            <ul class="category-list">
+                                {% for archive in archives %}
+                                <li>
+                                    <a href="{% url 'aiwave-blog' %}?month={{ archive.month|date:'Y-m' }}">
+                                        <span class="left-content">{{ archive.month|date:"F Y" }}</span>
+                                        <span class="count-text">{{ archive.count }}</span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if post.tags %}
+                    <div class="rbt-single-widget widget_tag_cloud mt--40">
+                        <h3 class="title">Tags</h3>
+                        <div class="inner">
+                            <div class="tagcloud">
+                                {% for tag in post.get_tags_as_list %}
+                                <a href="{% url 'aiwave-blog' %}?search={{ tag }}">{{ tag }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

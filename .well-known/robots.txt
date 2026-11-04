@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /static/admin/
+Disallow: /geex-admin/
+Disallow: /nocodb/
+Disallow: /n8n/
+Disallow: /blog/?search=
+Disallow: /blog/?category=
+Disallow: /blog/?page=
+Disallow: /blog/?month=
+Disallow: /accounts/
+Disallow: /signin/
+Disallow: /sessions/
+Disallow: /chat-export/
+
+Sitemap: https://marketingtool.pro/sitemap.xml

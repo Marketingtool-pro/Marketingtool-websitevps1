@@ -1,0 +1,167 @@
+<!-- @format -->
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  {% include 'partials/head.html' %}
+  <body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+    <main class="page-wrapper">
+      <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+          <div class="row align-items-center row--0">
+            <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+            <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+            <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" target="_blank" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+          </div>
+        </div>
+      </header>
+      <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+      {% include 'partials/preloader.html' %}
+
+      <!-- Hero -->
+      <div class="slider-area slider-style-1 variation-default slider-bg-image bg-banner1 slider-bg-shape" data-black-overlay="1">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="inner text-center mt--60">
+                <div class="hero-icon mb--20">
+                  <img src="{% static 'images/generator-icon/document.png' %}" alt="Analytics" style="width: 80px; height: 80px;" />
+                </div>
+                <h1 class="title display-one">Analytics Platform<br />
+                  <span class="header-caption"><span class="cd-headline rotate-1"><span class="cd-words-wrapper" style="width: 340px">
+                    <b class="theme-gradient is-visible">See Everything</b>
+                    <b class="theme-gradient is-hidden">Understand Data</b>
+                    <b class="theme-gradient is-hidden">Make Decisions</b>
+                  </span></span></span>
+                </h1>
+                <p class="description">Unified marketing analytics across all your channels in one dashboard.<br />AI-powered insights that tell you what's working and what's not.</p>
+                <div class="button-group mt--40">
+                  <a class="btn-default btn-large" href="https://app.marketingtool.pro">View Demo <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                  <a class="btn-default btn-border btn-large" href="{% url 'aiwave-pricing' %}">Pricing</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 col-xl-10 mt--50">
+              <div class="video-popup icon-center">
+                <div class="thumbnail">
+                  <img class="radius-small" src="{% static 'images/generator-img/chat-export-code.png' %}" alt="Analytics Dashboard" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-shape"><img class="bg-shape-one" src="{% static 'images/bg/bg-shape-four.png' %}" alt="" /><img class="bg-shape-two" src="{% static 'images/bg/bg-shape-five.png' %}" alt="" /></div>
+      </div>
+
+      <!-- Analytics Features -->
+      <div class="rainbow-service-area rainbow-section-gap">
+        <div class="container">
+          <div class="row"><div class="col-lg-12"><div class="section-title text-center pb--60"><h4 class="subtitle"><span class="theme-gradient">ALL DATA, ONE PLACE</span></h4><h2 class="title mb--0">Marketing Intelligence Hub</h2></div></div></div>
+          <div class="row row--15">
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-chart-pie" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Unified Dashboard</h5><p class="desc">See Facebook, Google, Instagram, TikTok, and email metrics in one view. No more tab-switching between platforms.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-route" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">Attribution Modeling</h5><p class="desc">Understand which touchpoints drive conversions. Multi-touch attribution shows the true value of each channel.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb--30">
+              <div class="rainbow-box-card card-style-default aiwave-service-default has-bg-shaped">
+                <div class="inner"><div class="icon"><i class="fa-solid fa-wand-magic-sparkles" style="font-size: 40px; color: #8B5CF6;"></i></div>
+                <div class="description centered-shape"><h5 class="title">AI Insights</h5><p class="desc">AI analyzes your data and surfaces actionable insights. Get alerts when metrics change significantly.</p></div></div>
+                <div class="bg-shaped"><img src="{% static 'images/service/bg.png' %}" class="bg" alt="" /><img src="{% static 'images/service/bg-hover.png' %}" class="bg-hover" alt="" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="rainbow-advance-tab-area aiwave-bg-gradient rainbow-section-gap-big">
+        <div class="container">
+          <div class="row row--30 align-items-center">
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-3.png' %}" alt="Connect Sources" /></div>
+            </div>
+            <div class="col-lg-12 col-xl-6 col-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 1</span></div>
+                <h2 class="title">Connect Data Sources</h2>
+                <p class="description">Integrate all your marketing platforms with one-click connections. Data flows in automatically and stays synced.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>50+ integrations available</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Real-time data sync</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Historical data import</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 order-lg-1 order-2">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 2</span></div>
+                <h2 class="title">AI Processes Data</h2>
+                <p class="description">Our AI cleans, normalizes, and analyzes your data. It identifies trends, anomalies, and opportunities you might miss.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Automated data cleaning</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Cross-platform matching</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Trend detection</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 order-lg-2 order-1 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-1.png' %}" alt="AI Analysis" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rainbow-colormix-area rainbow-section-gap">
+        <div class="container">
+          <div class="row row--15 align-items-center">
+            <div class="col-lg-6 col-md-12 mb_md--30 mb_sm--30">
+              <div class="thumbnail"><img class="radius" src="{% static 'images/split/split-4.png' %}" alt="Take Action" /></div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="split-inner">
+                <div class="subtitle"><span class="theme-gradient">Step 3</span></div>
+                <h2 class="title">Get Insights & Act</h2>
+                <p class="description">Receive daily insights, custom reports, and actionable recommendations. Make data-driven decisions confidently.</p>
+                <ul class="list-style--1 mt--20">
+                  <li><i class="fa-regular fa-circle-check"></i>Custom report builder</li>
+                  <li><i class="fa-regular fa-circle-check"></i>Scheduled email reports</li>
+                  <li><i class="fa-regular fa-circle-check"></i>AI recommendations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="rainbow-cta-area rainbow-section-gap rainbow-section-gapBottom-big">
+        <div class="container"><div class="row"><div class="col-lg-12"><div class="aiwave-cta"><div class="inner">
+          <div class="content-left"><div class="section-title text-left"><h4 class="subtitle"><span class="theme-gradient">See Your Data Clearly</span></h4><h2 class="title w-600 mb--20">Ready for Unified Analytics?</h2><p class="description b1">Stop guessing. Start knowing with AI-powered analytics.</p></div><div class="button-group mt--30"><a class="btn-default btn-large" href="https://app.marketingtool.pro">Try Analytics Free <i class="fa-sharp fa-regular fa-arrow-right"></i></a></div></div>
+          <div class="content-right"><div class="img-right"><img src="{% static 'images/cta-img/view-img.png' %}" alt="MarketingTool AI marketing dashboard preview" /></div></div>
+          <div class="bg-shape-one"><img src="{% static 'images/cta-img/bg-shape.png' %}" alt="" /></div>
+        </div></div></div></div></div>
+      </div>
+
+      {% include 'partials/footer.html' %}
+      {% include 'partials/progressbar.html' %}
+    </main>
+    {% include 'partials/scripts.html' %}
+  </body>
+</html>

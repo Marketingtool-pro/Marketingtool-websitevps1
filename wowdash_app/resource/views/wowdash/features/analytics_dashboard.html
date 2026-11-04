@@ -1,0 +1,151 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="analytics-dashboard-page">
+    <div class="mb-6">
+        <h1 class="text-2xl font-bold text-neutral-900 dark:text-white">Analytics Dashboard</h1>
+        <p class="text-neutral-500">Track your website performance and user engagement</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white dark:bg-dark-2 rounded-lg p-5 border border-neutral-300 dark:border-neutral-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-neutral-500 mb-1">Total Users</p>
+                    <p class="text-3xl font-bold text-neutral-900 dark:text-white">{{ total_users }}</p>
+                </div>
+                <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                    <iconify-icon icon="solar:users-group-rounded-outline" class="text-blue-600 text-2xl"></iconify-icon>
+                </div>
+            </div>
+            <p class="text-sm text-green-500 mt-2">+{{ new_users_30d }} last 30 days</p>
+        </div>
+
+        <div class="bg-white dark:bg-dark-2 rounded-lg p-5 border border-neutral-300 dark:border-neutral-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-neutral-500 mb-1">Active Users</p>
+                    <p class="text-3xl font-bold text-neutral-900 dark:text-white">{{ active_users }}</p>
+                </div>
+                <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                    <iconify-icon icon="solar:user-check-outline" class="text-green-600 text-2xl"></iconify-icon>
+                </div>
+            </div>
+            <p class="text-sm text-neutral-500 mt-2">Last 30 days</p>
+        </div>
+
+        <div class="bg-white dark:bg-dark-2 rounded-lg p-5 border border-neutral-300 dark:border-neutral-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-neutral-500 mb-1">Total Sessions</p>
+                    <p class="text-3xl font-bold text-neutral-900 dark:text-white">{{ total_sessions }}</p>
+                </div>
+                <div class="w-12 h-12 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+                    <iconify-icon icon="solar:chat-round-dots-outline" class="text-violet-600 text-2xl"></iconify-icon>
+                </div>
+            </div>
+            <p class="text-sm text-green-500 mt-2">+{{ sessions_30d }} last 30 days</p>
+        </div>
+
+        <div class="bg-white dark:bg-dark-2 rounded-lg p-5 border border-neutral-300 dark:border-neutral-700">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-neutral-500 mb-1">Total Messages</p>
+                    <p class="text-3xl font-bold text-neutral-900 dark:text-white">{{ total_messages }}</p>
+                </div>
+                <div class="w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                    <iconify-icon icon="solar:chat-line-outline" class="text-orange-600 text-2xl"></iconify-icon>
+                </div>
+            </div>
+            <p class="text-sm text-neutral-500 mt-2">AI generated</p>
+        </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700 p-6 mb-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-4">User & Session Growth</h3>
+        <canvas id="analyticsChart" height="100"></canvas>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-4">Platform Overview</h3>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600 dark:text-neutral-400">Website</span>
+                    <span class="font-semibold text-neutral-900 dark:text-white">marketingtool.pro</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600 dark:text-neutral-400">Web App</span>
+                    <span class="font-semibold text-neutral-900 dark:text-white">app.marketingtool.pro</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600 dark:text-neutral-400">AI Tools</span>
+                    <span class="font-semibold text-neutral-900 dark:text-white">206+</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700 p-6">
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mb-4">Engagement Rate</h3>
+            <div class="flex items-center justify-center py-4">
+                <div class="relative w-32 h-32">
+                    <svg class="w-full h-full transform -rotate-90">
+                        <circle cx="64" cy="64" r="56" stroke="#e5e7eb" stroke-width="12" fill="none"/>
+                        <circle cx="64" cy="64" r="56" stroke="#8B5CF6" stroke-width="12" fill="none"
+                                stroke-dasharray="352" stroke-dashoffset="88" stroke-linecap="round"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-2xl font-bold text-neutral-900 dark:text-white">75%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('analyticsChart').getContext('2d');
+const dailyStats = {{ daily_stats|safe }};
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: dailyStats.map(d => d.date),
+        datasets: [{
+            label: 'New Users',
+            data: dailyStats.map(d => d.users),
+            borderColor: '#8B5CF6',
+            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+            fill: true,
+            tension: 0.4
+        }, {
+            label: 'Sessions',
+            data: dailyStats.map(d => d.sessions),
+            borderColor: '#06B6D4',
+            backgroundColor: 'rgba(6, 182, 212, 0.1)',
+            fill: true,
+            tension: 0.4
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+{% endblock %}

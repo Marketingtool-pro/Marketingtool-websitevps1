@@ -1,0 +1,37 @@
+{% load static %}
+<ul class="mainmenu">
+    <li><a href="/">Home</a></li>
+    <li class="has-dropdown has-menu-child-item position-relative"><a href="#">Tools <i class="fa-regular fa-chevron-down"></i></a>
+        <ul class="submenu">
+            <li><a href="{% url 'tool-ai-marketing-agents' %}"><span>AI Marketing Agents</span></a></li>
+            <li><a href="{% url 'tool-ecommerce' %}"><span>E-commerce/Shopify Tools</span></a></li>
+            <li><a href="{% url 'tool-analytics' %}"><span>Analytics Platform</span></a></li>
+            <li><a href="{% url 'tool-content-writing' %}"><span>Content Writing Tools</span></a></li>
+            <li><a href="{% url 'tool-creative-ads' %}"><span>Creative & Ads Tools</span></a></li>
+            <li><a href="{% url 'tool-seo' %}"><span>SEO Tools</span></a></li>
+            <li><a href="{% url 'tool-ppc' %}"><span>Optimization & PPC Tools</span></a></li>
+        </ul>
+    </li>
+    <li class="has-dropdown has-menu-child-item position-relative"><a href="#">Resources <i class="fa-regular fa-chevron-down"></i></a>
+        <ul class="submenu">
+            <li><a href="{% url 'resource-creative-ads' %}"><span>Creative & Ads Tools</span></a></li>
+            <li><a href="{% url 'resource-ai-agents' %}"><span>AI Marketing Agents</span></a></li>
+            <li><a href="{% url 'resource-analytics' %}"><span>Analytics Platform</span></a></li>
+            <li><a href="{% url 'resource-automation' %}"><span>Automation Suite</span></a></li>
+            <li><a href="{% url 'resource-audit-tools' %}"><span>Audit Tools</span></a></li>
+            <li><a href="{% url 'resource-campaign-hub' %}"><span>Multi-Platform Campaign Hub</span></a></li>
+            <li><a href="{% url 'resource-campaign-mgmt' %}"><span>Campaign Management</span></a></li>
+            <li><a href="{% url 'resource-agentic' %}"><span>Agentic Marketing</span></a></li>
+            <li><a href="{% url 'resource-creative-intel' %}"><span>Creative Intelligence</span></a></li>
+            <li><a href="{% url 'resource-content-writing' %}"><span>Content Writing Tools</span></a></li>
+            <li><a href="{% url 'resource-management' %}"><span>Management Tools</span></a></li>
+            <li><a href="{% url 'resource-ppc-research' %}"><span>PPC Research</span></a></li>
+            <li><a href="{% url 'resource-ppc-audit' %}"><span>Account Audit Report</span></a></li>
+            <li><a href="{% url 'resource-test-drive' %}"><span>Test Drive Dashboard</span></a></li>
+            <li><a href="{% url 'aiwave-blog' %}"><span>Blog</span></a></li>
+            <li><a href="{% url 'aiwave-free-tools' %}"><span>Free Tools</span></a></li>
+        </ul>
+    </li>
+    <li><a href="{% url 'aiwave-about' %}">About Us</a></li>
+    <li><a href="{% url 'aiwave-pricing' %}">Pricing</a></li>
+</ul>

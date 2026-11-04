@@ -1,0 +1,190 @@
+{% load static %}
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+    new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+    "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,"script","dataLayer","GTM-MGJ9XD52");</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
+    <meta name="google-site-verification" content="EUuWgEB0UTXtaxTeT_FXJVkbcu2dK-g009jjk2z5wgk" />
+    {% if noindex or request.GET %}<meta name="robots" content="noindex, nofollow">{% endif %}
+    <link rel="canonical" href="https://marketingtool.pro{{ request.path }}">
+
+    <title>{% if title|length <= 40 %}{{ title }} | {{ meta_vars.site_name }}{% elif title|length <= 60 %}{{ title }}{% else %}{{ title|truncatechars:60 }}{% endif %}</title>
+    <meta name="description" content="{% if page_description %}{{ page_description }}{% elif auto_page_description %}{{ auto_page_description }}{% else %}{{ meta_vars.site_description }}{% endif %}">
+    <meta property="og:title" content="{% if title|length <= 40 %}{{ title }} | {{ meta_vars.site_name }}{% elif title|length <= 60 %}{{ title }}{% else %}{{ title|truncatechars:60 }}{% endif %}">
+    <meta property="og:description" content="{% if page_description %}{{ page_description }}{% elif auto_page_description %}{{ auto_page_description }}{% else %}{{ meta_vars.site_description }}{% endif %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marketingtool.pro{{ request.path }}">
+    <meta property="og:image" content="{% if page_og_image %}{{ page_og_image }}{% else %}https://marketingtool.pro/media/og/marketingtool-og.png{% endif %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MarketingTool.Pro - AI Marketing OS for Google &amp; Meta Ads">
+    <meta property="og:site_name" content="MarketingTool.Pro">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if title|length <= 40 %}{{ title }} | {{ meta_vars.site_name }}{% elif title|length <= 60 %}{{ title }}{% else %}{{ title|truncatechars:60 }}{% endif %}">
+    <meta name="twitter:description" content="{% if page_description %}{{ page_description }}{% elif auto_page_description %}{{ auto_page_description }}{% else %}{{ meta_vars.site_description }}{% endif %}">
+    <meta name="twitter:image" content="{% if page_og_image %}{{ page_og_image }}{% else %}https://marketingtool.pro/media/og/marketingtool-og.png{% endif %}">
+    <meta name="twitter:site" content="@marketingtoolai">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ meta_vars.favicon_logo }}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/feature.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/animation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/prism.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% if custom_css %}
+        <link rel="stylesheet" href="{% static custom_css %}">
+    {% endif %}
+
+
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MarketingTool",
+      "url": "https://marketingtool.pro",
+      "logo": "https://marketingtool.pro/static/images/logo/logo.jpeg",
+      "description": "AI Marketing Operating System for Google & Meta Ads. Campaign automation and profitable scale.",
+      "sameAs": [
+        "https://play.google.com/store/apps/details?id=pro.marketingtool.app",
+        "https://apps.apple.com/app/marketingtool/id6758618412"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": "https://marketingtool.pro/contact/"
+      }
+    }
+    </script>
+    <!-- Structured Data - WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "MarketingTool",
+      "url": "https://marketingtool.pro",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://marketingtool.pro/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <!-- Structured Data - SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "MarketingTool",
+      "operatingSystem": "Web, Android, iOS",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://marketingtool.pro",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "0",
+        "highPrice": "99",
+        "priceCurrency": "USD",
+        "offerCount": "4"
+      }
+    }
+    </script>
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://marketingtool.pro/"
+        }{% if breadcrumb_name %},
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ breadcrumb_name }}",
+          "item": "https://marketingtool.pro{{ request.path }}"
+        }{% endif %}
+      ]
+    }
+    </script>
+    {% if faq_items %}
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for faq in faq_items %}
+        {
+          "@type": "Question",
+          "name": "{{ faq.question|escapejs }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ faq.answer|escapejs }}"
+          }
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+    </script>
+    {% endif %}
+
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-024MFER3LL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-024MFER3LL');
+      // Google Ads
+      gtag('config', 'AW-17518714922');
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w9o47x4fem");
+    </script>
+    <!-- Usercentrics Privacy Policy Generator -->
+    <script
+      id="usercentrics-ppg"
+      privacy-policy-id="a9a89f7f-a671-4ea9-83ef-40f0849b7c68"
+      data-language="en"
+      src="https://policygenerator.usercentrics.eu/api/privacy-policy"
+    ></script>
+    <!-- Ketch Privacy Consent Management -->
+    <script>!function(){window.semaphore=window.semaphore||[],window.ketch=function(){window.semaphore.push(arguments)};var e=document.createElement("script");e.type="text/javascript",e.src="https://global.ketchcdn.com/web/v3/config/ai_marketingtool/website_smart_tag/boot.js",e.defer=e.async=!0,document.getElementsByTagName("head")[0].appendChild(e)}();</script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '914232641573270');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=914232641573270&ev=PageView&noscript=1" alt="" /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>

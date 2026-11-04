@@ -1,0 +1,106 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-neutral-50 dark:bg-neutral-800 min-h-screen py-4">
+    <div class="card border-0 overflow-hidden bg-white dark:bg-neutral-700">
+        <div class="card-header p-0 border-0 bg-white dark:bg-neutral-700">
+            <div class="py-10 px-10 xl:px-[60px] 2xl:px-[100px] 3xl:px-[140px] bg-gradient-to-r from-pink-600/10 to-white dark:from-pink-600/20 dark:to-neutral-800">
+                <div class="grid grid-cols-1 xl:grid-cols-12 items-center">
+                    <div class="col-span-12 xl:col-span-7">
+                        <h4 class="mb-5 text-secondary-light dark:text-neutral-200">Team Management</h4>
+                        <p class="mb-0 text-secondary-light dark:text-neutral-200 max-w-[634px] text-xl">Manage your team members, their positions, and featured status.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-white dark:bg-neutral-700 responsive-padding-40-150">
+            <div class="flex justify-end mb-6 pr-0">
+                <button id="add-team-btn" class="btn btn-primary px-6 py-2 rounded-xl shadow min-w-[140px]">Add Team Member</button>
+            </div>
+
+            <!-- Add Team Member Modal -->
+            <div id="add-team-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <div class="relative p-10 w-full max-w-[496px] rounded-2xl bg-white dark:bg-dark-2 shadow-lg flex flex-col items-center">
+                    <button id="close-team-modal" type="button" class="absolute top-4 end-4 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-xl w-8 h-8 flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                        <span class="sr-only">Close modal</span>
+                        &times;
+                    </button>
+                    <div class="p-2.5 text-center">
+                        <h3 class="text-2xl font-semibold mb-6">Add New Team Member</h3>
+                        <form id="add-team-form" class="space-y-5 text-left">
+                            {% csrf_token %}
+                            <div class="flex flex-col gap-4">
+                                <div class="flex items-center gap-4">
+                                    <label class="block font-medium w-28 text-right">Name</label>
+                                    <input type="text" name="name" class="form-control h-[48px] w-full max-w-xs border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl px-4" required>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label class="block font-medium w-28 text-right">Position</label>
+                                    <input type="text" name="position" class="form-control h-[48px] w-full max-w-xs border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl px-4" required>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label class="block font-medium w-28 text-right">Photo</label>
+                                    <input type="file" name="photo" class="form-control w-full max-w-xs border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl px-4" accept="image/*" required>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label class="block font-medium w-28 text-right">Order</label>
+                                    <input type="number" name="order" class="form-control h-[48px] w-full max-w-xs border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl px-4" min="0" value="0">
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="featured" class="block font-medium w-28 text-right mb-0">Featured</label>
+                                    <input type="checkbox" name="featured" id="featured" class="form-check-input border border-neutral-300 mt-1.5">
+                                </div>
+                            </div>
+                            <div class="flex gap-2 mt-6">
+                                <button type="button" id="cancel-team-btn" class="btn btn-secondary w-full rounded-xl">Cancel</button>
+                                <button type="submit" class="btn btn-primary w-full rounded-xl">Add Member</button>
+                            </div>
+                            <div id="add-team-message" class="mt-2 text-sm text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Members Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="team-members-grid">
+                {% for member in all_members %}
+                <div class="team-member-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg overflow-hidden" data-member-id="{{ member.id }}">
+                    <div class="relative">
+                        <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <button class="toggle-featured-btn btn btn-xs px-2 py-1 {% if member.featured %}btn-success{% else %}btn-warning{% endif %}"
+                                    data-member-id="{{ member.id }}"
+                                    data-featured="{{ member.featured|yesno:'true,false' }}"
+                                    data-member-name="{{ member.name }}"
+                                    data-member-position="{{ member.position }}"
+                                    data-member-order="{{ member.order }}"
+                                    title="{% if member.featured %}Unfeature{% else %}Feature{% endif %}">
+                                <i class="ri-{% if member.featured %}star-fill{% else %}star-line{% endif %}" style="color: #487fff;"></i>
+                            </button>
+                            <button class="edit-member-btn btn btn-xs btn-info px-2 py-1" 
+                                    data-member-id="{{ member.id }}" 
+                                    data-name="{{ member.name }}"
+                                    data-position="{{ member.position }}"
+                                    data-order="{{ member.order }}"
+                                    data-photo-url="{{ member.photo.url }}"
+                                    data-featured="{{ member.featured|yesno:'true,false' }}"
+                                    title="Edit">
+                                <i class="ri-edit-line" style="color: #487fff;"></i>
+                            </button>
+                            <button class="delete-member-btn btn btn-xs btn-danger px-2 py-1" data-member-id="{{ member.id }}" title="Delete">
+                                <i class="ri-delete-bin-line" style="color: #487fff;"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">{{ member.name }}</h3>
+                        <p class="text-gray-600 dark:text-gray-300">{{ member.position }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

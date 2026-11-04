@@ -1,0 +1,81 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="grid grid-cols-12 bg-neutral-100 dark:bg-neutral-800">
+        <div class="col-span-12">
+            <div class="card h-full p-0 rounded-xl border-0 overflow-hidden bg-white dark:bg-dark-2">
+                <div class="card-header border-b border-neutral-300 dark:border-neutral-700 bg-white dark:bg-dark-2 py-4 px-6 flex items-center flex-wrap gap-3 justify-between">
+                    <div class="flex items-center flex-wrap gap-3">
+                        <span class="text-base font-medium text-neutral-700 dark:text-neutral-200 mb-0">Show</span>
+                        <select class="form-select form-select-sm w-auto bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700 rounded-lg per-page-select">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <div class="navbar-search">
+                            <input type="text" class="bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white h-10 w-auto border border-neutral-300 dark:border-neutral-700" name="table-search" placeholder="Search">
+                            <iconify-icon icon="ion:search-outline" class="icon"></iconify-icon>
+                        </div>
+                        <select class="form-select form-select-sm w-auto bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-700 rounded-lg">
+                            <option>Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                        <!-- Admin toggle button -->
+                        <button id="toggle-admin-btn" type="button" class="btn btn-outline-primary text-sm px-3 py-2 rounded-lg ml-2">
+                            Show Only Admins
+                        </button>
+                    </div>
+                    <a href="{% url 'addUser' %}" class="btn btn-primary text-sm btn-sm px-3 py-3 rounded-lg flex items-center gap-2">
+                        <iconify-icon icon="ic:baseline-plus" class="icon text-xl line-height-1"></iconify-icon>
+                        Add New User
+                    </a>
+                </div>
+                <div class="card-body p-6">
+                    <div class="table-responsive scroll-sm" style="overflow-x:auto;">
+                        <table class="table bordered-table sm-table mb-0 min-w-full" style="table-layout:fixed;">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 60px;">
+                                        <div class="flex items-center gap-2">
+                                            <div class="form-check style-check flex items-center">
+                                                <input class="form-check-input rounded border border-neutral-300 dark:border-neutral-700 input-form-dark" type="checkbox" name="checkbox" id="selectAll">
+                                            </div>
+                                            <span class="text-neutral-900 dark:text-white">S.L</span>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="text-neutral-700 dark:text-neutral-200" style="width: 110px;">Join Date</th>
+                                    <th scope="col" class="text-neutral-700 dark:text-neutral-200" style="width: 140px;">Name</th>
+                                    <th scope="col" class="text-neutral-700 dark:text-neutral-200" style="width: 180px;">Email</th>
+                                    <th scope="col" class="text-neutral-700 dark:text-neutral-200" style="width: 120px;">Department</th>
+                                    <th scope="col" class="text-neutral-700 dark:text-neutral-200" style="width: 120px;">Designation</th>
+                                    <th scope="col" class="text-center text-neutral-700 dark:text-neutral-200" style="width: 120px;">Status</th>
+                                    <th scope="col" class="text-center text-neutral-700 dark:text-neutral-200" style="width: 80px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Users will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="flex items-center justify-between flex-wrap gap-2 mt-6">
+                        <span class="showing-entries text-neutral-700 dark:text-neutral-200">Showing 1 to 10 of 0 entries</span>
+                        <ul class="pagination flex flex-wrap items-center gap-2 justify-center">
+                            <!-- Pagination links will be dynamically added here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block custom_script %}
+<script>
+  window.DEFAULT_PROFILE_IMG = "{% static 'assets/images/user-list/user-list1.png' %}";
+</script>
+{% endblock %}

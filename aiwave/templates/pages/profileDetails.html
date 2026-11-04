@@ -1,0 +1,158 @@
+{% extends 'partials/layout/layout3.html' %}
+{% load static %}
+{% block content %}
+
+<div class="rbt-main-content mb--0">
+    <div class="rbt-daynamic-page-content center-width">
+
+        <!-- Dashboard Center Content -->
+        <div class="rbt-dashboard-content">
+            
+            {% include 'partials/banner.html' %}
+
+            <div class="content-page pb--50">
+                <div class="chat-box-list">
+
+                    <!-- AiWaveSettings Settings -->
+                    <div class="single-settings-box profile-details-box overflow-hidden">
+                        <div class="profile-details-tab">
+                            <div class="advance-tab-button mb--30">
+                                <ul class="nav nav-tabs tab-button-style-2 justify-content-start" id="settinsTab-4" role="tablist">
+                                    <li role="presentation">
+                                        <a href="#" class="tab-button active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="true">
+                                            <span class="title">Profile</span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#" class="tab-button" id="password-tab" data-bs-toggle="tab" data-bs-target="#password" role="tab" aria-controls="password" aria-selected="false">
+                                            <span class="title">Password</span>
+                                        </a>
+                                    </li>
+                                    {% if not request.user.is_superuser %}
+                                    <li role="presentation">
+                                        <a href="#" class="tab-button" id="del-account-tab" data-bs-toggle="tab" data-bs-target="#delaccount" role="tab" aria-controls="delaccount" aria-selected="false">
+                                            <span class="title">Delete Account</span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <!-- Start Profile Row  -->
+                                    <form action="{% url 'aiwave-profile-details' %}" enctype="multipart/form-data" method="post" class="rbt-profile-row rbt-default-form row row--15">
+                                        {% csrf_token %}
+                                        <!-- Profile Image Upload Start -->
+                                        <div class="col-12 mb--20">
+                                            <div class="d-flex align-items-center gap-4">
+                                                <div class="position-relative">
+                                                    <img
+                                                        src="{% if request.user.profile.profile_picture %}{{ request.user.profile.profile_picture.url }}{% else %}{% static 'images/team/team-01sm.jpg' %}{% endif %}"
+                                                        alt="Profile Picture"
+                                                        class="rounded-circle object-fit-cover"
+                                                        style="width: 120px; height: 120px; border: 2px solid #e5e7eb;"
+                                                        id="profileImagePreview"
+                                                    >
+                                                    <input type="file" name="imageUpload" id="imageUpload" accept=".png, .jpg, .jpeg" hidden>
+                                                    <label for="imageUpload" class="position-absolute bottom-0 end-0 bg-primary-100 text-primary-600 border border-primary-600 rounded-circle p-2 cursor-pointer" style="transform: translate(25%, 25%);">
+                                                        <iconify-icon icon="solar:camera-outline" class="icon"></iconify-icon>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Profile Image Upload End -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="fullname">Full Name</label>
+                                                <input id="fullname" name="name" type="text" placeholder="Full Name" value="{% if request.user.is_authenticated %}{{ request.user.first_name }} {{ request.user.last_name }}{% endif %}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="username">User Name</label>
+                                                <input id="username" name="username" type="text" value="{% if request.user.is_authenticated %}{{ request.user.username }}{% endif %}" placeholder="User Name" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input id="email" name="email" type="email" value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}" placeholder="Email">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 mt--20">
+                                            <div class="form-group mb--0">
+                                                <button class="btn-default" type="submit">Update Info</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- End Profile Row  -->
+                                </div>
+
+                                <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                                    <!-- Start Profile Row  -->
+                                    <form id="changePasswordForm" method="post" action="{% url 'changePassword' %}" class="rbt-profile-row rbt-default-form row row--15">
+                                        {% csrf_token %}
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="current_password">Current Password</label>
+                                                <input id="current_password" name="current_password" type="password" placeholder="Current Password" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="new_password">New Password</label>
+                                                <input id="new_password" name="new_password" type="password" placeholder="New Password" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="confirm_password">Re-type New Password</label>
+                                                <input id="confirm_password" name="confirm_password" type="password" placeholder="Re-type New Password" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt--20">
+                                            <div class="form-group mb--0">
+                                                <button type="submit" class="btn-default">Update Password</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- End Profile Row  -->
+                                </div>
+                                {% if not request.user.is_superuser %}
+                                <div class="tab-pane fade" id="delaccount" role="tabpanel" aria-labelledby="del-account-tab">
+                                    <!-- Start Profile Row  -->
+                                    <form id="deleteAccountForm" method="post" action="{% url 'deleteUserProfile' %}" class="rbt-profile-row rbt-default-form row row--15">
+                                        {% csrf_token %}
+                                        <div class="col-11 text-Center">
+                                            <p class="mb--20"> <strong>Warning: </strong>Deleting your account will permanently erase all your data and cannot be reversed. This includes your profile, conversations, comments, and any other info linked to your account. Are you sure you want to go ahead with deleting your account? Enter your password to confirm.</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="delete_password">Your Password</label>
+                                                <input id="delete_password" name="password" type="password" placeholder="Current Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt--20">
+                                            <div class="form-group mb--0">
+                                                <button type="submit" class="btn-default"><i class="fa-solid fa-trash-can"></i> Delete Account</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- End Profile Row  -->
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

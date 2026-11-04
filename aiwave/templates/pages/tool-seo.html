@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% include 'partials/head.html' %}
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+<main class="page-wrapper">
+    <header class="rainbow-header header-default header-transparent header-sticky">
+        <div class="container position-relative">
+            <div class="row align-items-center row--0">
+                <div class="col-lg-2 col-md-6 col-6"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:36px;"></a></div></div>
+                <div class="col-lg-8 d-none d-lg-block"><nav class="mainmenu-nav d-none d-lg-flex justify-content-center">{% include 'partials/mainMenuItem.html' %}</nav></div>
+                <div class="col-lg-2 col-md-6 col-6 position-static"><div class="header-right"><div class="header-btn"><a class="rainbow-gradient-btn" href="https://app.marketingtool.pro"><span>Get Started</span></a></div><div class="mobile-menu-bar ml--5 d-flex justify-content-end d-lg-none"><div class="hamberger"><button class="hamberger-button"><i class="fa-sharp fa-regular fa-bars"></i></button></div></div></div></div>
+            </div>
+        </div>
+    </header>
+    <div class="popup-mobile-menu"><div class="inner-popup"><div class="header-top"><div class="logo"><a href="/"><img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool" style="max-height:32px;"></a></div><div class="close-menu"><button class="close-button"><i class="fa-sharp fa-regular fa-x"></i></button></div></div><div class="content">{% include 'partials/mainMenuItem.html' %}</div></div></div>
+    {% include 'partials/preloader.html' %}
+
+    <!-- Section 1: Hero -->
+    <div class="rainbow-service-area" style="padding-top:150px;padding-bottom:50px;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h1 class="title mb--20">SEO Tools</h1><p class="description">AI-powered SEO optimization to boost your search rankings.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Ranking</span></a></div></div>
+            <div class="row justify-content-center mt--40"><div class="col-lg-10"><video autoplay muted loop playsinline style="width:100%;max-height:450px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/seo-v1.mp4' %}" type="video/mp4"></video></div></div>
+        </div>
+    </div>
+
+    <!-- Section 2: SEO Agency -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">SEO AGENCY</span></h4><h2 class="title">Professional SEO Tools</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Keyword research</li><li><i class="fa-regular fa-circle-check"></i> Rank tracking</li><li><i class="fa-regular fa-circle-check"></i> Competitor analysis</li><li><i class="fa-regular fa-circle-check"></i> Backlink monitoring</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/seo/seo-agency.jpeg' %}" alt="SEO Agency" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: E-commerce SEO -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><img src="{% static 'images/seo/ecommerce-seo.jpeg' %}" alt="E-commerce SEO" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">E-COMMERCE</span></h4><h2 class="title">E-commerce SEO Pro</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Product optimization</li><li><i class="fa-regular fa-circle-check"></i> Category SEO</li><li><i class="fa-regular fa-circle-check"></i> Schema markup</li><li><i class="fa-regular fa-circle-check"></i> Site speed</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: AI SEO -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">AI POWERED</span></h4><h2 class="title">AI SEO Automation</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Auto optimization</li><li><i class="fa-regular fa-circle-check"></i> Content suggestions</li><li><i class="fa-regular fa-circle-check"></i> Meta generation</li><li><i class="fa-regular fa-circle-check"></i> Link building</li></ul></div>
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/seo-v2.mp4' %}" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Analytics -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/seo-v3.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">ANALYTICS</span></h4><h2 class="title">GA4 Analytics 360</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Traffic analysis</li><li><i class="fa-regular fa-circle-check"></i> Conversion tracking</li><li><i class="fa-regular fa-circle-check"></i> User behavior</li><li><i class="fa-regular fa-circle-check"></i> Custom reports</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Website Analysis -->
+    <div class="rainbow-service-area" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">ANALYSIS</span></h4><h2 class="title">Website Analysis Tools</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Site audit</li><li><i class="fa-regular fa-circle-check"></i> Technical SEO</li><li><i class="fa-regular fa-circle-check"></i> Page speed</li><li><i class="fa-regular fa-circle-check"></i> Mobile optimization</li></ul></div>
+                <div class="col-lg-6"><img src="{% static 'images/seo/website-analysis.jpeg' %}" alt="Website Analysis" style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Social & Templates -->
+    <div class="rainbow-advance-tab-area aiwave-bg-gradient" style="padding:50px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><video autoplay muted loop playsinline style="width:100%;max-height:350px;object-fit:cover;border-radius:10px;"><source src="{% static 'videos/seo-v4.mp4' %}" type="video/mp4"></video></div>
+                <div class="col-lg-6"><h4 class="subtitle"><span class="theme-gradient">SOCIAL SEO</span></h4><h2 class="title">Social Media SEO</h2><ul class="list-style--1 mt--20"><li><i class="fa-regular fa-circle-check"></i> Social signals</li><li><i class="fa-regular fa-circle-check"></i> Content templates</li><li><i class="fa-regular fa-circle-check"></i> Profile optimization</li><li><i class="fa-regular fa-circle-check"></i> Engagement boost</li></ul><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Get Started</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rainbow-cta-area" style="padding:50px 0 80px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center"><h4 class="subtitle"><span class="theme-gradient">GET STARTED</span></h4><h2 class="title w-600 mb--20">Ready to Dominate Search Rankings?</h2><p class="description b1">Start optimizing your website with AI-powered SEO tools.</p><a class="rainbow-gradient-btn mt--20" href="https://app.marketingtool.pro"><span>Start Free Trial</span></a></div></div>
+        </div>
+    </div>
+
+    
+    <!-- SEO/Content: AI SEO Tools — benefits grid -->
+    <div class="rainbow-service-area aiwave-bg-gradient" style="padding:80px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb--40">
+                    <h2 class="title">Why Choose AI SEO Tools</h2>
+                    <p class="description">AI SEO tools for technical audits, keyword research, content optimization, schema markup, and on-page improvements for higher rankings.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-magnifying-glass" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Technical SEO Audits</h5><p>Full-site crawl that flags Core Web Vitals issues, redirect chains, broken links, and indexation problems.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-key" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">AI Keyword Research</h5><p>Intent-based keyword clustering with search volume, difficulty, and SERP feature opportunities.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-code" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Schema Markup Generator</h5><p>Auto-generate JSON-LD schema for Organization, Product, FAQ, HowTo, Article, and BreadcrumbList.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-pen-nib" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Content Optimization</h5><p>AI analyzes your top-ranking pages and suggests headline, body, and meta description improvements.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-link" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Internal Linking</h5><p>Auto-suggest internal links based on topical relevance to boost crawlability and page authority.</p></div></div></div></div>
+                <div class="col-lg-4 col-md-6 mb--20"><div class="rainbow-box-card card-style-default"><div class="inner"><div class="icon"><i class="fa-solid fa-chart-mixed" style="font-size:32px;color:#0075ff;"></i></div><div class="description"><h5 class="title">Rank Tracking</h5><p>Daily rank tracking across Google, Bing, and 10+ other search engines for your target keywords.</p></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO/Content: FAQ section -->
+    <div class="rainbow-service-area" style="padding:80px 0 60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faq_seo">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_seo_1" aria-expanded="false">What are AI SEO Tools?</button></h2></div><div id="faq_seo_1" class="accordion-collapse collapse" data-bs-parent="#faq_seo"><div class="accordion-body card-body">AI-powered SEO tools for technical audits, keyword research, content optimization, schema markup generation, and rank tracking to improve your search engine rankings.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_seo_2" aria-expanded="false">Does it replace Ahrefs or SEMrush?</button></h2></div><div id="faq_seo_2" class="accordion-collapse collapse" data-bs-parent="#faq_seo"><div class="accordion-body card-body">MarketingTool AI SEO complements keyword research tools by adding AI content optimization, schema generation, and AI-written meta descriptions. Best used alongside traditional SEO tools.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_seo_3" aria-expanded="false">Can I generate schema for my pages?</button></h2></div><div id="faq_seo_3" class="accordion-collapse collapse" data-bs-parent="#faq_seo"><div class="accordion-body card-body">Yes. AI SEO Tools generate JSON-LD schema for Organization, Product, FAQ, HowTo, Article, LocalBusiness, and BreadcrumbList structured data.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_seo_4" aria-expanded="false">Can I cancel anytime?</button></h2></div><div id="faq_seo_4" class="accordion-collapse collapse" data-bs-parent="#faq_seo"><div class="accordion-body card-body">Yes. Month-to-month, cancel anytime. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq_seo_5" aria-expanded="false">Which plan includes SEO Tools?</button></h2></div><div id="faq_seo_5" class="accordion-collapse collapse" data-bs-parent="#faq_seo"><div class="accordion-body card-body">Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: JSON-LD BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://marketingtool.pro/free-tools/"},{"@type":"ListItem","position":3,"name":"AI SEO Tools","item":"https://marketingtool.pro/tools/seo/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are AI SEO Tools?","acceptedAnswer":{"@type":"Answer","text":"AI-powered SEO tools for technical audits, keyword research, content optimization, schema markup generation, and rank tracking to improve your search engine rankings."}},{"@type":"Question","name":"Does it replace Ahrefs or SEMrush?","acceptedAnswer":{"@type":"Answer","text":"MarketingTool AI SEO complements keyword research tools by adding AI content optimization, schema generation, and AI-written meta descriptions. Best used alongside traditional SEO tools."}},{"@type":"Question","name":"Can I generate schema for my pages?","acceptedAnswer":{"@type":"Answer","text":"Yes. AI SEO Tools generate JSON-LD schema for Organization, Product, FAQ, HowTo, Article, LocalBusiness, and BreadcrumbList structured data."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. Month-to-month, cancel anytime. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"Which plan includes SEO Tools?","acceptedAnswer":{"@type":"Answer","text":"Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations."}}]}</script>
+
+    {% include 'partials/footer.html' %}
+    {% include 'partials/progressbar.html' %}
+</main>
+{% include 'partials/scripts.html' %}
+</body>
+</html>
+
+<!-- VideoObject schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "AI SEO Tools — MarketingTool",
+  "description": "Demo of MarketingTool AI SEO audit and research tools",
+  "thumbnailUrl": "https://marketingtool.pro/static/videos/seo-v1-thumb.jpg",
+  "contentUrl": "https://marketingtool.pro/static/videos/seo-v1.mp4",
+  "uploadDate": "2026-01-15",
+  "duration": "PT30S",
+  "publisher": { "@type": "Organization", "name": "MarketingTool", "logo": { "@type": "ImageObject", "url": "https://marketingtool.pro/static/images/logo/logo.jpeg" } }
+}
+</script>

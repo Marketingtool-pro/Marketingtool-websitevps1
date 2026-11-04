@@ -1,0 +1,15 @@
+django==5.0.7
+djangorestframework
+django-allauth
+python-dotenv
+psycopg2-binary
+django-tailwind
+requests
+PyJWT
+cryptography
+social-auth-app-django
+google-generativeai
+django-user-agents
+twilio
+markdown
+pillow

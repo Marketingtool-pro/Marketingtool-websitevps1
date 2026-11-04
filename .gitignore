@@ -1,0 +1,21 @@
+venv/
+staticfiles/videos/
+staticfiles/images/
+__pycache__/
+*.pyc
+.DS_Store
+db.sqlite3
+*.mp4
+*.mov
+
+# added 2026-11-04: never commit secrets, data, or server leftovers
+.env
+.env.*
+db.sqlite3*
+staticfiles/
+backups/
+logs/
+*.bak
+*.bak.*
+*.bak-*
+node_modules/

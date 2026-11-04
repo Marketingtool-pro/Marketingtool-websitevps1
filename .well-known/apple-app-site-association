@@ -1,0 +1,38 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "N465W7879Z.pro.marketingtool.app",
+        "paths": [
+          "/",
+          "/blog",
+          "/blog/",
+          "/blog/*",
+          "/pricing",
+          "/pricing/",
+          "/pricing/*",
+          "/tools",
+          "/tools/",
+          "/tools/*",
+          "/cookie-policy",
+          "/cookie-policy/",
+          "/cookie-policy/*",
+          "/refund-policy",
+          "/refund-policy/",
+          "/refund-policy/*",
+          "/release-notes",
+          "/release-notes/",
+          "/release-notes/*",
+          "/trust-verification",
+          "/trust-verification/",
+          "/trust-verification/*",
+          "/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["N465W7879Z.pro.marketingtool.app"]
+  }
+}

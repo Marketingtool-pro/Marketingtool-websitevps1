@@ -1,0 +1,162 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="rainbow-blog-section rainbow-section-gap-big bg-color-1">
+    <div class="container">
+        <div class="row row--30">
+
+            <div class="col-lg-8">
+                <div class="rainbow-blog-details-area">
+
+                    <div class="post-page-banner">
+                        <div class="rbt-blog-img">
+                            <video class="w-100 radius" autoplay loop muted playsinline>
+                                <source src="{% static 'videos/analytics-v1.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="content text-start">
+                            <ul class="rainbow-meta-list">
+                                <li><i class="feather-user"></i> MarketingTool</li>
+                                <li><i class="feather-calendar"></i> Jan 2025</li>
+                                <li><i class="feather-eye"></i> Analytics</li>
+                                <li><a href="{% url 'aiwave-index' %}" class="category-link">Data Intelligence</a></li>
+                            </ul>
+                            <h1 class="title">Analytics Platform: Real-Time Marketing Intelligence Dashboard</h1>
+                        </div>
+                    </div>
+
+                    <div class="blog-details-content">
+
+                        <h3>Unify All Your Marketing Data Into One Powerful Intelligence Dashboard</h3>
+                        <p>
+                            Marketing teams drown in data spread across dozens of platforms. Google Analytics shows website behavior, ad platforms report campaign metrics, CRMs track leads, and spreadsheets try to stitch it all together. The result is fragmented insights, delayed decisions, and missed opportunities. Our Analytics Platform brings every data source into a single real-time dashboard, automatically connecting the dots between ad spend, website engagement, lead quality, and revenue. With AI-powered attribution modeling and predictive analytics, you finally see the complete picture of what drives growth and where every dollar of your marketing budget delivers the highest return.
+                        </p>
+
+                        <h4>Cross-Channel Performance Tracking and ROI Analysis</h4>
+                        <p>
+                            Understanding which channels, campaigns, and touchpoints actually drive revenue requires more than surface-level metrics. Our cross-channel tracking engine ingests data from every advertising platform, your website analytics, CRM, and e-commerce system to build a unified view of performance. Every dollar spent is traced through the entire funnel, from first impression to final purchase, giving you true ROI figures that account for the full customer journey rather than isolated platform metrics.
+                        </p>
+                        <ul class="list-style--2" style="list-style: none; padding-left: 0;">
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Aggregate data from Google Ads, Facebook, Instagram, TikTok, LinkedIn, email platforms, and CRM into one unified dashboard</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Calculate true ROI and ROAS for every channel by connecting ad spend to actual revenue rather than proxy metrics</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Track the full customer journey across devices and channels with cross-device identity resolution technology</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Monitor real-time performance with automatic refresh intervals as short as 15 minutes across all connected data sources</li>
+                        </ul>
+
+                        <video class="w-100 radius" autoplay loop muted playsinline>
+                            <source src="{% static 'videos/analytics-v2.mp4' %}" type="video/mp4">
+                        </video>
+
+                        <h4>AI-Powered Attribution Modeling</h4>
+                        <p>
+                            Last-click attribution is dead, and even multi-touch models only tell part of the story. Our AI attribution engine uses machine learning to analyze every touchpoint in the customer journey and assigns credit based on actual influence, not arbitrary rules. It accounts for view-through conversions, cross-device interactions, and offline touchpoints to give you the most accurate picture of what is really driving your results. This means you can finally make confident budget allocation decisions based on true incremental value.
+                        </p>
+                        <ul class="list-style--2" style="list-style: none; padding-left: 0;">
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Data-driven attribution models that assign conversion credit based on statistical analysis of millions of customer journeys</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Compare multiple attribution models side-by-side including first-click, linear, time-decay, position-based, and AI-driven</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Incrementality testing that isolates the true lift of each marketing channel beyond organic baseline conversion rates</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Path analysis visualization showing the most common and most valuable conversion paths across your marketing ecosystem</li>
+                        </ul>
+
+                        <h4>Custom Reports and Data Visualization</h4>
+                        <p>
+                            Different stakeholders need different views of the same data. Executives want high-level KPIs, campaign managers need granular performance details, and clients expect clear outcome-focused reporting. Our custom report builder lets you create tailored dashboards and automated reports for every audience. Drag-and-drop widgets, pre-built templates, and scheduled email delivery mean you spend minutes building reports instead of hours wrestling with spreadsheets.
+                        </p>
+                        <ul class="list-style--2" style="list-style: none; padding-left: 0;">
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Drag-and-drop report builder with 50+ pre-built widgets for charts, tables, scorecards, and funnel visualizations</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Scheduled automated report delivery via email with PDF or interactive link formats for clients and stakeholders</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> White-label reporting with custom branding, logos, and color schemes for agency client presentations</li>
+                            <li><i class="fa-solid fa-arrow-right" style="color: #8B5CF6;"></i> Real-time anomaly annotations that automatically flag significant changes and trends directly on your report charts</li>
+                        </ul>
+
+                        <h4>What You Get</h4>
+                        <ul class="list-style--2" style="list-style: none; padding-left: 0;">
+                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Unified cross-channel dashboard connecting all advertising platforms, website analytics, CRM, and revenue data</li>
+                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> AI-powered attribution modeling with data-driven credit assignment and incrementality testing capabilities</li>
+                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> True ROI calculation that traces every ad dollar through the complete funnel from impression to revenue</li>
+                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Custom report builder with drag-and-drop widgets, pre-built templates, and automated scheduled delivery</li>
+                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> Real-time data refresh with 15-minute intervals and instant anomaly detection with automated alerts</li>
+                            <li><i class="fa-solid fa-check" style="color: #22c55e;"></i> White-label reporting capabilities for agencies with custom branding and client-facing interactive dashboards</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-center mt--30 mb--30">
+                            <a class="btn-default btn-large" href="{% url 'aiwave-index' %}">Explore Your Analytics</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <aside class="rainbow-sidebar">
+                    <div class="rbt-single-widget widget_search mt--40">
+                        <div class="inner">
+                            <form class="blog-search" action="#" method="GET"><input type="text" name="search" placeholder="Search ..."><button type="submit" class="search-button"><i class="feather-search"></i></button></form>
+                        </div>
+                    </div>
+                    <div class="rbt-single-widget widget_categories mt--40">
+                        <h3 class="title">Categories</h3>
+                        <div class="inner">
+                            <ul class="category-list">
+                                <li><a href="#"><span class="left-content">Google Ads</span><span class="count-text">5</span></a></li>
+                                <li><a href="#"><span class="left-content">Meta Ads</span><span class="count-text">4</span></a></li>
+                                <li><a href="#"><span class="left-content">Campaign Management</span><span class="count-text">3</span></a></li>
+                                <li><a href="#"><span class="left-content">Analytics</span><span class="count-text">4</span></a></li>
+                                <li><a href="#"><span class="left-content">AI Tools</span><span class="count-text">6</span></a></li>
+                                <li><a href="#"><span class="left-content">Creative Production</span><span class="count-text">3</span></a></li>
+                                <li><a href="#"><span class="left-content">SEO</span><span class="count-text">2</span></a></li>
+                                <li><a href="#"><span class="left-content">Automation</span><span class="count-text">3</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rbt-single-widget widget_recent_entries mt--40">
+                        <h3 class="title">Post</h3>
+                        <div class="inner">
+                            <ul>
+                                <li><div class="list-blog-sm"><div class="img"><img src="{% static 'images/analytics/ai-analysis.jpeg' %}" alt="Data-Driven Marketing Insights"></div><div class="content"><a class="d-block" href="#">Data-Driven Marketing Insights</a><span class="cate">Analytics</span></div></div></li>
+                                <li><div class="list-blog-sm"><div class="img"><img src="{% static 'images/analytics/data-analytics.jpeg' %}" alt="Campaign Performance Analytics"></div><div class="content"><a class="d-block" href="#">Campaign Performance Analytics</a><span class="cate">Campaign Management</span></div></div></li>
+                                <li><div class="list-blog-sm"><div class="img"><img src="{% static 'images/analytics/smart-strategies.jpeg' %}" alt="Smart Budget Strategies"></div><div class="content"><a class="d-block" href="#">Smart Budget Strategies</a><span class="cate">AI Tools</span></div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rbt-single-widget widget_archive mt--40">
+                        <h3 class="title">Archives</h3>
+                        <div class="inner"><ul class="category-list"><li><a href="#">15 Mar 2026</a></li><li><a href="#">28 Feb 2026</a></li><li><a href="#">20 Jan 2026</a></li><li><a href="#">10 Dec 2025</a></li><li><a href="#">18 Nov 2025</a></li><li><a href="#">05 Oct 2025</a></li><li><a href="#">22 Sep 2025</a></li></ul></div>
+                    </div>
+                    <div class="rbt-single-widget widget_tag_cloud mt--40">
+                        <h3 class="title">Tags</h3>
+                        <div class="inner"><div class="tagcloud"><a href="#">Google Ads</a><a href="#">Meta Ads</a><a href="#">AI Marketing</a><a href="#">Campaign Optimization</a><a href="#">ROAS</a><a href="#">Ad Creative</a><a href="#">PPC</a><a href="#">Analytics</a><a href="#">Automation</a><a href="#">SEO</a><a href="#">Content Marketing</a><a href="#">Lead Generation</a></div></div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <!-- SEO/Content: FAQ section (dynamic per mainTitle) -->
+    <div class="rainbow-service-area" style="padding:60px 0;">
+        <div class="container">
+            <div class="row"><div class="col-lg-12 text-center mb--30"><h2 class="title">Frequently Asked Questions</h2></div></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rainbow-accordion-style accordion">
+                        <div class="accordion" id="faqGeneric">
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG1">What is {{ mainTitle }}?</button></h2></div><div id="faqG1" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">{{ mainTitle }} is part of the MarketingTool.Pro AI Marketing Operating System, helping performance marketers automate Google Ads, Meta Ads, and campaign workflows with 10 AI models.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG2">Who is {{ mainTitle }} for?</button></h2></div><div id="faqG2" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Performance marketers, agencies, and e-commerce brands who manage Google Ads, Meta Ads, Instagram, or multi-channel campaigns and want AI-driven automation and analytics.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG3">How do I get started?</button></h2></div><div id="faqG3" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Start your 7-day free trial, connect your ad accounts via OAuth, and MarketingTool begins analyzing and optimizing immediately. No credit card required to start.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG4">Can I cancel anytime?</button></h2></div><div id="faqG4" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Yes. All plans are month-to-month — cancel anytime from account settings. Yearly plans include a 14-day money-back guarantee.</div></div></div>
+                            <div class="accordion-item card"><div class="card-header"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqG5">What plans include {{ mainTitle }}?</button></h2></div><div id="faqG5" class="accordion-collapse collapse" data-bs-parent="#faqGeneric"><div class="accordion-body card-body">Available on every paid plan: Starter ($29/mo), Pro ($59/mo) and Growth ($99/mo). Higher plans include more monthly generations.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marketingtool.pro/"},{"@type":"ListItem","position":2,"name":"{{ mainTitle|escapejs }}","item":"https://marketingtool.pro{{ request.path }}"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is {{ mainTitle|escapejs }}?","acceptedAnswer":{"@type":"Answer","text":"{{ mainTitle|escapejs }} is part of the MarketingTool.Pro AI Marketing Operating System, helping performance marketers automate Google Ads, Meta Ads, and campaign workflows with 10 AI models."}},{"@type":"Question","name":"Who is {{ mainTitle|escapejs }} for?","acceptedAnswer":{"@type":"Answer","text":"Performance marketers, agencies, and e-commerce brands who manage Google Ads, Meta Ads, Instagram, or multi-channel campaigns and want AI-driven automation and analytics."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Start your 7-day free trial, connect your ad accounts via OAuth, and MarketingTool begins analyzing and optimizing immediately. No credit card required to start."}},{"@type":"Question","name":"Can I cancel anytime?","acceptedAnswer":{"@type":"Answer","text":"Yes. All plans are month-to-month, cancel anytime from account settings. Yearly plans include a 14-day money-back guarantee."}},{"@type":"Question","name":"What plans include {{ mainTitle|escapejs }}?","acceptedAnswer":{"@type":"Answer","text":"Included in Professional, All Tools, and Agency plans. Starter includes limited usage. 7-day free trial for all plans."}}]}</script>
+
+{% endblock content %}

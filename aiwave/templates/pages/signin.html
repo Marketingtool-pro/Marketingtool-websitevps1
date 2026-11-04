@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'partials/head.html' %}
+{% load static %}
+{% load socialaccount %}
+
+<body>
+<!-- GTM noscript --><noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MGJ9XD52\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+    <main class="page-wrapper">
+        <!-- Start Sign up Area  -->
+        <div class="signup-area">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-lg-6 bg-color-blackest left-wrapper">
+                        <div class="sign-up-box">
+                            <div class="signup-box-top">
+                                <img src="{% static 'images/logo/logo.jpeg' %}" alt="sign-up logo" style="max-height:50px;">
+                            </div>
+                            <div class="signup-box-bottom">
+                                <div class="signup-box-content">
+                                    {% if messages %}
+                                    <div class="messages">
+                                        {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    <div class="social-btn-grp">
+                                        <a class="btn-default btn-border"
+                                            href="{% provider_login_url 'google' %}?next=/">
+                                            <span class="icon-left"><img src="{% static 'images/sign-up/google.png' %}"
+                                                    alt="Google Icon"></span>Login with Google
+                                        </a>
+                                        <a class="btn-default btn-border"
+                                            href="{% url 'social:begin' 'facebook' %}?next=/">
+                                            <span class="icon-left"><img
+                                                    src="{% static 'images/sign-up/facebook.png' %}"
+                                                    alt="Google Icon"></span>Login with Facebook
+                                        </a>
+                                    </div>
+                                    <div class="text-social-area">
+                                        <hr>
+                                        <span>Or continue with</span>
+                                        <hr>
+                                    </div>
+                                    <form method="POST" action="{% url 'aiwave-signin' %}">
+                                        {% csrf_token %}
+                                        <div class="input-section mail-section">
+                                            <div class="input-icon-wrapper" style="position: relative;">
+                                                <div class="icon"
+                                                    style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%);">
+                                                    <i class="fa-sharp fa-regular fa-envelope"></i>
+                                                </div>
+                                                <input type="email" name="email" placeholder="Enter email address"
+                                                    style="padding-left: 36px;">
+                                            </div>
+                                            <span id="emailError" class="text-danger-600 text-xs mt--10 block">{{field_errors.emailError }}</span>
+                                        </div>
+                                        <div class="input-section password-section">
+                                            <div class="input-icon-wrapper" style="position: relative;">
+                                                <div class="icon"
+                                                    style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%);">
+                                                    <i class="fa-sharp fa-regular fa-lock"></i>
+                                                </div>
+                                                <input type="password" name="password" placeholder="Password"
+                                                    style="padding-left: 36px;">
+                                            </div>
+                                            <span id="passwordError" class="text-danger-600 text-xs mt--10 block">{{field_errors.passwordError }}</span>
+                                        </div>
+                                        <div class="forget-text"><a class="btn-read-more" href="#"
+                                                onclick="openOtpPasswordModal(); return false;"><span>Forgot
+                                                    password</span></a></div>
+                                        <button type="submit" class="btn-default">Sign In</button>
+                                    </form>
+                                </div>
+                                <div class="signup-box-footer">
+                                    <div class="bottom-text">
+                                        Don't have an account? <a class="btn-read-more ml--5"
+                                            href="{% url 'aiwave-signup' %}"><span>Sign Up</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 right-wrapper">
+                        <div class="client-feedback-area">
+                            <div class="single-feedback">
+                                <div class="inner">
+                                    <div class="meta-img-section">
+                                        <a class="image" href="#">
+                                            <img src="{% static 'images/team/team-02sm.jpg' %}" alt="Customer testimonial photo">
+                                        </a>
+                                    </div>
+                                    <div class="rating">
+                                        <a href="#rating">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </a>
+                                        <a href="#rating">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </a>
+                                        <a href="#rating">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </a>
+                                        <a href="#rating">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </a>
+                                        <a href="#rating">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <p class="description">Pixcels-Themes is now a crucial component of our work! We
+                                            made it simple to collaborate across departments by grouping our work</p>
+                                        <div class="bottom-content">
+                                            <div class="meta-info-section">
+                                                <h4 class="title-text mb--0">Guy Hawkins</h4>
+                                                <p class="desc mb--20">Nursing Assistant</p>
+                                                <div class="desc-img">
+                                                    <img src="{% static 'images/brand/brand-t.png' %}"
+                                                        alt="Brand Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="close-button" href="{% url 'aiwave-index' %}">
+                <i class="fa-sharp fa-regular fa-x"></i>
+            </a>
+        </div>
+        <!-- End Sign up Area  -->
+    </main>
+
+    {% include 'partials/progressbar.html' %}
+    {% include '../popUpModel/otpPasswordModal.html' %}
+    <!-- JS -->
+    {% include 'partials/scripts.html' %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+{% extends 'partials/layout/layout2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="rainbow-pricing-area rainbow-section-gap">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center mb-5">
+                    <h2 class="title">Complete Your Purchase</h2>
+                    <p class="description">Choose your preferred payment method</p>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="card bg-dark mb-4" style="background: #1a1a2e; border: 1px solid #333;">
+                    <div class="card-body p-4">
+                        <h4 class="text-white mb-3">Order Summary</h4>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-light">Plan:</span>
+                            <span class="text-white fw-bold" id="plan-name">{{ plan|title }} Plan</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-light">Billing:</span>
+                            <span class="text-white" id="billing-cycle">{{ cycle|title }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-light">7-Day Free Trial:</span>
+                            <span class="text-success">Included</span>
+                        </div>
+                        <hr style="border-color: #333;">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-white fw-bold">Total:</span>
+                            <span class="text-white fw-bold fs-4">$<span id="price-amount">{{ price }}</span></span>
+                        </div>
+                        <small class="text-muted">Charged after 7-day free trial ends</small>
+                    </div>
+                </div>
+
+                <!-- Payment Options -->
+                <div class="card bg-dark" style="background: #1a1a2e; border: 1px solid #333;">
+                    <div class="card-body p-4">
+                        <h4 class="text-white mb-4">Payment Method</h4>
+                        
+                        <!-- Card Payment via Mercuryo -->
+                        <div class="payment-option mb-3">
+                            <a href="https://exchange.mercuryo.io/?widget_id=YOUR_WIDGET_ID&type=buy&currency=USDT&fiat_currency=USD&fiat_amount={{ price }}&address=YOUR_USDT_WALLET&merchant_transaction_id=mt_{{ plan }}_{{ cycle }}" 
+                               target="_blank"
+                               class="btn btn-lg w-100 py-3" 
+                               style="background: linear-gradient(90deg, #7C3AED, #06B6D4); border: none;">
+                                <i class="fa fa-credit-card me-2"></i>
+                                Pay with Card / Google Pay / Apple Pay
+                            </a>
+                            <small class="text-muted d-block mt-2 text-center">Visa, Mastercard, Google Pay, Apple Pay - Powered by Mercuryo</small>
+                        </div>
+
+                        <div class="text-center my-3">
+                            <span class="text-muted">— OR —</span>
+                        </div>
+
+                        <!-- Crypto Payment via NOWPayments -->
+                        <div class="payment-option">
+                            <a href="/pay/?plan={{ plan }}&cycle={{ cycle }}&price={{ price }}" 
+                               class="btn btn-outline-light btn-lg w-100 py-3">
+                                <i class="fa-brands fa-bitcoin me-2"></i>
+                                Pay with Crypto (USDT, BTC, ETH)
+                            </a>
+                            <small class="text-muted d-block mt-2 text-center">300+ cryptocurrencies supported - Powered by NOWPayments</small>
+                        </div>
+
+                        <!-- Trust badges -->
+                        <div class="mt-4 pt-3 border-top" style="border-color: #333 !important;">
+                            <div class="d-flex justify-content-center gap-4 text-muted small">
+                                <span><i class="fa fa-lock me-1"></i> SSL Secure</span>
+                                <span><i class="fa fa-shield me-1"></i> 256-bit Encryption</span>
+                                <span><i class="fa fa-undo me-1"></i> Cancel Anytime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="/pricing/" class="text-muted">← Back to Pricing</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

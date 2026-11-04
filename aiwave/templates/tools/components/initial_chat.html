@@ -1,0 +1,29 @@
+{% if initial_chat %}
+{% load static %}
+<div class="chat-box author-speech">
+    <div class="inner">
+        <div class="chat-section">
+            <div class="author">
+                <img class="w-100" src="{% if user.profile.profile_picture %}{{ user.profile.profile_picture.url }}{% else %}{% static 'images/team/team-01sm.jpg' %}{% endif %}" alt="User">
+            </div>
+            <div class="chat-content">
+                <h6 class="meta-name title">You</h6>
+                <p>{{ initial_chat.user_input }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="chat-box ai-speech">
+    <div class="inner">
+        <div class="chat-section">
+            <div class="author">
+                <img class="w-100" src="{% if bot_image and bot_image.value %}{% if bot_image.value|slice:':1' == '/' %}{{ bot_image.value }}{% else %}/media/{{ bot_image.value }}{% endif %}{% else %}{% static 'images/team/avater.png' %}{% endif %}" alt="AiWave">
+            </div>
+            <div class="chat-content">
+                <h6 class="title">AiWave<span class="rainbow-badge-card"><i class="fa-sharp fa-regular fa-check"></i> Bot</span></h6>
+                <p class="mb--20">{{ initial_chat.bot_response }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %} 

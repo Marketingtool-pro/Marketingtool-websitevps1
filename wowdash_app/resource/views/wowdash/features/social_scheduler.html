@@ -1,0 +1,258 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+{% block content %}
+
+<div class="social-scheduler-page">
+    <div class="flex items-center justify-between mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-neutral-900 dark:text-white">Social Media Scheduler</h1>
+            <p class="text-neutral-500">Schedule and manage your social media posts</p>
+        </div>
+        <div class="flex gap-2">
+            <a href="/aiwave/admin/social/facebook/connect/" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold flex items-center gap-2">
+                <iconify-icon icon="mdi:facebook"></iconify-icon>
+                Connect Facebook/Instagram
+            </a>
+            <button onclick="openPostModal()" class="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold flex items-center gap-2">
+                <iconify-icon icon="solar:add-circle-outline"></iconify-icon>
+                New Post
+            </button>
+        </div>
+    </div>
+
+    <!-- Connected Accounts -->
+    <div class="bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700 mb-6">
+        <div class="p-4 border-b border-neutral-200 dark:border-neutral-700 flex justify-between items-center">
+            <h3 class="font-semibold text-neutral-900 dark:text-white">Connected Accounts</h3>
+            <span class="text-sm text-neutral-500">{{ accounts|length }} accounts</span>
+        </div>
+        <div class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% for account in accounts %}
+            <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center 
+                    {% if account.platform == facebook %}bg-blue-600
+                    {% elif account.platform == instagram %}bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500
+                    {% elif account.platform == linkedin %}bg-blue-700
+                    {% else %}bg-neutral-500{% endif %}">
+                    <iconify-icon icon="{% if account.platform == facebook %}mdi:facebook{% elif account.platform == instagram %}mdi:instagram{% elif account.platform == linkedin %}mdi:linkedin{% else %}mdi:link{% endif %}" class="text-xl text-white"></iconify-icon>
+                </div>
+                <div class="flex-1">
+                    <p class="font-medium text-neutral-900 dark:text-white">{{ account.account_name }}</p>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs text-neutral-500">{{ account.platform|title }}</span>
+                        {% if account.access_token %}
+                        <span class="w-2 h-2 bg-green-500 rounded-full" title="Connected"></span>
+                        {% else %}
+                        <span class="w-2 h-2 bg-yellow-500 rounded-full" title="Not connected"></span>
+                        {% endif %}
+                    </div>
+                </div>
+                <a href="{% if account.platform == facebook %}https://www.facebook.com/profile.php?id={{ account.account_id }}{% elif account.platform == instagram %}https://www.instagram.com/{{ account.account_id }}/{% elif account.platform == linkedin %}https://www.linkedin.com/company/{{ account.account_id }}/admin/dashboard/{% else %}#{% endif %}" target="_blank" class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-lg">
+                    Open
+                </a>
+            </div>
+            {% empty %}
+            <div class="col-span-3 text-center py-8">
+                <iconify-icon icon="solar:link-broken-outline" class="text-4xl text-neutral-300 mb-2"></iconify-icon>
+                <p class="text-neutral-500 mb-4">No accounts connected yet</p>
+                <a href="/aiwave/admin/social/facebook/connect/" class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                    Connect Facebook & Instagram
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-white dark:bg-dark-2 rounded-lg p-4 border border-neutral-300 dark:border-neutral-700">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center">
+                    <iconify-icon icon="solar:clock-circle-outline" class="text-yellow-600 text-xl"></iconify-icon>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-neutral-900 dark:text-white">{{ stats.scheduled }}</p>
+                    <p class="text-sm text-neutral-500">Scheduled</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-dark-2 rounded-lg p-4 border border-neutral-300 dark:border-neutral-700">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                    <iconify-icon icon="solar:check-circle-outline" class="text-green-600 text-xl"></iconify-icon>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-neutral-900 dark:text-white">{{ stats.published }}</p>
+                    <p class="text-sm text-neutral-500">Published</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-dark-2 rounded-lg p-4 border border-neutral-300 dark:border-neutral-700">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
+                    <iconify-icon icon="solar:document-outline" class="text-neutral-600 text-xl"></iconify-icon>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-neutral-900 dark:text-white">{{ stats.drafts }}</p>
+                    <p class="text-sm text-neutral-500">Drafts</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Posts List -->
+    <div class="bg-white dark:bg-dark-2 rounded-lg border border-neutral-300 dark:border-neutral-700">
+        <div class="p-4 border-b border-neutral-200 dark:border-neutral-700">
+            <h3 class="font-semibold text-neutral-900 dark:text-white">Scheduled Posts</h3>
+        </div>
+        <div class="divide-y divide-neutral-200 dark:divide-neutral-700">
+            {% for post in posts %}
+            <div class="p-4 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                    <iconify-icon icon="solar:document-text-outline" class="text-white text-xl"></iconify-icon>
+                </div>
+                <div class="flex-1">
+                    <p class="font-medium text-neutral-900 dark:text-white">{{ post.title }}</p>
+                    <p class="text-sm text-neutral-500">{{ post.scheduled_time|date:"M d, Y H:i" }}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold 
+                    {% if post.status == published %}bg-green-100 text-green-600
+                    {% elif post.status == scheduled %}bg-yellow-100 text-yellow-600
+                    {% else %}bg-neutral-100 text-neutral-600{% endif %}">
+                    {{ post.status|title }}
+                </span>
+                <button onclick="publishNow({{ post.id }})" class="text-blue-500 hover:text-blue-600" title="Publish Now">
+                    <iconify-icon icon="solar:play-circle-outline" class="text-xl"></iconify-icon>
+                </button>
+                <button onclick="deletePost({{ post.id }})" class="text-red-500 hover:text-red-600" title="Delete">
+                    <iconify-icon icon="solar:trash-bin-trash-outline" class="text-xl"></iconify-icon>
+                </button>
+            </div>
+            {% empty %}
+            <div class="p-8 text-center">
+                <iconify-icon icon="solar:calendar-outline" class="text-4xl text-neutral-300 mb-2"></iconify-icon>
+                <p class="text-neutral-500">No posts scheduled yet</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Post Modal -->
+<div id="postModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-dark-2 rounded-xl p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto">
+        <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-4">Create Post</h3>
+        <form id="postForm" method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Title</label>
+                <input type="text" name="title" placeholder="Post Title" class="w-full px-4 py-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-300 dark:border-neutral-600" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Content</label>
+                <textarea name="content" placeholder="Write your post content..." rows="4" class="w-full px-4 py-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-300 dark:border-neutral-600" required></textarea>
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Post to platforms:</label>
+                <div class="flex flex-wrap gap-2">
+                    {% for account in accounts %}
+                    <label class="flex items-center gap-2 px-3 py-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-600">
+                        <input type="checkbox" name="platforms" value="{{ account.id }}" class="rounded text-blue-600">
+                        <iconify-icon icon="{% if account.platform == facebook %}mdi:facebook{% elif account.platform == instagram %}mdi:instagram{% elif account.platform == linkedin %}mdi:linkedin{% else %}mdi:link{% endif %}" class="text-lg"></iconify-icon>
+                        <span class="text-sm">{{ account.account_name }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Schedule Time</label>
+                <input type="datetime-local" name="scheduled_time" class="w-full px-4 py-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-300 dark:border-neutral-600" required>
+            </div>
+            
+            <div class="flex gap-3">
+                <button type="button" onclick="closePostModal()" class="flex-1 px-4 py-2 bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-lg font-medium">Cancel</button>
+                <button type="submit" class="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium">Schedule Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openPostModal() {
+    document.getElementById("postModal").classList.remove("hidden");
+    document.getElementById("postModal").classList.add("flex");
+    var now = new Date();
+    now.setHours(now.getHours() + 1);
+    document.querySelector("input[name=scheduled_time]").value = now.toISOString().slice(0,16);
+}
+
+function closePostModal() {
+    document.getElementById("postModal").classList.add("hidden");
+    document.getElementById("postModal").classList.remove("flex");
+}
+
+function deletePost(postId) {
+    if (confirm("Delete this post?")) {
+        fetch("/aiwave/admin/social/post/" + postId + "/delete/", {
+            method: "POST",
+            headers: {"X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]").value}
+        }).then(function(r) { return r.json(); }).then(function(data) {
+            if (data.success) location.reload();
+            else alert(data.error || "Failed to delete");
+        });
+    }
+}
+
+function publishNow(postId) {
+    if (confirm("Publish this post now to selected platforms?")) {
+        // TODO: Implement publish now
+        alert("Publishing feature coming soon!");
+    }
+}
+
+document.getElementById("postForm").onsubmit = function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    var checkboxes = this.querySelectorAll("input[name=platforms]:checked");
+    var platforms = [];
+    for (var i = 0; i < checkboxes.length; i++) {
+        platforms.push(checkboxes[i].value);
+    }
+    
+    if (platforms.length === 0) {
+        alert("Please select at least one platform");
+        return;
+    }
+    
+    var data = {
+        title: formData.get("title"),
+        content: formData.get("content"),
+        scheduled_time: formData.get("scheduled_time"),
+        platforms: platforms,
+        status: "scheduled"
+    };
+
+    fetch("/aiwave/admin/social/post/create/", {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": formData.get("csrfmiddlewaretoken"),
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.success) {
+            location.reload();
+        } else {
+            alert(data.error || "Failed to create post");
+        }
+    });
+};
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closePostModal();
+});
+</script>
+
+{% endblock %}

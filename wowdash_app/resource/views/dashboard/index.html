@@ -1,0 +1,225 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="dashboard-page bg-neutral-100 dark:bg-neutral-800 p-6 rounded-lg shadow-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-3 gap-6">
+            <div class="card bg-white dark:bg-dark-2 border border-neutral-300 dark:border-neutral-700 rounded-lg p-5 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Users</p>
+                        <h6 class="mb-0 text-neutral-900 dark:text-white text-3xl font-bold tracking-tight" id="dashboardTotalUsersCount">{{ total_users|default:'0' }}</h6>
+                    </div>
+                    <div class="w-[50px] h-[50px] bg-cyan-600 rounded-full flex justify-center items-center">
+                        <iconify-icon icon="gridicons:multiple-users" class="text-white text-2xl mb-0"></iconify-icon>
+                    </div>
+                </div>
+                <p class="font-medium text-sm text-neutral-700 dark:text-neutral-300 mt-3 mb-0 flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1 {% if users_trend >= 0 %}text-success-600 dark:text-success-400{% else %}text-danger-600 dark:text-danger-400{% endif %}" id="totalUsersTrend">
+                        <iconify-icon icon="{% if users_trend >= 0 %}bxs:up-arrow{% else %}bxs:down-arrow{% endif %}" class="text-xs"></iconify-icon> {{ users_30 }}
+                    </span>
+                    Last 30 days users
+                </p>
+            </div>
+            <div class="card bg-white dark:bg-dark-2 border border-neutral-300 dark:border-neutral-700 rounded-lg p-5 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Subscription</p>
+                        <h6 class="mb-0 text-neutral-900 dark:text-white text-3xl font-bold tracking-tight" id="totalSubscriptionCount">0</h6>
+                    </div>
+                    <div class="w-[50px] h-[50px] bg-purple-600 rounded-full flex justify-center items-center">
+                        <iconify-icon icon="fa-solid:award" class="text-white text-2xl mb-0"></iconify-icon>
+                    </div>
+                </div>
+                <p class="font-medium text-sm text-neutral-700 dark:text-neutral-300 mt-3 mb-0 flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1 text-danger-600 dark:text-danger-400" id="totalSubscriptionTrend">
+                        <iconify-icon icon="bxs:down-arrow" class="text-xs"></iconify-icon> 0
+                    </span>
+                    Last 30 days subscription
+                </p>
+            </div>
+            <div class="card bg-white dark:bg-dark-2 border border-neutral-300 dark:border-neutral-700 rounded-lg p-5 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Free Users</p>
+                        <h6 class="mb-0 text-neutral-900 dark:text-white text-3xl font-bold tracking-tight" id="totalFreeUsersCount">0</h6>
+                    </div>
+                    <div class="w-[50px] h-[50px] bg-blue-600 rounded-full flex justify-center items-center">
+                        <iconify-icon icon="fluent:people-20-filled" class="text-white text-2xl mb-0"></iconify-icon>
+                    </div>
+                </div>
+                <p class="font-medium text-sm text-neutral-700 dark:text-neutral-300 mt-3 mb-0 flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1 text-success-600 dark:text-success-400" id="totalFreeUsersTrend">
+                        <iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> 0
+                    </span>
+                    Last 30 days users
+                </p>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 mt-6">
+            <div class="xl:col-span-8 flex flex-col gap-6">
+                <!-- Latest Registered Users Card -->
+                <div class="card h-full border-0">
+                    <div class="card-body p-6">
+                        <div class="flex items-center flex-wrap gap-2 justify-between">
+                            <h6 class="font-bold text-lg mb-0">Latest Registered Users</h6>
+                            <a href="{% url 'usersList' %}" class="text-primary-600 dark:text-primary-600 hover-text-primary flex items-center gap-1">
+                                View All
+                                <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
+                            </a>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="overflow-x-auto" style="max-height: 300px; overflow-y: auto;">
+                                <table class="table bordered-table sm-table mb-0 table-auto">
+                                    <thead class="sticky top-0 bg-white dark:bg-neutral-700 z-10">
+                                        <tr>
+                                            <th scope="col">Users </th>
+                                            <th scope="col">Registered On</th>
+                                            <th scope="col">Plan</th>
+                                            <th scope="col" class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user in users %}
+                                        <tr>
+                                            <td>
+                                                <div class="flex items-center">
+                                                    <img src="{% static 'assets/images/users/user1.png' %}" alt="" class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
+                                                    <div class="grow">
+                                                        <h6 class="text-base mb-0 font-medium">{{ user.get_full_name|default:user.username }}</h6>
+                                                        <span class="text-sm text-secondary-light font-medium">{{ user.email }}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{ user.date_joined|date:"d M Y" }}</td>
+                                            <td>{{ user.profile.role|title }}</td>
+                                            <td class="text-center">
+                                                {% with user.sessions.all|dictsortreversed:"last_activity" as sessions %}
+                                                    {% if sessions and sessions.0.is_active and sessions.0.last_activity|timesince:"now" < "1 day" %}
+                                                        <span class="inline-block mt-2 px-3 py-1 rounded-full bg-green-200 text-green-800 text-xs font-semibold">Currently Active</span>
+                                                {% else %}
+                                                        <span class="inline-block mt-2 px-3 py-1 rounded-full bg-gray-200 text-gray-800 text-xs font-semibold">Not Active</span>
+                                                {% endif %}
+                                                {% endwith %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Generated Content Card -->
+                <div class="card h-full border-0 py-5">
+                    <div class="card-body">
+                        <div class="flex items-center flex-wrap gap-2 justify-between">
+                            <h6 class="font-bold text-lg mb-0">Generated Content</h6>
+                            <select class="form-select form-select-sm w-auto bg-white dark:bg-neutral-700 border text-secondary-light" id="generatedContentPeriod">
+                                <option value="today">Today</option>
+                                <option value="week">Weekly</option>
+                                <option value="month">Monthly</option>
+                                <option value="year">Yearly</option>
+                            </select>
+                        </div>
+
+                        <ul class="flex flex-wrap items-center mt-4 gap-3">
+                            <li class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-primary-600"></span>
+                                <span class="text-secondary-light text-sm font-semibold">
+                                    Sessions:
+                                    <span class="text-neutral-900 dark:text-white font-bold text-lg" id="totalSessionsCount">{{ total_sessions|default:'0' }}</span>
+                                </span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-warning-600"></span>
+                                <span class="text-secondary-light text-sm font-semibold">
+                                    Messages:
+                                    <span class="text-neutral-600 dark:text-neutral-200 font-bold text-lg" id="totalMessagesCount">{{ total_messages|default:'0' }}</span>
+                                </span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-[60px]">
+                            <div id="generatedContentChart" class="margin-16-minus"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xl:col-span-4 flex flex-col gap-6">
+                <!-- Total Subscriber Card -->
+                <div class="card h-full rounded-lg border-0">
+                    <div class="card-body p-6">
+                        <div class="flex items-center flex-wrap gap-2 justify-between mb-3">
+                            <h6 class="font-semibold text-lg mb-0">Total Subscriber</h6>
+                            <select class="form-select form-select-sm w-auto bg-white dark:bg-neutral-700 border text-secondary-light" id="subscriberPeriod">
+                                <option value="today">Today</option>
+                                <option value="week" selected>Weekly</option>
+                                <option value="month">Monthly</option>
+                                <option value="year">Yearly</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center gap-2 mb-5">
+                            <h6 class="font-bold text-2xl mb-0 text-neutral-900 dark:text-white">{{ total_subscriptions }}</h6>
+                            <span class="text-sm font-semibold rounded-full {% if subscription_trend > 0 %}bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400{% else %}bg-danger-100 dark:bg-danger-600/25 text-danger-600 dark:text-danger-400{% endif %} border {% if subscription_trend > 0 %}border-success-200 dark:border-success-600/50{% else %}border-danger-200 dark:border-danger-600/50{% endif %} px-2 py-1.5 line-height-1 flex items-center gap-1">
+                                {{ subscription_trend_abs }}% <iconify-icon icon="{% if subscription_trend > 0 %}bxs:up-arrow{% else %}iconamoon:arrow-down-2-fill{% endif %}" class="icon"></iconify-icon>
+                            </span>
+                            {% if subscription_trend > 0 %}+{% else %}-{% endif %} {{ subscription_trend_abs }} Per Day
+                        </div>
+                        <div id="barChart"></div>
+                    </div>
+                </div>
+                <!-- Users Overview Card -->
+                <div class="card h-full rounded-lg border-0 overflow-hidden">
+                    <div class="card-body p-6">
+                        <div class="flex items-center flex-wrap gap-2 justify-between">
+                            <h6 class="mb-2 font-bold text-lg">Users Overview</h6>
+                            <div class="">
+                                <select class="form-select form-select-sm w-auto bg-white dark:bg-neutral-700 border text-secondary-light" id="userOverviewPeriod">
+                                    <option value="today">Today</option>
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year">Yearly</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="userOverviewDonutChart" class="apexcharts-tooltip-z-none"></div>
+                        <ul class="flex flex-wrap items-center justify-between mt-4 gap-3">
+                            <li class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-sm bg-primary-600"></span>
+                                <span class="text-secondary-light text-sm font-normal">
+                                    New:
+                                    <span class="text-neutral-900 dark:text-white font-bold text-lg" id="newUsersCount">{{ new_users|default:'0' }}</span>
+                                </span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-sm bg-warning-600"></span>
+                                <span class="text-secondary-light text-sm font-normal">
+                                    Subscribed:
+                                    <span class="text-neutral-900 dark:text-white font-bold text-lg" id="subscribedUsersCount">{{ subscribed_users|default:'0' }}</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for dashboard stats
+        window.totalUsers = "{{ total_users|default:'0' }}";
+        window.users30 = "{{ users_30 }}";
+        window.usersTrend = "{{ users_trend }}";
+        window.totalSubscriptions = "{{ total_subscriptions|default:'0' }}";
+        window.subscriptionTrend = "{{ subscription_trend }}";
+        window.subscriptionTrendAbs = "{{ subscription_trend_abs }}";
+        window.totalFreeUsers = "{{ total_free_users|default:'0' }}";
+        window.freeUsersTrend = "{{ free_users_trend }}";
+        window.freeUsersTrendAbs = "{{ free_users_trend_abs }}";
+    </script>
+
+{% endblock %}

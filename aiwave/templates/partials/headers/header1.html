@@ -1,0 +1,201 @@
+{% load static %}
+<header class="rbt-dashboard-header rainbow-header header-default header-left-align rbt-fluid-header">
+    <div class="container-fluid position-relative">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="header-left d-flex">
+                    <div class="expand-btn-grp">
+                        <button class="bg-solid-primary popup-dashboardleft-btn"><i class="fa-sharp fa-regular fa-sidebar"></i></button>
+                    </div>
+                    <div class="logo">
+                        <a href="/">
+                            <img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool Logo" style="max-height:36px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block text-center">
+                <nav class="mainmenu-nav d-none d-lg-inline-block text-center">
+                    {% include '../mainMenuItem.html' %}
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="header-right">
+
+                    <!-- Start Mobile-Menu-Bar -->
+                    <div class="mobile-menu-bar ml--10 d-block d-lg-none">
+                        <div class="hamberger">
+                            <button class="hamberger-button">
+                                <i class="fa-sharp fa-regular fa-bars"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Start Mobile-Menu-Bar -->
+
+                    <!-- Start Admin meta Group -->
+                    <div class="rbt-admin-panel account-access rbt-user-wrapper right-align-dropdown">
+                        <div class="rbt-admin-card grid-style">
+                            <a class="d-flex align-items-center" href="#">
+                                <div class="inner d-flex align-items-center">
+                                    <div class="img-box">
+                                        {% if user.profile.profile_picture %}
+                                            <img src="{{ user.profile.profile_picture.url }}" alt="Profile picture">
+                                        {% else %}
+                                            <img src="{% static 'images/team/team-01sm.jpg' %}" alt="Admin">
+                                        {% endif %}
+                                    </div>
+                                    <div class="content">
+                                        <span class="title ">
+                                            {% if request.user.is_authenticated %}
+                                                {{ request.user.username }}
+                                            {% else %}
+                                                Guest
+                                            {% endif %}
+                                        </span>
+                                        <p>
+                                            {% if request.user.is_authenticated %}
+                                                {{ request.user.email }}
+                                            {% else %}
+                                                Not Logged In
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa-sharp fa-solid fa-chevron-down"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="rbt-user-menu-list-wrapper">
+                            <div class="inner">
+                                <div class="rbt-admin-profile">
+                                    <div class="admin-thumbnail">
+                                        {% if user.profile.profile_picture %}
+                                            <img src="{{ user.profile.profile_picture.url }}" alt="Profile picture">
+                                        {% else %}
+                                            <img src="{% static 'images/team/team-01sm.jpg' %}" alt="Admin">
+                                        {% endif %}
+                                    </div>
+                                    <div class="admin-info">
+                                        <span class="name">                                            
+                                            {% if request.user.is_authenticated %}
+                                                {{ request.user.username }}
+                                            {% else %}
+                                                Guest
+                                            {% endif %}
+                                        </span>
+                                        {% if request.user.is_authenticated %}
+                                        <a class="rbt-btn-link color-primary" href="{% url 'aiwave-profile-details' %}">View Profile</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <ul class="user-list-wrapper user-nav">
+                                    {% if request.user.is_authenticated %}
+                                    <li>
+                                        <a href="{% url 'aiwave-profile-details' %}">
+                                            <i class="fa-sharp fa-regular fa-user"></i>
+                                            <span>Profile Details</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'aiwave-chat-export' %}" rel="nofollow">
+                                            <i class="fa-sharp fa-regular fa-users"></i>
+                                            <span>Chat Export</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'aiwave-sessions-page' %}" rel="nofollow">
+                                            <i class="fa-sharp fa-regular fa-users"></i>
+                                            <span>Sessions</span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="{% url 'aiwave-plans-billing' %}">
+                                            <i class="fa-sharp fa-regular fa-briefcase"></i>
+                                            <span>Plans and Billing</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <hr class="mt--10 mb--10">
+                                <ul class="user-list-wrapper user-nav">
+                                    <li>
+                                        <a href="{% url 'aiwave-help' %}">
+                                            <i class="fa-solid fa-comments-question"></i>
+                                            <span>Help Center</span>
+                                        </a>
+                                    </li>
+                                    {% if request.user.is_authenticated %}
+                                    <li>
+                                        <a href="{% url 'aiwave-profile-details' %}">
+                                            <i class="fa-sharp fa-solid fa-gears"></i>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                <hr class="mt--10 mb--10">
+                                <ul class="user-list-wrapper">
+                                    {% if not request.user.is_authenticated %}
+                                    <li>
+                                       <a href="{% url 'aiwave-logout' %}">
+                                            <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                    {% else %}
+                                    <li>
+                                        <a href="{% url 'aiwave-signin' %}">
+                                            <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                                            <span>Signin</span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Admin meta Group -->
+
+                    <div class="expand-btn-grp @@display-class">
+                        <button class="bg-solid-primary popup-dashboardright-btn"><i class="fa-sharp fa-regular fa-sidebar-flip"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="popup-mobile-menu">
+    <div class="inner-popup">
+        <div class="header-top">
+            <div class="logo">
+                <a href="/">
+                    <img class="logo-light" src="{% static 'images/logo/logo.jpeg' %}" alt="MarketingTool Logo">
+                </a>
+            </div>
+            <div class="close-menu">
+                <button class="close-button">
+                    <i class="fa-sharp fa-regular fa-x"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            {% include '../mainMenuItem.html' %}
+
+            <div class="rbt-sm-separator"></div>
+            {% include '../navbarLinks.html' %}
+        </div>
+
+        <!-- Start Header Btn  -->
+        {% if not user.is_authenticated %}
+        {% csrf_token %}
+        <div class="header-btn d-block d-md-none">
+            <a class="btn-default @@btnClass" target="_blank" href="{% url 'aiwave-signin' %}">Get Started Free</a>
+        </div>
+        {% else %}
+
+        {% endif %}
+        <!-- End Header Btn  -->
+    </div>
+</div>
