@@ -8,7 +8,7 @@ requests
 PyJWT
 cryptography
 social-auth-app-django
-google-generativeai
+google-genai
 django-user-agents
 twilio
 markdown
