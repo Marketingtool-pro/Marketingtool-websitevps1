@@ -219,7 +219,7 @@ def edit_team_member(request, member_id):
             return JsonResponse({'success': True, 'alert': {'type': 'success', 'message': 'Team member updated successfully.'}})
         except ValidationError as e:
             log_error_to_file(e)
-            error_message = "Maximum of 3 team members can be featured." if "featured" in str(e) else str(e)
+            error_message = "Maximum of 3 team members can be featured." if "featured" in str(e) else "Please check the details and try again."
             return JsonResponse({'success': False, 'alert': {'type': 'warning', 'message': error_message}}, status=400)
         except Exception as e:
             log_error_to_file(e)
@@ -386,7 +386,7 @@ def releaseNotes(request):
             })
     except Exception as e:
         log_error_to_file(e)
-        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+        return JsonResponse({'success': False, 'error': 'An error occurred. Please try again.'}, status=500)
 
 def releaseNoteDelete(request, pk):
     try:
@@ -399,5 +399,5 @@ def releaseNoteDelete(request, pk):
         return redirect('releaseNotes')
     except Exception as e:
         log_error_to_file(e)
-        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+        return JsonResponse({'success': False, 'error': 'An error occurred. Please try again.'}, status=500)
 
