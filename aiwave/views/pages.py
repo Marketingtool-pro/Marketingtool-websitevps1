@@ -31,7 +31,7 @@ import markdown
 
 def pricing(request):
     return render(request, 'pages/pricing.html', {
-        'title': 'Pricing: Starter $29, Pro $59, Growth $99', 'page_description': 'MarketingTool pricing: Starter $29/mo, Pro $59/mo, Growth $99/mo and custom Agency plans, all with a 7-day free trial. AI automation for Google Ads and Meta',
+        'title': 'MarketingTool Pricing: Starter $29, Pro $59, Growth $99/mo', 'page_description': 'MarketingTool pricing: Starter $29/mo, Pro $59/mo, Growth $99/mo and custom Agency plans, all with a 7-day free trial. AI automation for Google Ads and Meta Ads.',
         'subtitle': 'AI Tool'
     })  
 
@@ -453,7 +453,7 @@ def error_page(request):
 # Tool Landing Pages
 def ai_marketing_agents(request):
     return render(request, "pages/tool-ai-marketing-agents.html", {
-        "title": "AI Marketing Agents for Ads Automation", "page_description": "Autonomous AI marketing agents run your Google and Meta ad campaigns 24/7 — budget pacing, creative tests, audience expansion without manual clicks.",
+        "title": "AI Marketing Agents That Run Google & Meta Ads 24/7", "page_description": "Autonomous AI marketing agents run your Google and Meta ad campaigns 24/7 — budget pacing, creative tests, audience expansion without manual clicks.",
         "mainTitle": "AI Marketing Agents",
         "subtitle": "AI Tool"
     })
@@ -578,14 +578,14 @@ def resource_ppc_research(request):
     return render(request, "resources/ppc-research.html", {"title": "PPC Keyword Research Tools for Google & Meta Ads", "page_description": "AI keyword research for Google Ads and Meta — discover low-CPC opportunities, competitor keywords, and negative-keyword gaps.", "mainTitle": "PPC Research", "subtitle": "AI Tool"})
 
 def resource_ppc_audit(request):
-    return render(request, "resources/ppc-audit.html", {"title": "Get Your Free AI PPC Audit for Google & Meta", "page_description": "Free AI-powered PPC audit: connect your Google Ads or Meta account and get a prioritized fix list for wasted spend, keywords and tracking within minutes.", "mainTitle": "Get Your PPC Audit", "subtitle": "AI Tool"})
+    return render(request, "resources/ppc-audit.html", {"title": "Free AI PPC Audit for Google & Meta Ads | MarketingTool", "page_description": "Free AI-powered PPC audit: connect your Google Ads or Meta account and get a prioritized fix list for wasted spend, keywords and tracking within minutes.", "mainTitle": "Get Your PPC Audit", "subtitle": "AI Tool"})
 
 def resource_test_drive(request):
     return render(request, "resources/test-drive.html", {"title": "Test Drive the AI Marketing Dashboard — Live Demo", "page_description": "See the full MarketingTool dashboard with live data — test-drive every feature before you sign up, no credit card required.", "mainTitle": "Test Drive Dashboard", "subtitle": "AI Tool"})
 
 # Marketing Solutions Views
 def solution_email_campaign(request):
-    return render(request, "resources/email-campaign.html", {"title": "AI Email Campaign Generator for Marketers", "page_description": "Generate high-converting marketing emails — subject lines, body copy, and segmented variations — with AI trained on winning sequences.", "mainTitle": "Email Campaign", "subtitle": "AI Tool"})
+    return render(request, "resources/email-campaign.html", {"title": "AI Email Campaign Generator | MarketingTool.Pro", "page_description": "Generate complete email campaigns with AI: subject lines, body copy, segmented variations and follow-up sequences. Free 7-day trial, plans from $29 per month.", "mainTitle": "Email Campaign", "subtitle": "AI Tool"})
 
 def solution_website_gen(request):
     return render(request, "resources/website-gen.html", {"title": "AI Website Generator for Marketing Landing Pages", "page_description": "Spin up conversion-optimized landing pages in minutes — AI writes, designs, and A/B tests against your existing traffic.", "mainTitle": "Website Generator", "subtitle": "AI Tool"})
