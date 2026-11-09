@@ -15,8 +15,8 @@
                         <form class="newsletter-form" action="#">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="email" placeholder="Enter Your Email Here">
-                                <button class="btn-default bg-solid-primary" type="submit"><i class="fa-sharp fa-regular fa-arrow-right"></i></button>
+                                <input type="email" placeholder="Enter Your Email Here" aria-label="Email address for the MarketingTool newsletter">
+                                <button class="btn-default bg-solid-primary" type="submit" aria-label="Subscribe to the newsletter"><i class="fa-sharp fa-regular fa-arrow-right" aria-hidden="true"></i></button>
                             </div>
                         </form>
                     </div>
@@ -103,5 +103,30 @@
     </div>
 </div>
 <!-- End Copy Right Area  -->
+
+<script>
+/* a11y: accessible names for icon-only controls created by main.js (slick arrows)
+   and for the star links in the testimonial cards (a[href="#rating"]). */
+(function () {
+    function labelIconControls() {
+        var arrows = document.querySelectorAll('button.slide-arrow');
+        for (var i = 0; i < arrows.length; i++) {
+            var b = arrows[i];
+            if (!b.getAttribute('aria-label')) {
+                b.setAttribute('aria-label', b.classList.contains('prev-arrow') ? 'Previous slide' : 'Next slide');
+            }
+        }
+        var stars = document.querySelectorAll('a[href="#rating"]');
+        for (var j = 0; j < stars.length; j++) {
+            if (!stars[j].getAttribute('aria-label') && !stars[j].textContent.trim()) {
+                stars[j].setAttribute('aria-label', 'Star rating');
+            }
+        }
+    }
+    if (document.readyState === 'complete') { labelIconControls(); }
+    window.addEventListener('load', labelIconControls);
+    setTimeout(labelIconControls, 2000);
+})();
+</script>
 
 {% include "partials/whatsapp_button.html" %}
