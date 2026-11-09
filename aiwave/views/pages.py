@@ -133,9 +133,17 @@ def blogDetails(request, slug):
         # SEO: inject per-post title and page_description from the post object
         post = context.get('post')
         if post:
-            _t = getattr(post, 'title', '') or ''
+            _t = (getattr(post, 'title', '') or '').strip()
             if len(_t) > 60:
-                _t = _t[:58].rsplit(' ', 1)[0].rstrip(' :,-–—') + '…'
+                # SEO: cut long titles at a word boundary (max 60 chars) and
+                # drop a dangling stop-word, instead of ending the <title> with "…".
+                _t = _t[:61].rsplit(' ', 1)[0].rstrip(' :,.;-–—')
+                _stop = {'the', 'a', 'an', 'of', 'to', 'and', 'for', 'in', 'on',
+                         'with', 'that', 'into', 'by', 'from', 'your', 'vs', 'or'}
+                _words = _t.split(' ')
+                while len(_words) > 3 and _words[-1].lower() in _stop:
+                    _words.pop()
+                _t = ' '.join(_words).rstrip(' :,.;-–—')
             context['title'] = _t
             desc_source = ''
             if getattr(post, 'excerpt', None):
@@ -143,8 +151,22 @@ def blogDetails(request, slug):
             elif getattr(post, 'content', None):
                 import re as _re
                 desc_source = _re.sub(r'<[^>]+>', '', post.content or '').strip()
-            # Meta description target: 140-160 chars
-            context['page_description'] = (desc_source if len(desc_source) <= 158 else desc_source[:157].rsplit(' ', 1)[0].rstrip(' ,.;:-–—') + '…') if desc_source else ''
+            if desc_source:
+                import re as _re2
+                desc_source = _re2.sub(r'\s+', ' ', desc_source).strip()
+            # Meta description target: 120-158 chars. Prefer ending on a full
+            # sentence; otherwise cut at a word boundary without a dangling "…".
+            if desc_source and len(desc_source) > 158:
+                _cut = desc_source[:158]
+                _end = max(_cut.rfind('. '), _cut.rfind('! '), _cut.rfind('? '))
+                _clause = max(_cut.rfind(', '), _cut.rfind('; '), _cut.rfind(' — '))
+                if _end >= 110:
+                    desc_source = _cut[:_end + 1]
+                elif _clause >= 110:
+                    desc_source = _cut[:_clause].rstrip(' ,;-–—') + '.'
+                else:
+                    desc_source = _cut.rsplit(' ', 1)[0].rstrip(' ,.;:-–—') + '.'
+            context['page_description'] = desc_source
     except Http404:
         raise
     except Exception as e:
