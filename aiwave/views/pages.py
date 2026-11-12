@@ -31,7 +31,7 @@ import markdown
 
 def pricing(request):
     return render(request, 'pages/pricing.html', {
-        'title': 'MarketingTool Pricing: Starter $29, Pro $59, Growth $99/mo', 'page_description': 'MarketingTool pricing: Starter $29/mo, Pro $59/mo, Growth $99/mo and custom Agency plans, all with a 7-day free trial. AI automation for Google Ads and Meta Ads.',
+        'title': 'MarketingTool Pricing: Starter $29, Pro $59, Growth $99/mo', 'page_description': 'MarketingTool pricing: Starter $29/mo, Pro $59/mo, Growth $99/mo and custom Agency plans, all with a 7-day free trial. AI automation for Google and Meta Ads.',
         'subtitle': 'AI Tool'
     })  
 
@@ -93,7 +93,7 @@ def profile(request):
             return log_and_redirect_to_error_page(e)
     
     return render(request, 'pages/profileDetails.html', {
-        'title': 'Your MarketingTool Profile & Account Settings', 'page_description': 'Manage your MarketingTool profile, connected ad accounts, notification preferences, and team access from one dashboard',
+        'title': 'Your MarketingTool Profile & Account Settings', 'page_description': 'Manage your MarketingTool profile, connected Google and Meta ad accounts, notification preferences, and team access from one dashboard.',
         'subtitle': 'View Profile',
         'script': 'js/custom/pages/customProfileDetails.js',
         'profile': profile,

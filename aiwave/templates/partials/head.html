@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
     <meta name="google-site-verification" content="EUuWgEB0UTXtaxTeT_FXJVkbcu2dK-g009jjk2z5wgk" />
-    {% if noindex or request.GET %}<meta name="robots" content="noindex, nofollow">{% endif %}
+    {% if noindex %}<meta name="robots" content="noindex, nofollow">{% else %}<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">{% endif %}
     <link rel="canonical" href="https://marketingtool.pro{{ request.path }}">
 
     <title>{% if title|length <= 40 %}{{ title }} | {{ meta_vars.site_name }}{% elif title|length <= 60 %}{{ title }}{% else %}{{ title|truncatechars:60 }}{% endif %}</title>
