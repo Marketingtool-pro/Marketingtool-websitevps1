@@ -19,7 +19,7 @@
     <meta name="description" content="{% if page_description %}{{ page_description }}{% elif auto_page_description %}{{ auto_page_description }}{% else %}{{ meta_vars.site_description }}{% endif %}">
     <meta property="og:title" content="{% if title|length <= 40 %}{{ title }} | {{ meta_vars.site_name }}{% elif title|length <= 60 %}{{ title }}{% else %}{{ title|truncatechars:60 }}{% endif %}">
     <meta property="og:description" content="{% if page_description %}{{ page_description }}{% elif auto_page_description %}{{ auto_page_description }}{% else %}{{ meta_vars.site_description }}{% endif %}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% if og_type %}{{ og_type }}{% else %}website{% endif %}">
     <meta property="og:url" content="https://marketingtool.pro{{ request.path }}">
     <meta property="og:image" content="{% if page_og_image %}{{ page_og_image }}{% else %}https://marketingtool.pro/media/og/marketingtool-og.png{% endif %}">
     <meta property="og:image:width" content="1200">
@@ -139,6 +139,10 @@
       ]
     }
     </script>
+    {% if article_ld_json %}
+    <!-- Structured Data - BlogPosting (blog detail pages) -->
+    <script type="application/ld+json">{{ article_ld_json|safe }}</script>
+    {% endif %}
     {% if faq_items %}
     <!-- Structured Data - FAQPage -->
     <script type="application/ld+json">

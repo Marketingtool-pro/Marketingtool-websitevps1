@@ -167,6 +167,46 @@ def blogDetails(request, slug):
                 else:
                     desc_source = _cut.rsplit(' ', 1)[0].rstrip(' ,.;:-–—') + '.'
             context['page_description'] = desc_source
+            # SEO (2026-11-12): BlogPosting JSON-LD + og:type article + per-post og:image.
+            # Skipped when the post body already carries its own Article/BlogPosting JSON-LD.
+            import json as _json
+            _url = 'https://marketingtool.pro' + request.path
+            _img = ''
+            try:
+                if getattr(post, 'featured_image', None) and post.featured_image.name:
+                    _img = request.build_absolute_uri(post.featured_image.url).replace('http://', 'https://', 1)
+            except Exception:
+                _img = ''
+            if _img:
+                context['page_og_image'] = _img
+            context['og_type'] = 'article'
+            _body = getattr(post, 'content', '') or ''
+            if '"BlogPosting"' not in _body and '"Article"' not in _body:
+                _author = getattr(post, 'author', None)
+                _author_name = ''
+                if _author is not None:
+                    _author_name = (_author.get_full_name() or '').strip()
+                _ld = {
+                    '@context': 'https://schema.org',
+                    '@type': 'BlogPosting',
+                    'mainEntityOfPage': {'@type': 'WebPage', '@id': _url},
+                    'headline': (getattr(post, 'title', '') or '')[:110],
+                    'description': desc_source or '',
+                    'url': _url,
+                    'datePublished': post.created_at.isoformat() if getattr(post, 'created_at', None) else None,
+                    'dateModified': post.updated_at.isoformat() if getattr(post, 'updated_at', None) else None,
+                    'author': ({'@type': 'Person', 'name': _author_name} if _author_name
+                               else {'@type': 'Organization', 'name': 'MarketingTool.Pro', 'url': 'https://marketingtool.pro/'}),
+                    'publisher': {'@type': 'Organization', 'name': 'MarketingTool.Pro', 'url': 'https://marketingtool.pro/',
+                                  'logo': {'@type': 'ImageObject', 'url': 'https://marketingtool.pro/static/images/logo/logo.jpeg'}},
+                    'articleSection': getattr(post, 'category', '') or None,
+                    'keywords': getattr(post, 'tags', '') or None,
+                }
+                if _img:
+                    _ld['image'] = _img
+                _ld = {k: v for k, v in _ld.items() if v}
+                # Escape "</" so post text can never close the <script> tag.
+                context['article_ld_json'] = _json.dumps(_ld, ensure_ascii=False).replace('</', '<\\/')
     except Http404:
         raise
     except Exception as e:
