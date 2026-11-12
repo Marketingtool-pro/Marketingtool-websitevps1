@@ -67,7 +67,7 @@
                                             </li>
                                             <li>
                                                 <i class="feather-tag"></i>
-                                                <a href="{% url 'aiwave-blog' %}?category={{ post.category }}" class="category-link">{{ post.category }}</a>
+                                                <a href="{% url 'aiwave-blog' %}?category={{ post.category|urlencode }}" class="category-link">{{ post.category }}</a>
                                             </li>
                                         </ul>
                                         <h1 class="title">{{ post.title }}</h1>
@@ -95,7 +95,7 @@
                                     <div class="tagcloud border-top-1 pt--30">
                                         <span class="me-2"><strong>Tags:</strong></span>
                                         {% for tag in post.get_tags_as_list %}
-                                        <a href="{% url 'aiwave-blog' %}?search={{ tag }}">{{ tag }}</a>
+                                        <a href="{% url 'aiwave-blog' %}?search={{ tag|urlencode }}">{{ tag }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
                                 </li>
                                 {% for category in categories %}
                                 <li>
-                                    <a href="{% url 'aiwave-blog' %}?category={{ category.category }}" class="category-link {% if selected_category == category.category %}active{% endif %}">
+                                    <a href="{% url 'aiwave-blog' %}?category={{ category.category|urlencode }}" class="category-link {% if selected_category == category.category %}active{% endif %}">
                                         <span class="left-content">{{ category.category }}</span>
                                         <span class="count-text">{{ category.count }}</span>
                                     </a>
@@ -223,7 +223,7 @@
                         <div class="inner">
                             <div class="tagcloud">
                                 {% for tag in post.get_tags_as_list %}
-                                <a href="{% url 'aiwave-blog' %}?search={{ tag }}">{{ tag }}</a>
+                                <a href="{% url 'aiwave-blog' %}?search={{ tag|urlencode }}">{{ tag }}</a>
                                 {% endfor %}
                             </div>
                         </div>

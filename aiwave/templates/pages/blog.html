@@ -43,7 +43,7 @@
                                             <ul class="rainbow-meta-list">
                                                 <li><i class="fa-sharp fa-regular fa-calendar-days icon-left"></i> {{ post.created_at|date:"d M Y" }}</li>
                                                 <li class="separator"></li>
-                                                <li class="catagory-meta"><a href="?category={{ post.category }}">{{ post.category }}</a></li>
+                                                <li class="catagory-meta"><a href="?category={{ post.category|urlencode }}">{{ post.category }}</a></li>
                                             </ul>
                                             <h4 class="title" style="margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
                                                 <a href="{% url 'aiwave-blog-details' post.slug %}">{{ post.title }}</a>
@@ -137,7 +137,7 @@
                             <ul class="category-list">
                                 {% for category in categories %}
                                 <li>
-                                    <a href="?category={{ category.category }}" class="category-link {% if selected_category == category.category %}active{% endif %}">
+                                    <a href="?category={{ category.category|urlencode }}" class="category-link {% if selected_category == category.category %}active{% endif %}">
                                         <span class="left-content">{{ category.category }}</span>
                                         <span class="count-text">{{ category.count }}</span>
                                     </a>
@@ -194,7 +194,7 @@
                             <div class="tagcloud">
                                 {% for tag in all_tags %}
                                 {% if forloop.counter <= 8 %}
-                                <a href="?search={{ tag }}" class="tag-link {% if search_query == tag %}active{% endif %}">{{ tag }}</a>
+                                <a href="?search={{ tag|urlencode }}" class="tag-link {% if search_query == tag %}active{% endif %}">{{ tag }}</a>
                                 {% endif %}
                                 {% endfor %}
                             </div>
