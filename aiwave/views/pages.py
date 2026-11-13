@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 import json
+import re
 from wowdash_app.utils import log_error_to_file, log_and_redirect_to_error_page
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
@@ -50,7 +51,11 @@ def team(request):
     return render(request, 'pages/team.html', {
             'title': 'Our Team — Building AI Marketing Tools', 'page_description': 'Meet the MarketingTool team — engineers, marketers, and ad operators building the AI Marketing Operating System for Google and Meta Ads',
             'subtitle': 'Meet Our Team',
-            'all_members': team_members
+            'all_members': team_members,
+            # SEO: the team list still holds template placeholder profiles
+            # (stock photos, "name1"); keep /team/ out of the index until the
+            # real team is entered in the dashboard.
+            'noindex': True
         })
 
 def terms(request):
@@ -130,6 +135,14 @@ def blogDetails(request, slug):
         # Convert markdown content to HTML if present
         if 'post' in context and hasattr(context['post'], 'content'):
             context['post'].html_content = markdown.markdown(context['post'].content)
+            # SEO: 28 published posts embed images from /media/resources/*.jpg,
+            # a folder that does not exist on the server (56 x 404 images).
+            # Drop those broken image blocks from the rendered output only;
+            # the stored post content is left unchanged.
+            context['post'].html_content = re.sub(
+                r'<div[^>]*>\s*<img[^>]*src="/media/resources/[^"]+\.(?:jpe?g|png|webp)"[^>]*>\s*</div>\s*'
+                r'|<img[^>]*src="/media/resources/[^"]+\.(?:jpe?g|png|webp)"[^>]*>',
+                '', context['post'].html_content)
         # SEO: inject per-post title and page_description from the post object
         post = context.get('post')
         if post:
