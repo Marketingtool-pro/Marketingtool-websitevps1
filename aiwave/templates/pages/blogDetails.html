@@ -235,4 +235,6 @@
     </div>
 </div>
 
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://marketingtool.pro{{ request.path }}"},"headline":"{{ post.title|truncatechars:110|escapejs }}","description":"{{ post.html_content|striptags|truncatewords:35|escapejs }}","image":"https://marketingtool.pro{{ post.featured_image.url }}","datePublished":"{{ post.created_at|date:'c' }}","articleSection":"{{ post.category|escapejs }}","author":{"@type":"Person","name":"{{ post.author.get_full_name|default:post.author.username|escapejs }}"},"publisher":{"@type":"Organization","name":"MarketingTool","url":"https://marketingtool.pro","logo":{"@type":"ImageObject","url":"https://marketingtool.pro/static/images/logo/logo.jpeg"}}}</script>
+
 {% endblock content %}
