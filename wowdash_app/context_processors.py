@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 # SEO meta descriptions by URL path
 SEO_DESCRIPTIONS = {
     '/': 'MarketingTool is an AI Marketing Operating System for Google & Meta Ads. Automate campaigns, optimize performance, and scale profitably with 8 AI models.',
-    '/pricing/': 'MarketingTool pricing plans from $49/mo. 7-day free trial, no credit card required. Starter, Professional, All Tools, and Agency plans available.',
+    '/pricing/': 'MarketingTool pricing: Starter $29/mo, Pro $59/mo, Growth $99/mo and custom Agency plans, all with a 7-day free trial. AI automation for Google and Meta Ads.',
     '/about/': 'MarketingTool is an AI-powered marketing platform for performance marketers who automate Google Ads, Meta Ads, and SEO with 8 models to scale profitably.',
     '/contact/': 'Contact MarketingTool support for AI marketing campaigns, ad automation, integrations, billing questions, and partnership inquiries. Reply within 24 hours.',
     '/blog/': 'MarketingTool blog: expert guides on AI marketing, Google Ads, Meta Ads, SEO, creative automation, conversion optimization, and campaign management in 2026.',
