@@ -45,6 +45,11 @@ def contact(request):
 def team(request):
     try:
         team_members = get_team_data_bal()
+        # 2026-11-16: the stored team list holds template placeholders ("name1",
+        # invented names, stock photos). Show only people the owner has confirmed
+        # by id; records are kept in the DB, nothing deleted.
+        CONFIRMED_TEAM_MEMBER_IDS = []
+        team_members = [m for m in (team_members or []) if m.id in CONFIRMED_TEAM_MEMBER_IDS]
     except Exception as e:
         return log_and_redirect_to_error_page(e)
     
@@ -530,8 +535,8 @@ def seo_tools(request):
 
 def ppc_tools(request):
     return render(request, "pages/tool-ppc.html", {
-        "title": "AI PPC Optimization Tools for Google & Meta", "page_description": "Automated bidding rules, negative keyword discovery, creative rotation, and budget pacing for high-ROAS Google and Meta campaigns.",
-        "mainTitle": "Optimization & PPC Tools",
+        "title": "AI PPC Tools for Google Ads & Meta Ads Optimization", "page_description": "AI PPC tools that automate bids, negative keyword mining, dayparting and budget reallocation across Google Ads and Meta Ads. Start a 7-day free trial.",
+        "mainTitle": "AI PPC Tools",
         "subtitle": "AI Tool"
     })
 
@@ -613,14 +618,14 @@ def resource_ppc_research(request):
     return render(request, "resources/ppc-research.html", {"title": "PPC Keyword Research Tools for Google & Meta Ads", "page_description": "AI keyword research for Google Ads and Meta — discover low-CPC opportunities, competitor keywords, and negative-keyword gaps.", "mainTitle": "PPC Research", "subtitle": "AI Tool"})
 
 def resource_ppc_audit(request):
-    return render(request, "resources/ppc-audit.html", {"title": "Free AI PPC Audit for Google & Meta Ads | MarketingTool", "page_description": "Free AI-powered PPC audit: connect your Google Ads or Meta account and get a prioritized fix list for wasted spend, keywords and tracking within minutes.", "mainTitle": "Get Your PPC Audit", "subtitle": "AI Tool"})
+    return render(request, "resources/ppc-audit.html", {"title": "Free PPC Audit Tool for Google Ads & Meta Ads", "page_description": "Run a free AI PPC audit of your Google Ads or Meta Ads account. Find wasted spend, keyword, bid and tracking issues, ranked by impact, in minutes.", "mainTitle": "Get Your PPC Audit", "subtitle": "AI Tool"})
 
 def resource_test_drive(request):
     return render(request, "resources/test-drive.html", {"title": "Test Drive the AI Marketing Dashboard — Live Demo", "page_description": "See the full MarketingTool dashboard with live data — test-drive every feature before you sign up, no credit card required.", "mainTitle": "Test Drive Dashboard", "subtitle": "AI Tool"})
 
 # Marketing Solutions Views
 def solution_email_campaign(request):
-    return render(request, "resources/email-campaign.html", {"title": "AI Email Campaign Generator | MarketingTool.Pro", "page_description": "Generate complete email campaigns with AI: subject lines, body copy, segmented variations and follow-up sequences. Free 7-day trial, plans from $29 per month.", "mainTitle": "Email Campaign", "subtitle": "AI Tool"})
+    return render(request, "resources/email-campaign.html", {"title": "AI Email Campaign Generator: Write Emails in Minutes", "page_description": "AI email campaign generator that writes subject lines, body copy and segment variations for launches, sales and nurture sequences. Try it free for 7 days.", "mainTitle": "Email Campaign", "subtitle": "AI Tool"})
 
 def solution_website_gen(request):
     return render(request, "resources/website-gen.html", {"title": "AI Website Generator for Marketing Landing Pages", "page_description": "Spin up conversion-optimized landing pages in minutes — AI writes, designs, and A/B tests against your existing traffic.", "mainTitle": "Website Generator", "subtitle": "AI Tool"})
