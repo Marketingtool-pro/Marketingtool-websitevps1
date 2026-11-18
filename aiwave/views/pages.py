@@ -507,7 +507,7 @@ def ecommerce_tools(request):
 
 def analytics_platform(request):
     return render(request, "pages/tool-analytics.html", {
-        "title": "AI Analytics Platform for Marketers", "page_description": "Unified analytics across Google Ads, Meta, GA4, and Shopify. AI attribution shows which campaigns actually drive profitable revenue.",
+        "title": "AI Marketing Analytics Platform for Google & Meta Ads", "page_description": "AI marketing analytics platform for Google Ads, Meta, GA4 and Shopify. AI attribution shows which campaigns actually drive profitable revenue.",
         "mainTitle": "Analytics Platform",
         "subtitle": "AI Tool"
     })
@@ -567,8 +567,8 @@ def guide(request):
 
 def audit_report(request):
     return render(request, "pages/auditReport.html", {
-        "title": "AI Account Audit Report for Google & Meta Ads", "page_description": "Free AI audit of your Google Ads and Meta campaigns — wasted spend, missed opportunities, and 30-day improvement roadmap.",
-        "mainTitle": "AI Marketing Agents",
+        "title": "AI Google Ads Audit Report for Google & Meta Ads", "page_description": "Free AI Google Ads audit for Google Ads and Meta campaigns: wasted spend, missed opportunities and a 30-day improvement roadmap in one report.",
+        "mainTitle": "Audit Report",
         "subtitle": "AI Tool"
     })
 
@@ -588,7 +588,7 @@ def resource_ai_agents(request):
     return render(request, "resources/ai-agents.html", {"title": "AI Marketing Agents Resources — Guides & Use Cases", "page_description": "How to deploy autonomous AI marketing agents for ad operations, creative testing, and reporting — use cases from D2C and SaaS teams.", "mainTitle": "AI Marketing Agents Resources", "subtitle": "AI Tool"})
 
 def resource_analytics(request):
-    return render(request, "resources/analytics.html", {"title": "AI Analytics Resources — Dashboards & Attribution", "page_description": "Templates for unified paid-media dashboards, attribution setups, and KPI reporting across Google Ads, Meta, GA4, and Shopify.", "mainTitle": "Analytics Resources", "subtitle": "AI Tool"})
+    return render(request, "resources/analytics.html", {"title": "AI Marketing Dashboard Templates & Attribution Guides", "page_description": "AI marketing dashboard templates and guides: unified paid-media dashboards, attribution setups and KPI reporting for Google Ads, Meta, GA4 and Shopify.", "mainTitle": "Analytics Resources", "subtitle": "AI Tool"})
 
 def resource_automation(request):
     return render(request, "resources/automation.html", {"title": "AI Marketing Automation Suite for Campaigns", "page_description": "Automate budget pacing, creative rotation, negative-keyword hygiene, and campaign pausing — AI rules that replace manual ad ops.", "mainTitle": "Automation Suite", "subtitle": "AI Tool"})
@@ -637,7 +637,7 @@ def solution_campaign_builder(request):
     return render(request, "resources/campaign-builder.html", {"title": "Multi-Channel Campaign Builder for Google & Meta", "page_description": "Build cross-channel campaigns in one flow — Google Ads, Meta, Shopping, and email launched together from a single brief.", "mainTitle": "Campaign Builder", "subtitle": "AI Tool"})
 
 def solution_summary_gen(request):
-    return render(request, "resources/summary-gen.html", {"title": "AI Marketing Summary Generator for Reports", "page_description": "Turn raw campaign data into client-ready marketing summaries — weekly, monthly, and quarterly reports written by AI in seconds.", "mainTitle": "Summary Generator", "subtitle": "AI Tool"})
+    return render(request, "resources/summary-gen.html", {"title": "AI Executive Summary Generator for Marketing Reports", "page_description": "AI executive summary generator: turn raw campaign data into client-ready marketing summaries for weekly, monthly and quarterly reports in seconds.", "mainTitle": "Summary Generator", "subtitle": "AI Tool"})
 
 def solution_description_gen(request):
     return render(request, "resources/description-gen.html", {"title": "AI Product Description Generator for Shopify & Meta", "page_description": "AI product description generator for Shopify catalogs and Meta product ads — SEO-optimized copy for thousands of SKUs in bulk.", "mainTitle": "Description Generator", "subtitle": "AI Tool"})
